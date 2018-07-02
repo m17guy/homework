@@ -51,12 +51,36 @@ namespace _2._7._18
             foreach(int a in trinumnum)
                 Console.WriteLine(a);
         }
+
+        static void fibo(int hight)
+        {
+            int[] fibory = new int[hight];
+            fibory[0] = 0;
+            fibory[1] = 1;
+            Console.WriteLine("0\n1");
+            for(int i=2;i<hight;i++)
+            {
+                fibory[i] = fibory[i - 2] + fibory[i - 1];
+                Console.WriteLine(fibory[i]);
+            }
+
+            //or
+
+            int small = 0, big = 1;
+            for(int i =0;i<hight;i++)
+            {
+                Console.WriteLine(small);
+                big += small;
+                small = big - small;
+            }
+        }
         static void Main(string[] args)
         {
             int[] gm= { 3, 9, 14, 7 };
-            max(gm);
-            min(gm);
-            trinum(4);
+            //max(gm);
+            //min(gm);
+            //trinum(4);
+            fibo(20);
             Console.ReadLine();
 
         }

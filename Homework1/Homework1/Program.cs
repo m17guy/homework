@@ -10,10 +10,10 @@ namespace Homework1
     {
         static void Main(string[] args)
         {
-            hwS();
+            //hwS();
             LU();
-            RU();
-            egapt();
+            //RU();
+            //egapt();
             Console.ReadLine();
         }
 
@@ -21,6 +21,7 @@ namespace Homework1
         {
             Console.WriteLine("hight?");
             int hight = int.Parse(Console.ReadLine());
+            
             string a = " ";
             for (int b = 1; b <= hight; b++)
             {
@@ -29,6 +30,23 @@ namespace Homework1
                 a += " ";
 
             }
+            
+            //or
+            //tride it in the lesson when cheking the HW
+            
+            char[] side = new char[hight];
+            side[0] = ' ';
+            for(int i=1;i<hight;i++)
+            {
+                side[i] = ' ';
+            }
+            for (int b = 1; b <= hight; b++)
+            {
+                Console.WriteLine('*');
+                for (int c = 0; c < b; c++)
+                    Console.Write(side[c]);
+            }
+            
         }
 
         static void RU()

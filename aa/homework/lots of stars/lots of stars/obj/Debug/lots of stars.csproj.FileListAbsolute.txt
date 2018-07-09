@@ -1,0 +1,6 @@
+C:\Users\HackerU\Desktop\aa\homework\lots of stars\lots of stars\bin\Debug\lots of stars.exe.config
+C:\Users\HackerU\Desktop\aa\homework\lots of stars\lots of stars\bin\Debug\lots of stars.exe
+C:\Users\HackerU\Desktop\aa\homework\lots of stars\lots of stars\bin\Debug\lots of stars.pdb
+C:\Users\HackerU\Desktop\aa\homework\lots of stars\lots of stars\obj\Debug\lots of stars.csproj.CoreCompileInputs.cache
+C:\Users\HackerU\Desktop\aa\homework\lots of stars\lots of stars\obj\Debug\lots of stars.exe
+C:\Users\HackerU\Desktop\aa\homework\lots of stars\lots of stars\obj\Debug\lots of stars.pdb

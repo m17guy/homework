@@ -1,0 +1,7 @@
+C:\Users\HackerU\Desktop\aa\homework\lessons\9.7.18\9.7.18\bin\Debug\9.7.18.exe.config
+C:\Users\HackerU\Desktop\aa\homework\lessons\9.7.18\9.7.18\bin\Debug\9.7.18.exe
+C:\Users\HackerU\Desktop\aa\homework\lessons\9.7.18\9.7.18\bin\Debug\9.7.18.pdb
+C:\Users\HackerU\Desktop\aa\homework\lessons\9.7.18\9.7.18\obj\Debug\9.7.18.csprojResolveAssemblyReference.cache
+C:\Users\HackerU\Desktop\aa\homework\lessons\9.7.18\9.7.18\obj\Debug\9.7.18.csproj.CoreCompileInputs.cache
+C:\Users\HackerU\Desktop\aa\homework\lessons\9.7.18\9.7.18\obj\Debug\9.7.18.exe
+C:\Users\HackerU\Desktop\aa\homework\lessons\9.7.18\9.7.18\obj\Debug\9.7.18.pdb

@@ -33,7 +33,7 @@ namespace HomeWork3
 
             justwo(232524262);
 
-            Console.WriteLine(mid(1,-7,3));
+            Console.WriteLine(mid(1,-7,-3));
 
             Console.WriteLine("hight?");
             int hight = int.Parse(Console.ReadLine());
@@ -159,9 +159,9 @@ namespace HomeWork3
 
         static int mid(int a, int b,int c)
         {
-            if (a < b && b < c)
+            if (a < b && b < c || b < a && b > c)
                 return b;
-            if (a < c && c < b)
+            if (a < c && c < b || a > c && c >b)
                 return c;
             return a;
         }

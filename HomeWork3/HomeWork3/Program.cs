@@ -10,7 +10,7 @@ namespace HomeWork3
     {
         static void Main(string[] args)
         {
-            KR20();
+            KRmod(30);
 
             int[] testarr = { 3, 5, 9, -2 };
             testarr = BigAndSmall(testarr);
@@ -19,6 +19,7 @@ namespace HomeWork3
                 Console.Write(testarr[i]+",");
             }
             Console.WriteLine();
+
             int[] testarr2 = { 3, 5, 9, -2 };
             testarr2 = JustPlus(testarr2);
             for (int i = 0; i < testarr2.Length; i++)
@@ -26,6 +27,13 @@ namespace HomeWork3
                 Console.Write(testarr2[i] + ",");
             }
             Console.WriteLine();
+
+            int[] testarr3 = { 3, 2965, 93, -700 };
+            Console.WriteLine(BigesNum(testarr3));
+
+            justwo(232524262);
+
+            Console.WriteLine(mid(1,-7,3));
 
             Console.WriteLine("hight?");
             int hight = int.Parse(Console.ReadLine());
@@ -58,14 +66,14 @@ namespace HomeWork3
             }
         }
 
-        static void KR20()
+        static void KRmod(int size)
         {
-            for (int colom = 1; colom <= 20; colom++)
+            for (int colom = 1; colom <= size; colom++)
             {
                 Console.Write(colom + " ");
                 if (colom < 10)
                     Console.Write(" ");
-                for (int line = 2; line <= 20; line++)
+                for (int line = 2; line <= size; line++)
                 {
                     int tipe = line * colom;
                     Console.Write(tipe);
@@ -73,7 +81,7 @@ namespace HomeWork3
                         Console.Write(" ");
                     if (tipe < 100)
                         Console.Write(" ");
-                    if (tipe < 400)
+                    if (tipe < 1000)
                         Console.Write(" ");
                 }
                 Console.WriteLine();
@@ -99,22 +107,19 @@ namespace HomeWork3
             return othere;
         }
 
-        static int BigesNum(int a, int b, int c)
+        static int BigesNum(int[] q)
         {
-            string aas, bs, cs;
-            aas = Convert.ToString(a);
-            bs = Convert.ToString(b);
-            cs = Convert.ToString(c);
-            int longest = aas.Length;
-            int win = a;
-            if (longest < bs.Length)
+            string qs;
+            int longest = 0;
+            int win=0;
+            foreach (int i in q)
             {
-                longest = bs.Length;
-                win = b;
-            }
-            if (longest < cs.Length)
-            {
-                win = c;
+                qs= Convert.ToString(i);
+                if (longest<qs.Length)
+                {
+                    longest = qs.Length;
+                    win = i;
+                }
             }
             return win;
         }
@@ -138,6 +143,27 @@ namespace HomeWork3
                 }
             }
             return plus;
+        }
+
+        static void justwo(int q)
+        {
+            string qs = Convert.ToString(q);
+            int count = 0;
+            foreach(char i in qs)
+            {
+                if (i == '2')
+                    count++;
+            }
+            Console.WriteLine(count);
+        }
+
+        static int mid(int a, int b,int c)
+        {
+            if (a < b && b < c)
+                return b;
+            if (a < c && c < b)
+                return c;
+            return a;
         }
     }
 }

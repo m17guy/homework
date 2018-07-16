@@ -98,9 +98,9 @@ namespace lots_of_stars
         {
             Console.WriteLine("input hight");
             int hight = Int32.Parse(Console.ReadLine());
-            Q1(hight);
-            Q15(hight);
-            Q2(hight);
+            //Q1(hight);
+            //Q15(hight);
+            //Q2(hight);
             Q3(hight); 
             //Q4();
 

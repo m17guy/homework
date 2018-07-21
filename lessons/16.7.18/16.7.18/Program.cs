@@ -118,26 +118,24 @@ namespace _16._7._18
             }
             return true;
         }
-
         static int[] sort1(int[] tofix)
-            //to fix (badam tiss)
         {
-            int[] fixd = new int[tofix.Length];
-            for (int fixing = 0; fixing < tofix.Length; fixing++)
+            bool wrong = true;
+            while (wrong)
             {
-                int next = tofix[fixing];
-                for (int i = fixing+1; i < fixd.Length; i++)
+                wrong = false;
+                for (int spot = 1; spot < tofix.Length; spot++)
                 {
-                    if (next >= tofix[i])
+                    if (tofix[spot - 1] > tofix[spot])
                     {
-                        next = tofix[i];
-                        tofix[i] = int.MaxValue;
+                        tofix[spot] = tofix[spot - 1] + tofix[spot];
+                        tofix[spot - 1] = tofix[spot] - tofix[spot - 1];
+                        tofix[spot] = tofix[spot] - tofix[spot - 1];
+                        wrong = true;
                     }
                 }
-                fixd[fixing] = next;
             }
-
-            return fixd;
+            return tofix;
         }
     }
 }

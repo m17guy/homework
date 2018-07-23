@@ -29,6 +29,21 @@ namespace HomeWork4
         }
         static bool mirrornum(int test)
         {
+            //a great exampel from class
+            int right = 10, left = 100000;
+            for(int i=0;i<3;i++)
+            {
+                if(test% right!=(test/left)%10)
+                {
+                    return false;
+                }
+                test /= 10;
+                left /= 100;
+            }
+            return true;
+
+            //or ******************
+
             if (test < 0)
                 test *= -1;
             bool ans=true;
@@ -47,18 +62,14 @@ namespace HomeWork4
         }
         static bool mirrorstring(string test)
         {
-            bool ans = true;
             if (test.Length % 2 != 0)
-                ans = false;
+                return false;
             for (int i = 0; i < test.Length / 2; i++)
             {
                 if (test[i] != test[test.Length - 1 - i])
-                {
-                    ans = false;
-                    break;
-                }
+                    return false;
             }
-            return ans;
+            return true;
         }
         static int[] sort1(int[] tofix)
         {

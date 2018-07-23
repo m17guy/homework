@@ -10,11 +10,8 @@ namespace sort_tests
     {
         static void Main(string[] args)
         {
-            int[] arr = { 5, 4, 3, 3, 1, 9, 6 };
-            if (arr.Min() > 0)
-                arr = sort32(arr);
-            else
-                arr = sort12(arr);
+            int[] arr = { 5, -1, 4, -3, 3, 1, 9, 6, -4, 0};
+            arr = sort33(arr);
             foreach(int i in arr)
                 Console.WriteLine(i);
             Console.ReadKey();
@@ -80,45 +77,78 @@ namespace sort_tests
         }
         static int[] sort32(int[] get)
         {
-            int count = 0;
-            int[] witho = new int[get.Max()+count], give = new int[get.Length];
-            //int[] withoneg = new int[get.Min() * -1];
+            int[] withoneg = new int[get.Min() * -1];
+            int[] witho = new int[get.Max()], give = new int[get.Length];
             foreach (int i in get)
             {
-                int lok = i - 1;
-                if (witho[lok] != 0)
-                    count++;
-                else
-                    witho[lok] = i;
-            }
-            if (count > 0)
-            {
-                int[] newwitho = new int[witho.Length + count];
-                count = 0;
-                foreach (int i in get)
+                if (i > 0)
                 {
                     int lok = i - 1;
-                    if (newwitho[lok] != 0)
-                    {
-                        count++;
-                        newwitho[lok + count] = i;
-                    }
-                    else
-                        newwitho[lok] = i;
+                    witho[lok] = i;
                 }
-                count = 0;
-                foreach (int i in newwitho)
+                if(i<0)
                 {
-                    if (i != 0) //the if to to get it the right size
-                    {
-                        give[count] = i;
-                        count++;
-                    }
+                    int lok = (i * -1) - 1;
+                    withoneg[withoneg.Length - 1 - lok] = i * -1;
                 }
             }
-            else
+            int count = 0;
+            foreach (int i in withoneg)
             {
-                count = 0;
+                if (i != 0)
+                {
+                    give[count] = i * -1;
+                    count++;
+                }
+            }
+            foreach (int i in witho)
+            {
+                if (i != 0)
+                {
+                    give[count] = i;
+                    count++;
+                }
+            }
+            return give;
+        }
+        static int[] sort33(int[] get)
+            //trying a list
+        {
+            bool zero = false;
+            int[] withoneg = new int[get.Min() * -1];
+            int[] witho = new int[get.Max()];
+            foreach (int i in get)
+            {
+                if (i > 0)
+                {
+                    int lok = i - 1;
+                    witho[lok] = i;
+                }
+                if (i < 0)
+                {
+                    int lok = (i * -1) - 1;
+                    withoneg[withoneg.Length - 1 - lok] = i * -1;
+                }
+                if (i == 0)
+                    zero = true;
+            }
+            int count = 0;
+            if (zero)
+            {
+                int[] give = new int[get.Length+1];
+                foreach (int i in withoneg)
+                {
+                    if (i != 0)
+                    {
+                        give[count] = i * -1;
+                        count++;
+                    }
+                }
+                if (zero)
+                {
+                    give[count] = 0;
+                    count++;
+                }
                 foreach (int i in witho)
                 {
                     if (i != 0)
@@ -127,8 +157,34 @@ namespace sort_tests
                         count++;
                     }
                 }
+                return give;
             }
-            return give;
+            else
+            {
+                int[] give = new int[get.Length];
+                foreach (int i in withoneg)
+                {
+                    if (i != 0)
+                    {
+                        give[count] = i * -1;
+                        count++;
+                    }
+                }
+                if (zero)
+                {
+                    give[count] = 0;
+                    count++;
+                }
+                foreach (int i in witho)
+                {
+                    if (i != 0)
+                    {
+                        give[count] = i;
+                        count++;
+                    }
+                }
+                return give;
+            }
         }
     }
 }

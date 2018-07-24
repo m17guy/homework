@@ -10,7 +10,7 @@ namespace sort_tests
     {
         static void Main(string[] args)
         {
-            int[] arr = { 5, -1, 4, -3, 3, 1, 9, 6, -4, 0};
+            int[] arr = { 5, -1, 4, -3, 3, 1, 9, 6, -4};
             arr = sort33(arr);
             foreach(int i in arr)
                 Console.WriteLine(i);
@@ -76,6 +76,7 @@ namespace sort_tests
             return give;
         }
         static int[] sort32(int[] get)
+            //with negitiv
         {
             int[] withoneg = new int[get.Min() * -1];
             int[] witho = new int[get.Max()], give = new int[get.Length];
@@ -112,7 +113,7 @@ namespace sort_tests
             return give;
         }
         static int[] sort33(int[] get)
-            //trying a list
+            //with zero
         {
             bool zero = false;
             int[] withoneg = new int[get.Min() * -1];
@@ -135,7 +136,7 @@ namespace sort_tests
             int count = 0;
             if (zero)
             {
-                int[] give = new int[get.Length+1];
+                int[] give = new int[get.Length];
                 foreach (int i in withoneg)
                 {
                     if (i != 0)
@@ -144,11 +145,7 @@ namespace sort_tests
                         count++;
                     }
                 }
-                if (zero)
-                {
-                    give[count] = 0;
-                    count++;
-                }
+                count++;
                 foreach (int i in witho)
                 {
                     if (i != 0)
@@ -169,11 +166,6 @@ namespace sort_tests
                         give[count] = i * -1;
                         count++;
                     }
-                }
-                if (zero)
-                {
-                    give[count] = 0;
-                    count++;
                 }
                 foreach (int i in witho)
                 {

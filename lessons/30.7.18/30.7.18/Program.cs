@@ -10,7 +10,7 @@ namespace _30._7._18
     {
         static void Main(string[] args)
         {
-            //minigameWithcounter();
+            minigameWithcounter();
             Console.ReadKey();
         }
         static int count(int[] nums)
@@ -73,6 +73,8 @@ namespace _30._7._18
                             break;
                         }
                     case (1):
+                    Console.WriteLine("you kill it");
+                    break;
                     case (2):
                     case (3):
                     case (4):
@@ -80,7 +82,8 @@ namespace _30._7._18
                     case (7):
                     case (8):
                     {
-                        Console.WriteLine("you kill it");
+                        Console.WriteLine("it hits you");
+                        Console.WriteLine("but you kill it");
                         break;
 
                     }

@@ -45,55 +45,19 @@ namespace HomeWork5
         }
         static void userswitch(string username, string password)
         {
-            switch (username)
+            switch (username+password)
             {
-                case "m5guy":
-                    switch(password)
-                    {
-                        case "password12345":
-                            {
-                                Console.WriteLine("hello m5guy");
-                                break;
-                            }
-                        default:
-                            {
-                                Console.WriteLine("incorect password");
-                                break;
-                            }
-                    }
+                case "m5guypassword12345":
+                    Console.WriteLine("hello m5guy");
                     break;
-                case "noy":
-                    switch (password)
-                    {
-                        case "I<3guy":
-                            {
-                                Console.WriteLine("hello noy");
-                                break;
-                            }
-                        default:
-                            {
-                                Console.WriteLine("incorect password");
-                                break;
-                            }
-                    }
+                case "noyI<3guy":
+                    Console.WriteLine("hello noy");
                     break;
-                case "ruven the cook hunter":
-                    switch (password)
-                    {
-                        case "696969":
-                            {
-                                Console.WriteLine("hello ruven the cook hunter");
-                                break;
-                            }
-                        default:
-                            {
-                                Console.WriteLine("incorect password");
-                                break;
-                            }
-                    }
+                case "ruven the cook hunter696969":
+                    Console.WriteLine("hello ruven the cook hunter");
                     break;
                 default:
-                    Console.WriteLine("could not find username in database");
+                    Console.WriteLine("error");
                     break;
             }
         }
@@ -119,6 +83,9 @@ namespace HomeWork5
         //part 2
         static long[][] longer(long[] one, long[] two)
         {
+            //better:
+            //return new long[][] { one, two };
+
             long[][] a = new long[][] { one, two };
             return a;
         }

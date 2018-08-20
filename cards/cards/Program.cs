@@ -10,76 +10,39 @@ namespace cards
     {
         static void Main(string[] args)
         {
-
-            int club = 1,spade=1, diamond=1, heart=1;
-            Card[] deck =
-                {
-                new Card("club", club++),
-                new Card("club", club++),
-                new Card("club", club++),
-                new Card("club", club++),
-                new Card("club", club++),
-                new Card("club", club++),
-                new Card("club", club++),
-                new Card("club", club++),
-                new Card("club", club++),
-                new Card("club", club++),
-                new Card("club", club++),
-                new Card("club", club++),
-                new Card("club", club++),
-                new Card("spade",spade ++),
-                new Card("spade", spade++),
-                new Card("spade", spade++),
-                new Card("spade", spade++),
-                new Card("spade", spade++),
-                new Card("spade", spade++),
-                new Card("spade", spade++),
-                new Card("spade", spade++),
-                new Card("spade", spade++),
-                new Card("spade", spade++),
-                new Card("spade", spade++),
-                new Card("spade", spade++),
-                new Card("spade", spade++),
-            new Card("diamond", diamond++),
-            new Card("diamond", diamond++),
-            new Card("diamond", diamond++),
-            new Card("diamond", diamond++),
-            new Card("diamond", diamond++),
-            new Card("diamond", diamond++),
-            new Card("diamond", diamond++),
-            new Card("diamond", diamond++),
-            new Card("diamond", diamond++),
-            new Card("diamond", diamond++),
-            new Card("diamond", diamond++),
-            new Card("diamond", diamond++),
-            new Card("diamond", diamond++),
-            new Card("heart", heart++),
-            new Card("heart", heart++),
-            new Card("heart", heart++),
-            new Card("heart", heart++),
-            new Card("heart", heart++),
-            new Card("heart", heart++),
-            new Card("heart", heart++),
-            new Card("heart", heart++),
-            new Card("heart", heart++),
-            new Card("heart", heart++),
-            new Card("heart", heart++),
-            new Card("heart", heart++),
-            new Card("heart", heart++)
-            };
-            Console.WriteLine(deck.Length + " pick up");
-            foreach(Card i in deck)
+            Card[] ADeck = NewDeck();
+            //Console.WriteLine(ADeck.Length + " pick up");
+            foreach(Card i in ADeck)
             {
                 Console.WriteLine(i.name);
             }
             Console.ReadKey();
         }
-        static Card[] shafel(Card[] a)
+        static Card[] Shafel(Card[] a)
         {
+            string tepm;
             int[] used = new int[52];
-            Random ran = new Random();
+            Random rnd = new Random();
+            for(int i=0;i<300;i++)
+            {
+
+            }
 
             return a;
+        }
+        static Card[] NewDeck()
+        {
+            int club = 1, spade = 1, diamond = 1, heart = 1;
+            Card[] deck = new Card[52];
+            for (int i = 0; i < 52; i++)
+            {
+                if (i < 13) deck[i] = new Card("club", club++);
+                else if (i < 26) deck[i] = new Card("spade", spade++);
+                else if (i < 39) deck[i] = new Card("diamond", diamond++);
+                else deck[i] = new Card("heart", heart++);
+            }
+
+            return deck;
         }
     }
 }

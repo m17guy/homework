@@ -11,6 +11,8 @@ namespace cards
         static void Main(string[] args)
         {
             Card[] ADeck = NewDeck();
+            Card[] BDeck = NewDeck();
+            ADeck = ShafelTamar(ADeck);
             //Console.WriteLine(ADeck.Length + " pick up");
             foreach(Card i in ADeck)
             {
@@ -18,16 +20,30 @@ namespace cards
             }
             Console.ReadKey();
         }
-        static Card[] Shafel(Card[] a)
+        static Card[] Shafel1(Card[] a)
         {
-            string tepm;
-            int[] used = new int[52];
+            string temp;
             Random rnd = new Random();
-            for(int i=0;i<300;i++)
+            int r, r2;
+            for (int i=0;i<100;i++)
             {
-
+                r = rnd.Next(0, 52);
+                r2 = rnd.Next(0, 52);
+                temp = a[r].name;
+                a[r].name = a[r2].name;
+                a[r2].name = temp;
             }
 
+            return a;
+        }
+        static Card[] ShafelTamar(Card[] a)
+        {
+            Random num = new Random();
+            for(int z = 0;z<a.Length;z++)
+            {
+                a[z].randomnumber = num.Next(1, 1000);
+            }
+            Array.Sort(a, delegate (Card a1, Card b2) { return a1.randomnumber.CompareTo(b2.randomnumber); });
             return a;
         }
         static Card[] NewDeck()

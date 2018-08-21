@@ -8,6 +8,7 @@ namespace cards
 {
     class Card
     {
+        public int randomnumber;
         public string suit;
         public string face;
         public string name;

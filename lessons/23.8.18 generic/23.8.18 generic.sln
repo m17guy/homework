@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2006
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "23.8.18 generic", "23.8.18 generic\23.8.18 generic.csproj", "{98269A49-5ECB-4578-902B-8532680C20D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mylist", "mylist\mylist.csproj", "{B4400115-9A48-4C37-A9A3-386398A34486}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98269A49-5ECB-4578-902B-8532680C20D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98269A49-5ECB-4578-902B-8532680C20D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98269A49-5ECB-4578-902B-8532680C20D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98269A49-5ECB-4578-902B-8532680C20D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4400115-9A48-4C37-A9A3-386398A34486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4400115-9A48-4C37-A9A3-386398A34486}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4400115-9A48-4C37-A9A3-386398A34486}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4400115-9A48-4C37-A9A3-386398A34486}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3B935E6-8824-48DA-BDB6-8F946C68EB8C}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2006
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hazara", "hazara\hazara.csproj", "{D459E3B5-8FE8-47EE-B99E-AACE02166C00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "27.8.18-collections", "27.8.18-collections\27.8.18-collections.csproj", "{397A27EB-2D6C-439B-A895-B399B19D3AA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "work", "work\work.csproj", "{498656FE-4230-4DDF-BB28-3B2DB177451D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D459E3B5-8FE8-47EE-B99E-AACE02166C00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D459E3B5-8FE8-47EE-B99E-AACE02166C00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D459E3B5-8FE8-47EE-B99E-AACE02166C00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D459E3B5-8FE8-47EE-B99E-AACE02166C00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{397A27EB-2D6C-439B-A895-B399B19D3AA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{397A27EB-2D6C-439B-A895-B399B19D3AA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{397A27EB-2D6C-439B-A895-B399B19D3AA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{397A27EB-2D6C-439B-A895-B399B19D3AA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{498656FE-4230-4DDF-BB28-3B2DB177451D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{498656FE-4230-4DDF-BB28-3B2DB177451D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{498656FE-4230-4DDF-BB28-3B2DB177451D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{498656FE-4230-4DDF-BB28-3B2DB177451D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3B5024D-547D-4B5F-840B-30E8CBA85317}
+	EndGlobalSection
+EndGlobal

@@ -53,8 +53,8 @@ namespace work
         {
             Dictionary<string, string> users = new Dictionary<string, string>();
             users["Bubu"] = "123";
-            users["Bubu"] = "123";
-            users["Bubu"] = "123";
+            users["the"] = "159";
+            users["king"] = "k989";
 
             //if(users.ContainsKey(username))
             //{

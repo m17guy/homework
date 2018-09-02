@@ -70,11 +70,29 @@ namespace _30._8._18
             Console.WriteLine(SameIndex("kTt","LTYi"));
 
 
+
+
+
+
+            //******************* homework
+            Console.WriteLine("name:");
+            String aname = Console.ReadLine();
+            Console.WriteLine("number:");
+            int anum =Int32.Parse(Console.ReadLine());
+            StringBuilder thestring = new StringBuilder();
+            for(int i=0;i<anum;i++)
+            {
+                thestring.Append(aname);
+            }
+            Console.WriteLine(thestring);
+
+
+
             Console.ReadKey();
         }
         static bool Checkpassword(string password)
         {
-            return (password.Length > 7 && password.Contains(' '))
+            return (password.Length > 7 && password.Contains(' '));
         }
         static bool SameIndex(string left,string right)
         {
@@ -98,6 +116,7 @@ namespace _30._8._18
             foreach(string a in names)
                 Console.WriteLine(a);
         }
+        
     }
     class guy //****************************************
     {

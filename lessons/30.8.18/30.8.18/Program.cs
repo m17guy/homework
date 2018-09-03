@@ -96,7 +96,7 @@ namespace _30._8._18
         }
         static bool SameIndex(string left,string right)
         {
-            return (right.Contains('T') && left.Contains('T') && right.IndexOf('T') == left.IndexOf('T'));
+            return (right.Contains('T')/* && left.Contains('T')*/ && right.IndexOf('T') == left.IndexOf('T'));
         }
         static void startswithAr()
         {
@@ -119,7 +119,7 @@ namespace _30._8._18
         
     }
     class guy //****************************************
-    {
+    {//a class can reatern a string
         string name = "Guy";
         int age = 22;
         public override string ToString()

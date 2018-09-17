@@ -6,7 +6,7 @@ namespace singelton_deck
 {
     class deck
     {
-        private deck thedeck = new deck();
+        private static deck thedeck = new deck();
         private deck()
         { }
         private List<string> cards = new List<string>();
@@ -14,7 +14,7 @@ namespace singelton_deck
         {
             get => cards;
         }
-        public deck Deck
+        public static deck Deck1
         {
             get => thedeck;
         }

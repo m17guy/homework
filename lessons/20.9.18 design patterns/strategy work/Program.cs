@@ -8,6 +8,8 @@ namespace strategy_work
         {
             Fan guy = new Fan();
             guy.Quate();
+            guy.setPhrase(new ygritteph());
+            guy.Quate();
             Console.ReadKey();
         }
     }

@@ -12,6 +12,7 @@ namespace test_ui
 {
     public partial class back : Form
     {
+        bool heavy = false;
         public back()
         {
             InitializeComponent();
@@ -28,12 +29,12 @@ namespace test_ui
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int temp = rnum(false);
+            int temp = rnum(heavy);
             while (attack.Location.X < 532)
             {
                 attack.Location = new Point(attack.Location.X + 8, attack.Location.Y);
             }
-            label1.Text = temp.ToString();
+            label1.Text = "damage: " + temp;
             attack.Visible = false;
             if (helthvillin.Value - temp < 0)
             {
@@ -60,12 +61,12 @@ namespace test_ui
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            int temp = rnum(true);
+            int temp = rnum(heavy=true);
             while (attack2.Location.X < 532)
             {
                 attack2.Location = new Point(attack2.Location.X + 5, attack2.Location.Y);
             }
-            label1.Text = temp.ToString();
+            label1.Text = "damage: " + temp;
             attack2.Visible = false;
             if (helthvillin.Value - temp < 0)
             {
@@ -88,7 +89,7 @@ namespace test_ui
             {
                 return num.Next(20, 35);
             }
-            return num.Next(5, 15);
+            return num.Next(8, 20);
         }
 
         private void timer3_Tick(object sender, EventArgs e)
@@ -100,18 +101,36 @@ namespace test_ui
 
         private void timer4_Tick(object sender, EventArgs e)
         {
+            label2.Visible = true;
             int temp = rnum(false);
             while (villinattack.Location.X > 102)
             {
                 villinattack.Location = new Point(villinattack.Location.X - 6, villinattack.Location.Y);
             }
-            label2.Text = temp.ToString();
+            label2.Text = "damage: " + temp;
             villinattack.Visible = false;
-            helthhero.Value -= temp;
-            villinattack.Location = new Point(villinattack.Location.X + 374, villinattack.Location.Y);
-            timer4.Enabled = false;
-            lt.Enabled = true;
-            ht.Enabled = true;
+            if (helthhero.Value - temp < 0)
+            {
+                pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y + 250);
+                helthhero.Value = 0;
+                timer4.Enabled = false;
+            }
+            else
+            {
+                helthhero.Value -= temp;
+                villinattack.Location = new Point(villinattack.Location.X + 374, villinattack.Location.Y);
+                timer4.Enabled = false;
+                if (heavy)
+                {
+                    heavy = false;
+                    timer3.Enabled = true;
+                }
+                else
+                {
+                    lt.Enabled = true;
+                    ht.Enabled = true;
+                }
+            }
         }
     }
 }

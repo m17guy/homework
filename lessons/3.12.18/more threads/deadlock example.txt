@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace ConsoleApp11
+{
+	class Program
+	{
+		static object waitForA=new object(), waitForB = new object();
+		static void threadFunc()
+		{
+			lock(waitForA)
+			{
+				Thread.Sleep(2000);
+				Console.WriteLine("second thread trying to get a lock on B");
+				lock(waitForB)
+				{
+					
+				}
+			}
+		}
+		static void Main(string[] args)
+		{
+			new Thread(threadFunc).Start();
+			Thread.Sleep(500);
+			lock(waitForB)
+			{
+				Console.WriteLine("trying to get a lock of A");
+				lock(waitForA)
+				{
+
+				}
+			}
+		}
+	}
+}

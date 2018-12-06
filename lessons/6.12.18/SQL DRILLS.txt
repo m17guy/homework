@@ -1,0 +1,10 @@
+כיתבו את השאילתות הבאות:
+
+1. הציגו את כל הפרטים של העובדים ששמם הפרטי nancy, janet, או laura.
+SELECT * FROM EMPLOYEES WHERE FIRSTNAME IN ('Nancy', 'Janet', 'Laura');
+2. הציגו את השם הפרטי ושם המשפחה של כל העובדים שמספר העובד שלהם גדול מ-5.
+SELECT FIRSTNAME, LASTNAME FROM EMPLOYEES WHERE EMPLOYEEID>5;
+3. הציגו את כל פרטי ההזמנות שמספר הלקוח שלהן קטן מ-9 וגדול מ-3.
+SELECT * FROM ORDERS WHERE EMPLOYEEID>3 AND EMPLOYEEID<9;
+4. הציגו את כל פרטי ההזמנות שמספר הלקוח שלהן 3 ומספר המשלח שלהן 2.
+SELECT * FROM ORDERS WHERE EMPLOYEEID=3 AND SHIPPERID=2;

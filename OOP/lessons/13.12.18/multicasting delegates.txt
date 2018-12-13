@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp3
+{
+    delegate void Func();
+    delegate int MyFunc(int a, int b);
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            MyFunc f = add;
+            f += sub;
+            int z = f(1, 2);
+            Console.WriteLine(z);
+            /*
+            Func f;
+            f = sayMiaue;
+            f += sayHi;
+            f += hiporusky;
+            f -= sayMiaue;
+            f();
+            */
+
+
+        }
+        static int add(int a, int b)
+        {
+            Console.WriteLine("add");
+            return a + b;
+        }
+        static int sub(int a, int b)
+        {
+            Console.WriteLine("sub");
+            return a - b;
+        }
+        static void sayMiaue()
+        {
+            Console.WriteLine("Miaue!!!");
+        }
+        static void sayHi()
+        {
+            Console.WriteLine("ni hao ma");
+        }
+        static void hiporusky()
+        {
+            Console.WriteLine("privet");
+        }
+    }
+}

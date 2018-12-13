@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp4
+{
+    delegate void Dead(Criminal criminal);
+
+
+    class Criminal
+    {
+        Dead reportDeath;
+        public string Name { get; set; }
+       public  void addDeathListener(Dead deathHandler)
+        {
+            reportDeath += deathHandler;
+        }
+        public void killCriminal()
+        {
+            reportDeath(this);
+        }
+
+    }
+    class Nischat
+    {
+        public void theCriminalIsDead(Criminal criminal)
+        {
+            Console.WriteLine(criminal.Name + " is dead!!!");
+            Console.WriteLine("yishtabach shemo");
+
+        }
+    }
+    class PoliceMan
+    {
+        public void theCriminalIsDead(Criminal c)
+        {
+            Console.WriteLine(c.Name+" is dead? lets eat another Donut");
+
+        }
+    }
+
+    class HevreKadisha
+    {
+        public void theCriminalIsDead(Criminal c)
+        {
+            Console.WriteLine(c.Name+ " Mitztarim rak bekomot....");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Criminal c = new Criminal { Name = "almoni katlani" };
+            Nischat n1 = new Nischat();
+            Nischat n2 = new Nischat();
+            PoliceMan p = new PoliceMan();
+            HevreKadisha h = new HevreKadisha();
+            c.addDeathListener(n1.theCriminalIsDead);
+            c.addDeathListener(n2.theCriminalIsDead);
+            c.addDeathListener(p.theCriminalIsDead);
+            c.addDeathListener(h.theCriminalIsDead);
+            c.killCriminal();
+
+        }
+    }
+}

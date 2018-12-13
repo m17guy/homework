@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp6
+{
+    delegate int MyFunc2();
+    delegate int MyFunc(int x);
+    class Program
+    {
+        static void wow(MyFunc2 f)
+        {
+            Console.WriteLine(f());
+        }
+     /*   static int baribooa(int n)
+        {
+            return n * n;
+        } */
+        static void Main(string[] args)
+        {
+            wow(delegate () { return 20; });
+            
+            MyFunc f = delegate (int x) { return x * x; };
+            Console.WriteLine(f(10));
+        }
+    }
+}

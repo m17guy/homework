@@ -17,9 +17,10 @@ namespace video_store_class
             {
                 Console.Clear();
                 Console.WriteLine("1. add customer");
-                Console.WriteLine("2. buy movie");
+                Console.WriteLine("2. add movie");
                 Console.WriteLine("3. find movies");
                 Console.WriteLine("4. rent a movie");
+                Console.WriteLine("5. return a movie");
 
                 Console.WriteLine("Q. to leave");
                 answer = Console.ReadLine().ToLower();
@@ -37,14 +38,17 @@ namespace video_store_class
                     case ("4"):
                         webflix.rentmovie();
                         break;
+                    case ("5"):
+                        webflix.returnmovie();
+                        break;
                     case ("q"):
                         break;
                     default:
                         Console.WriteLine("i dont understand");
                         break;
-
+                        
                 }
-
+                Console.ReadKey();
             }
         }
     }
@@ -100,7 +104,6 @@ namespace video_store_class
             finally
             {
                 myconnect.Close();
-                Console.ReadKey();
             }
         }
         public void findmovie()
@@ -152,11 +155,59 @@ namespace video_store_class
                 myconnect.Close();
             }
         }
-        public void rentmovie() //need a lot of work
+        public void updatecustomerandmovie(bool take, int cusid, int movieid)
+        {
+            SqlCommand rentmovie;
+            if (take)
+            {
+                rentmovie = new SqlCommand("update customer set movietaken=(movietaken+1) where customerId=" + cusid, myconnect);
+            }
+            else
+            {
+                rentmovie = new SqlCommand("update customer set movietaken=(movietaken-1) where customerId=" + cusid, myconnect);
+            }
+            try
+            {
+                myconnect.Open();
+                rentmovie.ExecuteNonQuery();
+                Console.WriteLine("customer updated");
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myconnect.Close();
+            }
+            if (take)
+            {
+                rentmovie = new SqlCommand("update movies set taken=(taken+1) where moviesId=" + movieid, myconnect);
+            }
+            else
+            {
+                rentmovie = new SqlCommand("update movies set taken=(taken-1) where moviesId=" + movieid, myconnect);
+            }
+            try
+            {
+                myconnect.Open();
+                rentmovie.ExecuteNonQuery();
+                Console.WriteLine("movie updated");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myconnect.Close();
+            }
+        }
+        public void rentmovie()
         {
             Console.WriteLine("customer name:");
             string cusname = Console.ReadLine();
-            SqlCommand takemovie = new SqlCommand($"select customerId, name from customer where name='{cusname}'", myconnect);
+            SqlCommand takemovie = new SqlCommand($"select customerId, name from customer where name like '%{cusname}%'", myconnect);
             try
             {
                 myconnect.Open();
@@ -164,6 +215,7 @@ namespace video_store_class
                 if (!reader.Read())
                 {
                     Console.WriteLine("no customers with that name were found");
+                    return;
                 }
                 else
                 {
@@ -183,22 +235,18 @@ namespace video_store_class
                 myconnect.Close();
             }
             Console.WriteLine("custemer Id:");
-            Console.WriteLine("(or Q to go back)");
             cusname = Console.ReadLine();
-            if (cusname.ToLower() == "q")
-            {
-                return;
-            }
             Console.WriteLine("name of the movie you want to take:");
             string moviename = Console.ReadLine();
-            takemovie=new SqlCommand($"select moviesId, name from movies where name='{moviename}'", myconnect);
+            takemovie=new SqlCommand($"select moviesId, name from movies where name like '%{moviename}%' and amount>taken", myconnect);
             try
             {
                 myconnect.Open();
                 SqlDataReader reader = takemovie.ExecuteReader();
                 if (!reader.Read())
                 {
-                    Console.WriteLine("no movies with that name were found");
+                    Console.WriteLine("no movies with that name are avilabul");
+                    return;
                 }
                 else
                 {
@@ -218,7 +266,6 @@ namespace video_store_class
                 myconnect.Close();
             }
             Console.WriteLine("movie Id:");
-            Console.WriteLine("(or Q to go back)");
             moviename = Console.ReadLine();
             //Console.WriteLine("take date"); 
             string takedate = "10.9.18";
@@ -230,6 +277,9 @@ namespace video_store_class
                 myconnect.Open();
                 takemovie.ExecuteNonQuery();
                 Console.WriteLine("movie rented");
+                myconnect.Close();
+                updatecustomerandmovie(true, int.Parse(cusname), int.Parse(moviename));
+
             }
             catch(Exception e)
             {
@@ -239,7 +289,86 @@ namespace video_store_class
             {
                 myconnect.Close();
             }
-            Console.ReadKey();
+        }
+        public void returnmovie()
+        {
+            Console.WriteLine("customer name:");
+            string cusname = Console.ReadLine();
+            SqlCommand returnmovie = new SqlCommand($"select customerId, name from customer where name like '%{cusname}%'", myconnect);
+            try
+            {
+                myconnect.Open();
+                SqlDataReader reader = returnmovie.ExecuteReader();
+                if (!reader.Read())
+                {
+                    Console.WriteLine("no customers with that name were found");
+                    return;
+                }
+                else
+                {
+                    do
+                    {
+                        Console.WriteLine($"Id: {reader[0]}, name: {reader[1]}");
+                    } while (reader.Read());
+                    reader.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myconnect.Close();
+            }
+            Console.WriteLine("custemer Id:");
+            cusname = Console.ReadLine();
+            returnmovie = new SqlCommand($"select renting.rentId, movies.name from renting inner join movies on renting.moviesId=movies.moviesId where renting.customerId={cusname} and returned=0", myconnect);
+            try
+            {
+                myconnect.Open();
+                SqlDataReader reader = returnmovie.ExecuteReader();
+                if (!reader.Read())
+                {
+                    Console.WriteLine("no movies need to be returned");
+                    return;
+                }
+                else
+                {
+                    do
+                    {
+                        Console.WriteLine($"Id: {reader[0]}, name: {reader[1]}");
+                    } while (reader.Read());
+                    reader.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myconnect.Close();
+            }
+            Console.WriteLine("movie Id:");
+            string moviename = Console.ReadLine();
+            returnmovie = new SqlCommand($"update renting set returned=1 where rentId = {moviename}", myconnect);
+            try
+            {
+                myconnect.Open();
+                returnmovie.ExecuteNonQuery();
+                Console.WriteLine("movie returned");
+                myconnect.Close();
+                updatecustomerandmovie(false, int.Parse(cusname), int.Parse(moviename));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                myconnect.Close();
+            }
         }
     }
 }

@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace ConsoleApp9
+{
+	class Program
+	{
+		static AutoResetEvent finishedPrintingHi5Times = new AutoResetEvent(false);
+
+		static void threadFunc()
+		{
+			for(int i=0;i<5;i++)
+			{
+				Console.WriteLine("Hi");
+				Thread.Sleep(1000);
+			}
+			finishedPrintingHi5Times.Set();
+			for(int i=0;i<5;i++)
+			{
+				Console.WriteLine("Bye");
+				Thread.Sleep(1000);
+			}
+
+		}
+		static void Main(string[] args)
+		{
+			new Thread(threadFunc).Start();
+			finishedPrintingHi5Times.WaitOne();
+			Console.WriteLine("OK!");
+
+		
+		}
+	}
+}

@@ -1,0 +1,57 @@
+כיתבו תוכנית שמשתמשת בשני threads:
+בראשון מדפיסים 10 פעמים guten morgen בהפרש של 50 מילי
+לאחר מכן 20 פעמים	guten abend בהפרש של 100 מילי
+
+בפרד השני מדפיסים 5 פעמים dobroe ytro בהפרש של 20 מילי
+ו-7 פעמים dobroe becher בהפרש של 500 מילי
+
+אבל ההדפסה של dobroe becher לא מתחילה לפני 
+שהסתיימה ההדפסה האחרונה של guten morgen
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace ConsoleApp9
+{
+	class Program
+	{
+		static AutoResetEvent finishedPrintingGutenMorgen = new AutoResetEvent(false);
+
+		static void threadFunc()
+		{
+			for(int i=0;i<10;i++)
+			{
+				Console.WriteLine("Guten Morgen");
+				Thread.Sleep(50);
+			}
+			finishedPrintingGutenMorgen.Set();
+			for(int i=0;i<20;i++)
+			{
+				Console.WriteLine("Guten Abend");
+				Thread.Sleep(100);
+			}
+
+		}
+		static void Main(string[] args)
+		{
+			new Thread(threadFunc).Start();
+			for(int i=0;i<5;i++)
+			{
+				Console.WriteLine("dobroe ytro");
+				Thread.Sleep(20);
+			}
+			finishedPrintingGutenMorgen.WaitOne();
+			for (int i = 0; i < 7; i++)
+			{
+				Console.WriteLine("dobroe becher");
+				Thread.Sleep(500);
+			}
+
+
+		}
+	}
+}

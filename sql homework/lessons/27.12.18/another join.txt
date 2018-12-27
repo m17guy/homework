@@ -1,0 +1,61 @@
+צור תוכנית שנעזרת בפונקציה אחת בלבד חוץ מ-main.
+אחד הפרדים ידפיס את הטקסט I'm the first thread 20 פעם בהפרשים של 100 מילי.
+
+הפרד השני ידפיס 3 פעמים את הטקסט i'll wait for you  בהפרש של 20 מילי ואחרי זה יחכה ששאר הפרדים יסתיימו וידפיס and now i'm finished.
+
+הפרד השלישי ידפיס את הטקסט just to waste your time 30 פעם בהפרשים של 50 מילי.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+/*
+ * צור תוכנית שנעזרת בפונקציה אחת בלבד חוץ מ-main.
+אחד הפרדים ידפיס את הטקסט I'm the first thread 20 פעם בהפרשים של 100 מילי.
+הפרד השני ידפיס 3 פעמים את הטקסט i'll wait for you  בהפרש של 20 מילי ואחרי זה יחכה ששאר הפרדים יסתיימו וידפיס and now i'm finished.
+הפרד השלישי ידפיס את הטקסט just to waste your time 30 פעם בהפרשים של 50 מילי.
+
+*/
+namespace ConsoleApp8
+{
+	class ThreadParam
+	{
+		public int times;
+		public int delay;
+		public string text;
+	}
+	class Program
+	{
+		static void threadFunc(object o)
+		{
+			ThreadParam param = (ThreadParam)o;
+			for(int i=0;i<param.times;i++)
+			{
+				Console.WriteLine(param.text);
+				Thread.Sleep(param.delay);
+			}
+		}
+		static void Main(string[] args)
+		{
+			Thread thread1, thread2;
+			thread1 = new Thread(threadFunc);
+			thread2 = new Thread(threadFunc);
+			thread1.Start(new ThreadParam { text = "I'm the first thread", delay = 100, times = 20 });
+			thread2.Start(new ThreadParam { text = "Just to waste your time", delay = 50, times = 30 });
+			/*
+			 * 
+הפרד השני ידפיס 3 פעמים את הטקסט i'll wait for you  בהפרש של 20 מילי ואחרי זה יחכה ששאר הפרדים יסתיימו וידפיס and now i'm finished.
+*/
+			for(int i=0;i<3;i++)
+			{
+				Console.WriteLine("I'll wait for you");
+				Thread.Sleep(20);
+			}
+			thread1.Join();
+			thread2.Join();
+			Console.WriteLine("and now I'm finished");
+
+		}
+	}
+}

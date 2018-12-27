@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+/*
+ כיתבו תוכנית שיוצרת 3 thread שונים כאשר ה-thread הראשון מדפיס את המספרים 1 עד 10 עם המתנה של 100 מילי בין אחד לשני.
+ השני מדפיס את המספרים 10 עד 50 עם המתנה של 50 מילי בין אחד לשני. 
+ השלישי מדפיס את המספרים 10 עד 1 עם המתנה של 200 מילי בין אחד לשני.
+
+עליכם מלבד הפונקציה main להשתמש בפונקציה אחת בלבד.
+מותר להגדיר עוד מחלקה.
+*/
+namespace ConsoleApp5
+{
+	class ThreadParam
+	{
+		public ThreadParam(int start, int end, int step, int sleepTime)
+		{
+			this.start = start;
+			this.end = end;
+			this.step = step;
+			this.sleepTime = sleepTime;
+		}
+		public int start;
+		public int end;
+		public int step;
+		public int sleepTime;
+	}
+	class Program
+	{
+		static void threadFunc(object o)
+		{
+			ThreadParam param = (ThreadParam)o;
+			while(param.start!=param.end)
+			{
+				Console.WriteLine(Thread.CurrentThread.Name + " says: " + param.start);
+				Thread.Sleep(param.sleepTime);
+				param.start += param.step;
+			}
+		
+		}
+		static void Main(string[] args)
+		{
+			Thread t1_100_100 = new Thread(threadFunc);
+			t1_100_100.Name = "t1_100_100";
+			t1_100_100.Start(new ThreadParam(1, 101, 1, 100));
+			Thread t10_50_50 = new Thread(threadFunc);
+			t10_50_50.Name = "t10_50_50";
+			t10_50_50.Start(new ThreadParam(10, 51, 1, 50));
+			Thread t3 = new Thread(threadFunc);
+			t3.Name = "t50_10_200";
+			t3.Start(new ThreadParam(50, 9, -1, 200));
+		}
+	}
+}

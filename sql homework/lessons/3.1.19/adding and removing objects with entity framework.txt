@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp14
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            NovyGodEntities database = new NovyGodEntities();
+            /*  add a drink
+            database.Drinks.Add(new Drink
+            {
+                Name = "singha",
+                AlcoholPercentage = 3
+            });
+            database.SaveChanges();
+
+            and now remove it!
+
+            var singha = database.Drinks.Where(drink => drink.Name == "singha").Select(drink => drink).First();
+            database.Drinks.Remove(singha);
+            database.SaveChanges();
+            */
+            /* double singha
+            database.Drinks.Add(new Drink
+            {
+                Name = "singha",
+                AlcoholPercentage = 3
+            });
+            database.Drinks.Add(new Drink
+            {
+                Name = "singha",
+                AlcoholPercentage = 3
+            });
+            database.SaveChanges();
+            */
+            /* same same but the different
+            var singha = database.Drinks.Where(drink => drink.Name == "singha").Select(drink => drink);
+            database.Drinks.RemoveRange(singha);
+            database.SaveChanges();
+            */
+            foreach (var name in database.Drinks.Select(drink => drink.Name))
+                Console.WriteLine(name);
+        }
+    }
+}

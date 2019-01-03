@@ -1,0 +1,4 @@
+ // BudLite updated to WeizenBier
+            var weizenbier = database.Drinks.Where(drink => drink.Name == "BudLite").Select(drink => drink).First();
+            weizenbier.Name = "WeizenBier";
+            database.SaveChanges();

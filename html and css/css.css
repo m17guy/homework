@@ -1,0 +1,13 @@
+p {
+	font-family: Arial, "Times New Roman", Times, serif;
+	font-size: 60px;
+}
+h6{
+	font-size:200%;
+}
+p.difrent{
+	font-size: 1.9em;
+}
+.danger{
+	font-family: "Times New Roman", Arial, Times, serif;
+}

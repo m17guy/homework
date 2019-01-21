@@ -1,0 +1,7 @@
+h1 { 
+	/* this is a comment
+	it gos from 100-900 /lighter(=100)/normal(=400)/bold(=600)/bolder(=900)
+	but only in the x100 (no 381) */
+	font-weight:900;
+	color:red;
+}

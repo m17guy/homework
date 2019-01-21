@@ -1,0 +1,20 @@
+.fat{
+	font-style: oblique;
+	font-size:80px;
+	font-weight:800;
+}
+p{
+	font-family: Arial, Georgia, Geneva, sans-serif;
+}
+.even{
+	font-size:40px;
+}
+.odd{
+	font-size:20px;
+}
+.bold{
+	font-weight:bold;
+}
+.boldest{
+	font-weight:900;
+}

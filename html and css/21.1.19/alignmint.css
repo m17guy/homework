@@ -1,0 +1,13 @@
+h1{
+	border-top: 10px double #7c0c9a;
+	padding: 5px 0 0 0;
+	text-align: center;
+}
+h2{
+	border: 5px dotted red;
+	padding: 20px;
+	text-align: right;
+}
+h3{	
+	text-align: justify;
+}

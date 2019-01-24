@@ -9,7 +9,7 @@ h3 {
 	font-family: arial, times, serif;
 	text-align: center;
 	border: 5px solid yellow;
-	margin: 0 150px 0 150px;
+	margin: 0 25% 0 25%;
 }
 h2 {
 	text-align:center;
@@ -21,6 +21,7 @@ p.ra {
 	font-size: 40;
 	font-family: arial, times, serif;
 	text-align: right;
+	letter-spacing: 5px
 }
 p.big {
 	color:green;

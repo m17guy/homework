@@ -1,0 +1,127 @@
+<html>
+	<head>
+	</head>
+
+	<body class="style">
+		<p class="style2"> sfsfs </p>
+		<h1> dgdg </h1>
+	</body>
+</html>
+
+
+
+.style {
+	font-size:2em;
+}
+.style2 {
+	font-size: 3em;
+}
+ירושה - 
+כל אלמנט שנמצא בתוך תגיות פותחות וסוגרות של אלמנט אחר - יקרא כאלמנט "הבן" של אלמנט "ההורה".
+
+http://www.asmarterwaytolearn.com/htmlcss/19.html
+
+Grouping 
+HTML-
+<h1> </h1>
+<h2> </h2>
+<h3> </h3>
+
+
+CSS-
+h1, h2, h3, h4, h5, h6 {
+	color: red;
+}
+
+h1 {
+	color: green;
+}
+
+http://www.asmarterwaytolearn.com/htmlcss/20.html
+
+p {
+}
+p.classname {
+}
+.classname {
+}
+ 
+ID - זהות
+HTML - 
+<p class="afajfa aaf"> fafa </p>
+<h1 id="specialid"> shgsg </h1>
+CSS - 
+p#specialid {
+font-size:60px;
+}
+#specialid {
+
+}
+
+
+http://www.asmarterwaytolearn.com/htmlcss/21.html
+
+<div> - דיב
+ באופן דומה לתגית -span
+דיב - ספאן שאחריו יבוא <br>
+
+div#main {
+	font-size:40px;
+}
+HTML:
+hello
+<div id="main">
+	<h2> koteret </h2>
+	<span> piska </span> 
+	<p> piska <div id="' class="">nosefet </div> </p>    	
+</div>
+hello
+
+http://www.asmarterwaytolearn.com/htmlcss/22.html
+
+תמונות - images
+<img> - תגית פותחת, ללא תגית סוגרת
+<img src="/folder/path/img.jpg">
+
+http://www.asmarterwaytolearn.com/htmlcss/23.html
+
+מושג Block -
+פסקאות, כותרת, רשימות, טבלאות...
+מושג inline -
+ספאן, קישורים, תמונה..
+
+<img src="pic1.jpg" class="class">
+<img src="pic2.jpg">
+
+CSS-
+img.class {
+	display: block;
+}
+
+http://www.asmarterwaytolearn.com/htmlcss/24.html
+
+מידע נוסף לתגית img -
+
+<img src="" alt="this pic is a cat" width="55" height="55" >
+
+alt(ernative) - מידע נוסף לגבי התמונה
+width - רוחב בפיקסלים
+height - גובה בפיקסלים
+
+http://www.asmarterwaytolearn.com/htmlcss/25.html
+
+img.position {
+	margin-bottom: 50%;
+}
+
+http://www.asmarterwaytolearn.com/htmlcss/26.html
+
+מירכוז תמונה -
+img.position {
+	margin: 0 auto 0 auto;
+}
+ירושה - אלמנט בן יורש מאלמנט הורה.
+אלמנט ההורה מקבל margin כלשהו.
+אלמנט הבן יתחיל לקבל את הmargin מהmargin של האב.
+
+http://www.asmarterwaytolearn.com/htmlcss/27.html

@@ -1,0 +1,28 @@
+.red {
+	color:red;
+}
+body {
+	margin: 0 30% 0 25%;
+	font-size: 1em;
+}
+.big {
+	font-size: 2.6em;
+	color: White;
+	background-color:#0077ff;
+}
+h1 {
+	font-size: 2.7em
+}
+.down-border {
+	padding: 0 0 10px 0;
+	border-bottom: 1px solid grey;
+}
+.space {
+	line-height: 2.7;
+}
+.gray {
+	color:gray;
+}
+.bold {
+	font-weight:bold;
+}

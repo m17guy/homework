@@ -1,0 +1,15 @@
+body {
+	font-size:100px;
+}
+a.diffrent {
+	
+	color: red;
+}
+a.diffrent:hover {
+	color:green;
+	font-size: 4em;
+}
+a.diffrent:active {
+	color:black;
+	text-align:center;
+}

@@ -1,0 +1,77 @@
+<img src="" class="" >
+
+floating image
+CSS-
+img {
+	float: left; / float:right;
+}
+
+p {
+	clear: both;
+}
+
+http://www.asmarterwaytolearn.com/htmlcss/28.html
+
+קישורים - link
+
+<a href="www.amazon.com"> amazon site </a>
+a - anchor
+
+http://www.asmarterwaytolearn.com/htmlcss/29.html
+
+
+<a href="../sci-fi-books.html"> amazon site </a>
+
+http://www.asmarterwaytolearn.com/htmlcss/30.html
+
+קישור למיקום מסוים בעמוד -
+<a href="guy.html#mikum"> my link </a>
+<h2 id="guy"> adafg </h2>
+<p id="mikum"> afkagkags </p>
+
+http://www.asmarterwaytolearn.com/htmlcss/31.html
+
+<a href="guy.html" target="_blank"> my link </a>
+
+http://www.asmarterwaytolearn.com/htmlcss/32.html
+<em> sfs </em> - italic
+<blockquote> - "ציטוט" נותנת הזחה
+
+עיצוב קישורים-
+a {
+	color: pink;
+	text-decoration: none;	
+}
+
+a:hover{
+	font-weight: bold;
+}
+a: active {
+	font-size: 4em;
+	color: green;
+}
+a:visited {
+	color:yellow;
+}
+
+http://www.asmarterwaytolearn.com/htmlcss/33.html
+
+<a href="wikipedia.com">
+<img src="wiki_logo.jpg" alt="wiki logo" width="55" height="55">
+</a>
+
+http://www.asmarterwaytolearn.com/htmlcss/34.html
+
+image map
+
+<img src="me.jpg" width="55" height="55" alt="me" usemap="#memap">
+
+<map name="#memap">
+<area shape="rect" coords="0,0,82,126" href="guy.html" alt="guy is a good guy">
+<area shape="circle" coords="90,58,3" href="you.html" alt="other link">
+<area shape="polygon" coords="0,0,5,5,10,15,30,35,55,50" href="other.html">
+</map>
+
+http://www.asmarterwaytolearn.com/htmlcss/35.html
+http://www.asmarterwaytolearn.com/htmlcss/36.html
+

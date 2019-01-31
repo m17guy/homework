@@ -1,0 +1,15 @@
+ul.c {
+	list-style-type: square;
+	color: red;
+}
+.bday {
+	list-style-type:hebrew;
+	color: blue;
+	text-align: center;
+	font-size: 5em;
+}
+li > ul.b {
+	list-style-type: katakana-iroha;
+	color: green;
+	text-align: right;
+}

@@ -1,0 +1,21 @@
+table, th, td {
+	border-collapse: collapse;
+	color: blue;
+	text-align: left;
+	border: 7px solid gold;
+	font-size: 1.9em;
+	
+}
+td {
+	color: red;
+	text-align:center;
+	padding: 20px;
+}
+th {
+	color: green;
+	height: 90px;
+	text-align:center;
+	width: 30%
+}
+tr:hover {background-color:black;}
+tr:nth-child(odd) {background-color: blue;}

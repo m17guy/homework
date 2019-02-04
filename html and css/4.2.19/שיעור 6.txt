@@ -1,0 +1,87 @@
+טבלאות -
+מיזוג תאים -
+<td colspan="2"> shoes </td>
+
+<td rowspan="2"> flip-flops </td>
+
+http://www.asmarterwaytolearn.com/htmlcss/43.html
+
+מסגרות לטבלה -
+מבצעים בCSS
+
+th, td {
+	border: 1px solid black;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+http://www.asmarterwaytolearn.com/htmlcss/44.html
+
+מרווחים -
+CSS -
+th, td {
+	padding: .5em;
+}
+
+table {
+	border-spacing: 1.5em;
+}
+
+
+http://www.asmarterwaytolearn.com/htmlcss/45.html
+
+th, td {
+	width: 20%;
+}
+
+table {
+	width: 75%;
+}
+
+http://www.asmarterwaytolearn.com/htmlcss/46.html
+
+יישור טקסט
+
+css -
+יישור טקסט מתבצע על תגיות td ו-th.
+text-align: left / right / center;
+
+vertical-align: top / bottom / center;
+
+http://www.asmarterwaytolearn.com/htmlcss/47.html
+
+צבע רקע -
+background-color: red;
+
+http://www.asmarterwaytolearn.com/htmlcss/48.html
+
+
+טפסים - FORMS
+<form action="www.guy.com/calc.js" method="post">
+
+</form>
+
+http://www.asmarterwaytolearn.com/htmlcss/49.html
+
+<form action="send-email.php" method="post">
+	<input type="text" name="doar" size="20" maxlength="40">
+</form>
+
+http://www.asmarterwaytolearn.com/htmlcss/50.html
+
+<form action="send-email.php" method="post">
+	<input type="text" name="doar" size="20" maxlength="40">
+	<textarea name="textarea" rows="4" cols="30"> </textarea>
+</form>
+
+http://www.asmarterwaytolearn.com/htmlcss/51.html
+
+<form action="send-email.php" method="post">
+	<input type="text" name="doar" size="20" maxlength="40">
+	<textarea name="textarea" rows="4" cols="30"> </textarea>
+	<input type="submit" value="Send this">
+</form>
+
+http://www.asmarterwaytolearn.com/htmlcss/52.html

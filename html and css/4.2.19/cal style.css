@@ -1,0 +1,23 @@
+table, th, td {
+	border-collapse: collapse;
+}
+.month {
+	background-color: green;
+	color: White;
+}
+.day {
+	background-color: blue;
+	color: White;
+}
+td {
+	background-color: black;
+	color: red;
+}
+th, td {
+	border: 2px solid hotpink;
+	font-size: 3em;
+	text-align: center;
+	padding: .1em;
+	width:14%;
+}
+td:hover{background-color: gold;}	

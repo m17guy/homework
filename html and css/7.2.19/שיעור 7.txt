@@ -1,0 +1,106 @@
+חזרה טפסים - FORMS
+
+<form action="send-email.php" method="post">
+	<fieldset>
+	<legend> Enter Name</legend>
+	<input type="password" name="doar" size="20" maxlength="40">
+	</fieldset>
+	<fieldset>
+	Enter text:
+	<textarea name="textarea" rows="4" cols="30"> </textarea>
+	<input type="submit" value="Send E-mail">
+	</fieldset>
+
+</form>
+
+http://www.asmarterwaytolearn.com/htmlcss/49.html
+http://www.asmarterwaytolearn.com/htmlcss/50.html
+http://www.asmarterwaytolearn.com/htmlcss/51.html
+http://www.asmarterwaytolearn.com/htmlcss/52.html
+
+https://il.000webhost.com/ - להירשם למנוי חינם
+https://guysecondsite.000webhostapp.com/index.html - דוגמא
+עמוד ראשי - index.html
+
+(
+PHP -  "send-email.php"
+<?php
+  if (isset($_REQUEST['email']))  {
+  
+  $email =  $_REQUEST['email'];
+  $name = $_REQUEST['name'];
+  $password = $_REQUEST['password'];
+  
+  mail($email, "Email from $name", "My secret password is: $password", "From:" . $email);
+  
+  echo "Thank you for contacting us!";
+  }
+?>
+<a href="/"> back </a>
+
+)
+
+Radio Button - 
+Choose sex:
+<input type="radio" name="vlad" value="male" > Male
+<input type="radio" name="vlad" value="female" checked="checked"> Female
+<input type="radio" name="vlad" value="unknown"> Unknown
+
+
+http://www.asmarterwaytolearn.com/htmlcss/53.html
+
+Check-box
+<input type="checkbox" name="vlad" value="sunday"> Sunday
+<input type="checkbox" name="vlad" value="monday"> Monday
+
+http://www.asmarterwaytolearn.com/htmlcss/54.html
+
+Select-Box
+<select name="vlad">
+<option value="male">Male</option>
+<option value="female">Female</option>
+</select>
+
+http://www.asmarterwaytolearn.com/htmlcss/55.html
+
+
+Label - תג
+
+<input type="radio" name="vlad" id="guy" value="google">
+
+<label for="guy">Google</label>
+
+http://www.asmarterwaytolearn.com/htmlcss/56.html
+
+<fieldset>
+	<legend>Name </legend>
+</fieldset>
+
+http://www.asmarterwaytolearn.com/htmlcss/57.html
+
+עיצוב טפסים -
+CSS -
+
+form {
+	width:50%;
+	margin: 0 auto 0 auto;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 1em;
+}
+ כל עיצוב טקסט בתוך תגית FORM
+תוכל רק על תגיות Labels ו- Legends.
+
+input[type="text"], input[type="password"] {
+	margin-bottom: .5em;
+	padding: .5em;
+	font-size: 24px;
+}
+
+input[type="submit"] {
+	font-size:60px;
+}
+
+http://www.asmarterwaytolearn.com/htmlcss/58.html
+
+https://il.000webhost.com/ - להירשם למנוי חינם
+

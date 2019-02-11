@@ -1,0 +1,94 @@
+הערות -
+
+HTML-
+<!-- fffffffffffffffffffffffffff
+jri
+trti
+jtrje
+f -->
+
+CSS - 
+/* erwhwh
+whrwh
+egehwrhw
+*/
+
+http://www.asmarterwaytolearn.com/htmlcss/59.html
+
+
+https://il.000webhost.com/  - לפתוח חשבון חינם ולהעלות אתרים
+
+Layout - פריסת עמוד
+Body - התגית הגדולה ביותר ש CSS יכול לעצב
+
+http://www.asmarterwaytolearn.com/htmlcss/60.html
+
+<div id="header">
+<h3 class="head"> Header </h3>
+<img src="myheader.jpg">
+<p>This is my header </p>
+</div>
+
+- עיצוב של קופסא פנימית מקבל עדיפות על עיצוב של קופסא חיצונית.
+- עיצוב של אלמנט מסוים, מקבל עדיפות על עיצוב של DIV - כיוון שDIV הוא הקופסא שמסביבו.
+- קלאס ו-ID מקבלים עדיפות על כל עיצוב אחר.
+
+http://www.asmarterwaytolearn.com/htmlcss/61.html
+
+מירכוז וגודל DIV -
+div#divheader {
+	width: 90%;
+	margin: 0 auto 0 auto;
+}
+
+http://www.asmarterwaytolearn.com/htmlcss/62.html
+
+DIV לצד DIV -
+div#left {
+	width: 29%;
+	float:left;
+}
+div#right {
+	width: 68%;
+	float: right;
+}
+
+
+	
+div#nowrap {
+	clear:both;
+}
+
+	<div id="right"> fsf </div>
+	<div id="left"> sfG </div>
+	<div id="nowrap"></div>
+
+http://www.asmarterwaytolearn.com/htmlcss/63.html
+
+div#header {
+	position: absolute;
+	top:0;
+	left:0;
+}
+
+http://www.asmarterwaytolearn.com/htmlcss/64.html
+
+מיקום קבוע על העמוד -
+
+div#header {
+	position: fixed;
+	top:0;
+	left:0;
+}
+
+http://www.asmarterwaytolearn.com/htmlcss/67.html
+
+כדי להתגבר על מיקום אבסולוטי או קבוע
+מקימים DIV נוסף, עם אותם אלמנטים עיצוביים, בנוסף - 
+div#one_other {
+	visibility: hidden;
+}
+z-index: -1;
+
+http://www.asmarterwaytolearn.com/htmlcss/68.html
+

@@ -1,0 +1,28 @@
+body {
+	text-align: center;
+	background-color: black;
+	color:#ffffff;
+	font-size:3em;
+}
+.left {
+	background-color: blue;
+	width:40%;
+	float: left;
+}
+.right {
+	background-color: green;
+	width:40%;
+	float: right;
+}
+.center {
+	background-color: #cc00cc;
+	width:90%;
+	margin: 0 auto 0 auto;
+}
+.center-small {
+	background-color: #ff6600;
+	width:80%;
+	margin: 0 auto 0 auto;
+.clear {
+	clear: both;
+}

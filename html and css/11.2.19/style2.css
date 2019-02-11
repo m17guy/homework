@@ -1,0 +1,15 @@
+body {
+	text-align:center;
+	font-size:3em;
+}
+#header {
+	background-color:green;
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+#header-hidden {
+	width: 100%;
+	visibility: hidden;
+}

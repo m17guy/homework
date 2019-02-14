@@ -1,0 +1,32 @@
+body {
+	text-align:center;
+	font-size:2.2em;
+}
+#header {
+	background-color:green;
+	width: 100%;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+}
+#header-hidden {
+	width: 100%;
+	visibility: hidden;
+}
+.form {
+	width: 40%;
+	float: left;
+	margin-left: 5%;
+	background-color:blue;
+}
+.info {
+	width: 40%;
+	float: right;
+	margin-right: 5%;
+	background-color:blue;
+}
+.bot {
+	position: absolute;
+	bottom: 0px;
+	left:32%;
+}

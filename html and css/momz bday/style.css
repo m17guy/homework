@@ -1,0 +1,57 @@
+body {
+    text-align: center;
+    font-size: 2.4em;
+}
+.back {
+    position: absolute;
+    top: 0px;
+    left:0px;
+    z-index: -1;
+}
+.back2 {
+    position: absolute;
+    top: 731px;
+    left:0px;
+    z-index: -1;
+}
+h1 {
+    color: HotPink;
+}
+.left{
+    background-color: black;
+    text-align: left;
+    float: left;
+    width: 20%;
+}
+.right{
+    background-color: aquamarine;
+    float: right;
+    width: 40%;
+}
+.big{
+    font-size: 2em;
+}
+.red{
+    color: red;
+    display: inline;
+}
+.orange{
+    color: orange;
+    display: inline;
+}
+.yellow{
+    color: yellow;
+    display: inline;
+}
+.green{
+    color: green;
+    display: inline;
+}
+.blue{
+    color: blue;
+    display: inline;
+}
+.purple{
+    color: purple;
+    display: inline;
+}

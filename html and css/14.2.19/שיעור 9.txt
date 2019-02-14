@@ -1,0 +1,54 @@
+תמונות-רקע:
+body {
+	background-image: url("background.jpg");
+}
+
+body {
+	background-image: url("tiny-background.jpg");
+	background-repeat: repeat-y;
+}
+
+http://www.asmarterwaytolearn.com/htmlcss/76.html
+
+
+body {
+	background-image: url("tiny-background.jpg");
+	background-repeat: no-repeat;
+}
+
+ברירת מחדל - צד שמאל למעלה
+body {
+	background-image: url("tiny-background.jpg");
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+left / center / right
+top / center / bottom
+אופקי ורק אחר אנכי
+right top
+top right - לא לרשום ככה
+
+body {
+	background-image: url("tiny-background.jpg");
+	background-repeat: no-repeat;
+	background-position: right top;
+	background-attachment: scroll / fixed;
+}
+
+http://www.asmarterwaytolearn.com/htmlcss/77.html
+
+iframe -
+<iframe src="http://www.ynet.co.il" width="700" height="450">
+</iframe>
+
+http://www.asmarterwaytolearn.com/htmlcss/78.html
+
+iframe + youtube -
+
+http://www.asmarterwaytolearn.com/htmlcss/79.html
+
+המשך -
+https://developers.google.com/youtube/youtube_player_demo
+
+http://www.asmarterwaytolearn.com/htmlcss/80.html
+

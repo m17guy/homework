@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css2.css">
+	</head>
+	<body>
+		<script>
+			var name = prompt("Please a your name", "a");
+			var names1=[name];
+			name = prompt("Please a your name", "b");
+			names1.push(name);
+			name = prompt("Please a your name", "c");
+			names1.push(name);
+			name = prompt("Please a your name", "d");
+			names1.push(name);
+			names1.splice(2,0,"guy");
+			alert(names1);
+			var names2=names1.slice(0,3);
+			var names3=names1.slice(3,5);
+			alert(names2);
+			alert(names3);
+		</script>
+	</body>
+</html>

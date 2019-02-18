@@ -1,0 +1,79 @@
+אודיו - Audio
+<audio controls>
+<source src="tasmanian-devil-daniel_simon.mp3">
+<source src="tasmanian-devil-daniel_simon.ogg">  mp3 / ogg
+<p>Sound not loaded </p>
+</audio>
+
+http://www.asmarterwaytolearn.com/htmlcss/82.html
+
+Ems vs. percentages vs. pixels
+Ems - טקסט, margin גבולות, padding.
+אחוזים - divs, tables, windows, sometimes- margins padding.
+פיקסלים - images, border, windows, position: absolute, fixed, relative.
+
+http://www.asmarterwaytolearn.com/htmlcss/83.html
+
+מיקום יחסי -
+p#relative {
+	position: relative;
+	top:50px;
+}
+p.noreltive {
+	position:static;
+}
+
+http://www.asmarterwaytolearn.com/htmlcss/84.html
+
+z-index
+position: absolute, fixed, relative
+
+z-index: -31;
+z-index: 1;
+
+media queries 
+CSS-
+
+.class {
+
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+	img {
+	display:block;
+}
+@media only screen and (min-device-width: 1080px) and (max-device-width: 2040px) {
+	img {
+	display:block;
+}
+
+http://www.asmarterwaytolearn.com/htmlcss/86.html
+
+גודל-מינימלי ומקסימלי
+div {
+	width:20%;
+	min-width:200px;
+	min-height:100px;
+}
+div {
+	width:40%;
+	max-width:400px;
+	overflow: hidden / scroll;
+}
+
+http://www.asmarterwaytolearn.com/htmlcss/87.html
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title> my webpage </title>
+<meta name="description" content="this is my meta data - 160 chars">
+</head>
+
+<body>
+
+
+
+
+</body>
+</html>

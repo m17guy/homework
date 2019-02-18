@@ -1,0 +1,82 @@
+JavaScript
+
+תגית alert - מקפיצה לנו הודעה מהדפדפן, מה שבתוך הגרשיים, יופיע כטקסט.
+	alert("This is an alert");
+
+משתנים-
+var name;
+משתנה שלא הוגדר -
+undefined
+
+שמות של משתנים- 
+- לא מכניס לגרשיים
+- לא יתחיל במספר
+- לא יכיל רווחים
+- רק אותיות, מספרים, סימן דולר, וקו תחתון
+- לא יהיה מילה שמורה 
+- השמות הם case-sensitive
+- תנו שמות עם משמעות
+
+פעולות מתמטיות -
+var num = 0;
+var num2 = 1;
+num++; / num = num +1;
+++num;
+
+ * / + - %
+
+הדפסת משתנים -
+alert("Thanks " + name + "!");   -   Thanks Guy!
+
+prompt -
+var x = prompt("Where do you live?");
+x=null במידה והמשתמש עושה cancel
+
+משפט IF -
+if (x === "Tel Aviv") {
+alert ("Tel Aviv")
+alert("hello")
+}
+else 
+alert ("Not Tel Aviv");
+
+== / === 
+"0" == 0; true
+"0" === 0;  false
+
+!== !=  > < >= =< 
+
+&& ||  
+if (x==="Tel Aviv" || x!=="Ramat-Gan")
+
+console.log("hello");
+
+מערך - array 
+var cities = ["Tel Aviv", "Haifa", "Ramat-Gan"];
+var mix = ["vlad", 4, true];
+
+cities.pop(); - מוריד את הערך האחרון במערך
+cities = ["Tel Aviv", "Haifa"];
+
+cities.push("Beer-Sheva"); - מוסיף ערך אחרי המיקום האחרון
+cities = ["Tel Aviv", "Haifa", "Beer-Sheva"];
+
+cities.shift(); - מוחק את הערך הראשון במערך.
+
+cities.unshift("Netania"); - מוסיף לי למיקום הראשון
+
+
+var animals = ["dog", "cat", "fly", "bug", "ox"];
+animals.splice(2, 2, "pig", "duck", "emu");
+
+איבר ראשון בפונקציית splice - המיקום שבו אנחנו רוצים להתחיל את ההכנסה / מחיקה.
+איבר שני - מספר הערכים הקיימים אותפ אנחנו רוצים למחוק.
+הערכים האחרים - נכנסים למערך.
+
+animals = ["dog", "cat", "pig", "duck", "emu", "ox"];
+
+var animals2 = animals.slice(2, 4); - מעתיק ערך או ערכים מתוך מערך 
+
+המספר הראשון - המיקום הראשון שממנו אנחנו מתחילים את ההעתקה.
+המספר השני - המיקום אחרי המיקום שאותו אנחנו רוצים להעתיק.
+

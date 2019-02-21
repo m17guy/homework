@@ -1,0 +1,27 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            var randomnumber = Math.random();
+            var realn=(randomnumber*100)+1;
+            realn=Math.floor(realn);
+            alert(realn);
+            for(var i=0;i<10;i++){
+                var input=prompt("guess a number:");
+                if(realn===parseInt(input)){
+                    alert("you win!");
+                    break;
+                }
+                if(input<realn){
+                    alert("too small")
+                }
+                if(input>realn){
+                    alert("too big")
+                }
+            }
+            alert("the game is over");
+        </script>
+    </body>
+</html>

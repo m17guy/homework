@@ -1,0 +1,16 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            var pizza=prompt("what is the best pizza place?");
+            for(var i=0;i<pizza.length;i++){
+                if(pizza.slice(i,i+9)==="pizza hut"){
+                    pizza=pizza.slice(0,i)+"dominoz pizza"+pizza.slice((i+9))
+                }
+            }
+            alert(pizza);
+        </script>
+    </body>
+</html>

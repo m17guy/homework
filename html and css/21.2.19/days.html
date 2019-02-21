@@ -1,0 +1,16 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            var now = new Date();
+            alert(now);
+            var year = prompt("on what year were you born?", "1996");
+            var month=prompt("on what month were you born?", "9");
+            var day=prompt("on what day were you born?", "29");
+            var bday=new Date(month, parseInt(day), parseInt(year));
+            alert("you are "+(now.getFullYear()-parseInt(year))+" years olds")
+        </script>
+    </body>
+</html>

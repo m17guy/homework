@@ -1,0 +1,20 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            var text="";
+            for(var i=0;i<10;i++){
+                var input=prompt("letter pls:");
+                if(input==='.'){
+                    break;
+                }
+                text=text+input;
+            }
+            text=text.replace(/a/g,'b');
+            text=text.replace(/c/g,'d');
+            alert(text+text.length);
+        </script>
+    </body>
+</html>

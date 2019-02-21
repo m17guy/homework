@@ -1,0 +1,88 @@
+JavaScript -
+לולאות For
+
+var names=["guy", "guya"...];
+var name="Guy";
+var bool = false;
+for (var i =0; i< 4 ; i++) {
+if (name === names[i]) 
+alert("You have agreat name");
+}
+
+names.length; 
+name.length;
+
+name = name.toUpperCase(); - GUY
+name.toLowerCase() - guy
+
+indexOf -
+var pizza = "my favorite pizzeria is pizza hut pizzeria";
+var mikom = pizza.indexOf("pizzeria"); // mikom = -1;
+var mikom2 = pizza.lastIndexOf("pizzeria"); // mikon =-1;
+
+var firstChar = text.charAt(0);
+
+replace -
+
+var newText = text.replace("pizza hut", "dominos pizza");
+replace all -
+
+var newText = text.replace(/pizza hut/g, "dominos pizza");
+
+numbers-
+var number1 = "16";
+var number2 = 16;
+
+עיגול מספרים -
+var number = Math.round(4.4); - 4
+var number = Math.round(4.6); - 5
+var number = Math.round(4.5); - 5
+
+var number = Math.ceil(0.0001); - 1
+var number = Math.floor(0.9999); - 0
+
+מספרים רנדומליים - 
+var randomNumber = Math.random(); // 0 - 1
+קוביה - 1 -6
+var newNumber = (randomNumber * 6) +1;
+var finalNumber = Math.floor(newNumber);
+
+המרת טקסט למספרים -
+"51" + 1 =  "51"+"1" = "511"
+
+"51" - 1 = 50 // - / *
+"51" * 2 = 102
+
+var a = "200" - "duck" = NaN - Not a Number
+
+var text = prompt("Enter your age");
+text = parseInt("1.999"); - 1
+text = parseFloat("1.999") - 1.999
+
+number = Number("1.999"); - 1.999
+number = Number("1"); - 1
+
+text = number.toString(); - "1"
+
+var pie = 3.14159265 
+3.14
+
+alert(pie.toFixed(2)); 
+
+זמן Date() -
+var rightNow = new Date();
+
+var theDay = rightNow.getDay(); ~ רק את היום כמספר בין 0 ל-6
+
+var dayNames = ["sun", "mon", "tue" ....]
+
+new Date(); ~ עכשיוי
+new Date(year, month, day, hours, minutes, second, milliseconds) ~ new Date(2025,,,14, 7)
+new Date(milliseconds) epoch time ~ 01.01.1970 00:00:00 UTC new Date(1000) ~ 01.01.1970 00:00:01
+new Date(date string) ~ var armeggedon("June 30, 2035")
+
+var rightNow = new Date();
+rightNow = rightNow.setFullYear(2020);
+
+
+

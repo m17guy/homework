@@ -9,8 +9,11 @@
             var year = prompt("on what year were you born?", "1996");
             var month=prompt("on what month were you born?", "9");
             var day=prompt("on what day were you born?", "29");
-            var bday=new Date(month, parseInt(day), parseInt(year));
-            alert("you are "+(now.getFullYear()-parseInt(year))+" years olds")
+            var bday=new Date(parseInt(year), parseInt(month), parseInt(day));
+            var x=(now.getFullYear()-parseInt(year))*12+(now.getMonth()-parseInt(month));
+            alert("you are "+((now-bday)/31536000000).toFixed(2)+" years olds");
+            alert("you are "+((now-bday)/2592000000).toFixed(2)+" months olds");
+            alert("you are "+((now-bday)/86400000).toFixed(2)+" days olds");
         </script>
     </body>
 </html>

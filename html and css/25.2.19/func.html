@@ -1,0 +1,18 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            var text=prompt("enter a messeg:", "tseb eht si yug");
+            function backwords(input){
+                var back="";
+                for(var i=0; i<input.length; i++ ){
+                    var back = back+input[input.length-i-1];
+                }
+                return back
+            }
+            alert(backwords(text));
+        </script>
+    </body>
+</html>

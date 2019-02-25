@@ -1,0 +1,49 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            function choice(){
+                var temp = prompt("what would you like to do? \n 1.see the time \n 2. reverse soe text \n 3.replace letters in text");
+                switch(temp){
+                    case "1":
+                    case "time":
+                    time();
+                    break;
+                    case "2":
+                    case "reverse":
+                    backwords();
+                    break;
+                    case "3":
+                    case "replace":
+                    replace();
+                    break;
+                    default:
+                    alert("i didnt get that?");
+                }
+                alert("see you later :)");
+            }
+            function backwords(){
+                var input=prompt("enter a messeg:", "tseb eht si yug");
+                var back="";
+                for(var i=0; i<input.length; i++ ){
+                    var back = back+input[input.length-i-1];
+                }
+                alert(back);
+            }
+            function time(){
+                var now=new Date;
+                alert(now);
+            }
+            function replace(){
+                var text=prompt("first, give me a sentence:")
+                var nogo=prompt("now the part you want to replace:", "a");
+                var yesgo=prompt("and the part you want to replace it with:","b");
+                var regex = new RegExp(nogo, "g");
+                alert(text.replace(regex,yesgo));
+            }
+        </script>
+        <a href="#" onclick="choice();">clice me</a>
+    </body>
+</html>

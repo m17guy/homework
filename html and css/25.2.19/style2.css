@@ -1,0 +1,28 @@
+body {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 2em;
+}
+a {
+    color: aqua;
+    text-decoration: none;
+    padding-right: 1.3em;
+}
+  a:visited {
+    color: aqua;
+  }
+  a:hover {
+    color: greenyellow;
+    font-size: 1.2em;
+  }
+  h1{
+    width: 65%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0 auto 0 auto;
+    background-color: rgb(32, 28, 28);
+    font-size: 1.8em;
+    border: 3px solid red;
+  }

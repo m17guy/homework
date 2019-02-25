@@ -1,0 +1,80 @@
+פונקציות-
+
+function greetHello() {
+alert("Hello");
+}
+
+greetHello();
+
+var text ="Say Hello";
+greetHello(text, text, text);
+
+var momo; 
+
+function greetHello(nana, nana2, nani) {
+alert(nana);
+momo = 3;
+
+return nana;
+}
+
+
+SCOPE - מקומי / גלובלי
+
+גלובלי - ניתן לגשת אליו מכל מקום בתוכנית, גם בתוך פונקציות
+מקומי - מוגדר בתוך פונקציה מסוימת. ואיתו ניתן להשתמש אך ורק בתוך הפונקציה.
+
+
+משפט SWITCH -
+
+switch(days) {
+case "sunday": 
+alert("first day");
+break;
+case 2:
+alert("second day");
+break;
+default:
+alert("Have a great day");
+}
+
+
+
+לולאת while
+
+var i=4;
+while(i<=3) {
+	alert(i);
+	i++;
+}
+
+לולאת do- while
+
+var i=4;
+do {
+	alert(i);
+	i++;
+} while (i<=3);
+מתקיימת לפחות פעם אחת
+
+הערות -
+הערות שורה אחת //
+הערות של כמה שורות /* fsdf
+dshhs
+fhds  */
+
+Event handlers - בקרת אירועים
+<a href="#" onClick="alert('Hello');alert('Hello2'); alert('Hello3');"> Click me </a>
+
+event - onClick 
+
+<a href="JavaScript:void(0)" onClick="sayHello();"> Click me </a>
+
+כפתורים -
+<input type="button" value="Click me!" onClick="alert('Hello');">
+
+ // <a href="#"> <img src="myPhoto.jpg"> </a>
+
+<img src="myPhoto.jpg" onClick="alert('Hello');">
+
+

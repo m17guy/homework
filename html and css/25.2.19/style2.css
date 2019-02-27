@@ -2,7 +2,7 @@ body {
     text-align: center;
     background-color: black;
     color: white;
-    font-size: 2em;
+    font-size: 1.8em;
 }
 a {
     color: aqua;
@@ -16,13 +16,19 @@ a {
     color: greenyellow;
     font-size: 1.2em;
   }
-  h1{
-    width: 65%;
+  h1.header{
     position: fixed;
-    top: 0;
     left: 0;
-    margin: 0 auto 0 auto;
+    top: -36;
+    width: 100%;
+    padding-bottom: 40px;
     background-color: rgb(32, 28, 28);
     font-size: 1.8em;
     border: 3px solid red;
+  }
+  h1{
+    width: 100%;
+    background-color: rgb(32, 28, 28);
+    font-size: 1.8em;
+    border: 3px solid blue;
   }

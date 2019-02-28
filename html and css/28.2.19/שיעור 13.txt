@@ -1,0 +1,73 @@
+Events -
+onClick - בעת לחיצה, תבצע JS.
+onMouseover
+onMouseout
+onFocus
+onBlur
+onSubmit
+
+מעבר עכבר, הורדת עכבר -
+
+לדוגמא, אני רוצה שבעת מעבר העכבר על תמונה מסוימת, התמונה תתחלף.
+
+<img src="before-pic.jpg" onMouseover="src='after-pic.jpg'">
+<h1 onMouseover="alert('Hello');"> Like us </h1>
+
+<img src="before-pic.jpg" onMouseover="src='after-pic.jpg'" onMouseout="src='before-pic.jpg'">
+
+שדות -
+<input type="text" onFocus="func();">
+<input type="text" onBlur="alert('Thank you');">
+
+קריאת ערכים משדות-
+<form onSubmit="checkAddress('email');">
+Email: 
+<input type="text" id="email">
+<input type="submit" value="Click me">
+</form>
+
+<script>
+function checkAddress(fieldid) {
+if (document.getElementById(fieldid).value === "") {
+alert("Email address required ");
+}
+}
+</script>
+
+הכנסת נתונים לשדות-
+<form>
+Favorite pizza place: <br>
+<input type="text" id="pizzeria" onBlur="changePizza();">
+</form>
+
+<script>
+function changePizza() {
+var pizzaEntered = document.getElementById("pizzeria").value;
+if (pizzaEntered ==="pizza hut")
+document.getElementById("pizzeria").value = "dominos pizza";
+}
+</script>
+
+document.getElementById - בוחר את האלמנט בעל ב
+ID
+שיבוא אחרי הסוגריים
+קריאה וכתיבה של טקסט ופיסקאות-
+<p id="myParagraph">
+This is a story about...
+<a href="JavaScript:void(0);" onClick="expandP();">Click for more</a>
+</p>
+
+<script>
+function expandP() {
+var expandedP = "This is a story about a student learning computer science";
+document.getElementById("myParagraph").innerHTML = expandedP ;
+}
+</script>
+
+innerHTML - הקוד המופיע בין התגית הפותחת לתגית הסוגרת
+יש לנו DIV מסוים
+
+function placeAList() {
+var listToPlace = "<ol><li>first item</li><li>second item</li><li>third item</li></ol>";
+document.getElementById("myDiv").innerHTML = listToPlace;
+}

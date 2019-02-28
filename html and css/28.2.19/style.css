@@ -1,0 +1,33 @@
+.center {
+    text-align: center;
+}
+.mid {
+    width: 80%;
+    margin: 0px auto 0px auto;
+}
+body {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+.left {
+    width: 33%;
+    border: 1px solid red;
+    float: left;
+}
+.mid {
+    width: 33%;
+    border: 1px solid red;
+    float: left;
+}
+.right {
+    width: 33%;
+    border: 1px solid red;
+    float: left;
+}
+div.in {
+    display: inline;
+}
+.head {
+    font-size: 1.5em;
+}

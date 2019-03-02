@@ -7,10 +7,18 @@
                     document.getElementById("left1").innerHTML=code;
                 }
                 function songlong(){
-                    document.getElementById("song").innerHTML="<div class='head'>Everyone (And Their Mom)</div><a href='http://theangelcy.com/'>TheAngelcy</a><br>I took myself down to the<br>crossroads to sell my soul there to the devil<br>But the devil, well he never did show up<br>So I had to give myself to any passing stranger with handsome<br>features, pretty face, kind eyes, some sweetness, something sharp<br>Reduced to getting, used to getting by<br>Searching for some grace while turning both blind eyes<br>I heard a rumble on the other side<br>Son, here comes everyone<br>Woke up applauded by some little judges<br>Holding up their shields of grudges<br>To protect themselves from a coming of a mad new world<br>I was sucking up to a music biz wiz<br>Who sells his soulful ears to mammoth<br>companies who own summer, love, youth and all my songs<br>Well just like the I wear my plastic crown<br>You can hear that little craving fear in all I've done<br>Grace lies in the longest run<br>Long lost causes to be won<br>Here comes everyone<br>Look, this is the outskirts<br>A far cry from the supersize all-seeing eye<br>A wilderness of boredom<br>No lows, no highs<br>The only way out is to get lost in dreams<br>Whispers, prayers, visions<br>Before we spend too many years<br>In the belly of the beast<br>All the wrongs of the world tattooed deep under our skins<br>Yes, I'm a liar<br>Yes, I'm a thief<br>Even if these<br>Readymade morals keep<br>Me safe from myself<br>But barely remembering<br>The sweet taste<br>The essence<br>The only way out is to get soaked in dreams<br>The only way out is deep into the heart of the machine<br>Stare straight into the flames until the<br>whole thing caves right in and loses grip<br>That's all I've got for you right now<br>A finger pointed at the sun<br>Well come on, come on, come on<br>I need everyone, ey<br>I need everyone<br>I need everyone, everyone, everyone<br>Everyone, everyone, everyone, everyone<br>(We're in this together<br>We're in this together<br>We're all dressed for murder<br>So how is the weather<br>We're in this together<br>This starship is sinking<br>Whole world in a spin<br>Get rich, die trying<br>So the whole world is dying<br>The whole world is dying<br>The whole world is dying)<br>Everyone, everyone<br><a href='JavaScript:void(0)' onclick='songshort();'>close song</a>"
+                    document.getElementById("song").innerHTML="<p><div class='head'>Everyone (And Their Mom)</div><a href='http://theangelcy.com/'>TheAngelcy</a><br>I took myself down to the<br>crossroads to sell my soul there to the devil<br>But the devil, well he never did show up<br>So I had to give myself to any passing stranger with handsome<br>features, pretty face, kind eyes, some sweetness, something sharp<br>Reduced to getting, used to getting by<br>Searching for some grace while turning both blind eyes<br>I heard a rumble on the other side<br>Son, here comes everyone<br>Woke up applauded by some little judges<br>Holding up their shields of grudges<br>To protect themselves from a coming of a mad new world<br>I was sucking up to a music biz wiz<br>Who sells his soulful ears to mammoth<br>companies who own summer, love, youth and all my songs<br>Well just like the I wear my plastic crown<br>You can hear that little craving fear in all I've done<br>Grace lies in the longest run<br>Long lost causes to be won<br>Here comes everyone<br>Look, this is the outskirts<br>A far cry from the supersize all-seeing eye<br>A wilderness of boredom<br>No lows, no highs<br>The only way out is to get lost in dreams<br>Whispers, prayers, visions<br>Before we spend too many years<br>In the belly of the beast<br>All the wrongs of the world tattooed deep under our skins<br>Yes, I'm a liar<br>Yes, I'm a thief<br>Even if these<br>Readymade morals keep<br>Me safe from myself<br>But barely remembering<br>The sweet taste<br>The essence<br>The only way out is to get soaked in dreams<br>The only way out is deep into the heart of the machine<br>Stare straight into the flames until the<br>whole thing caves right in and loses grip<br>That's all I've got for you right now<br>A finger pointed at the sun<br>Well come on, come on, come on<br>I need everyone, ey<br>I need everyone<br>I need everyone, everyone, everyone<br>Everyone, everyone, everyone, everyone<br>(We're in this together<br>We're in this together<br>We're all dressed for murder<br>So how is the weather<br>We're in this together<br>This starship is sinking<br>Whole world in a spin<br>Get rich, die trying<br>So the whole world is dying<br>The whole world is dying<br>The whole world is dying)<br>Everyone, everyone<br><a href='JavaScript:void(0)' onclick='songshort();'>close song</a></p>"
                 }
                 function songshort(){
-                    document.getElementById("song").innerHTML="<div class='head'>Everyone (And Their Mom)</div><a href='http://theangelcy.com/'>TheAngelcy</a><br>I took myself down to the<br>crossroads to sell my soul there to the devil<br>But the devil, well he never did show up<br><a href='JavaScript:void(0)' onclick='songlong();'>expand song</a>"
+                    document.getElementById("song").innerHTML="<p><div class='head'>Everyone (And Their Mom)</div><a href='http://theangelcy.com/'>TheAngelcy</a><br>I took myself down to the<br>crossroads to sell my soul there to the devil<br>But the devil, well he never did show up<br><a href='JavaScript:void(0)' onclick='songlong();'>expand song</a></p>"
+                }
+                function legalpromt(){
+                    if(parseInt(document.getElementById("age").value)<18){
+                        alert(document.getElementById("name").value+" you are not over 18")
+                    }
+                    else{
+                        alert(document.getElementById("name").value+" you are over 18, welcom")
+                    }
                 }
             </script>
     </head>
@@ -19,8 +27,8 @@
         <div class="left in" id="left1">
             <input type="button" value="click for party" id="party" onclick="partypic();">
         </div>
-        <div class="mid in">
-            <p id="song">
+        <div class="mid in" id="song">
+            <p>
                     <div class="head">Everyone (And Their Mom)</div>
                     <a href="http://theangelcy.com/">TheAngelcy</a><br>
                     I took myself down to the<br>crossroads to sell my soul there to the devil<br>But the devil, well he never did show up<br>
@@ -28,7 +36,8 @@
             </p>
         </div>
         <div class="right in">
-            3
+            name:<input type="text" id="name"><br><br>
+            age:<input type="text" id="age" onblur="legalpromt();">
         </div>
     </body>
 </html>

@@ -1,0 +1,77 @@
+מניפולציות של תמונות וטקסט-
+נניח שישנה תמונה, אנחנו רוצים בלחיצת כפתור - שתיעלם.
+
+CSS - קלאס - עיצוב לאלמנט
+
+.hidden {
+visibility: hidden;
+}
+
+ברגע שאני לוחץ על הכפתור - ארצה שאלמנט יקבל את הקלאס - hidden
+<img src="myPic.jpg" id="myPic" onClick="makeInv();">
+
+<script>
+function makeInv() {
+document.getElementById("myPic").className = "hidden";
+}
+</script>
+
+במידה ונרצה לשמור על הקלאסים הקודמים -
+
+function makeInv() {
+document.getElementById("myPic").className += " hidden";
+}
+חשוב לשים לב -
++= מוסיף לנו קלאס לקלאסים הקיימים. חשוב מאוד - לרשום על רווח בשם " hidden"
+<img src="myPic.jpg" id="myPic" onClick="makeInv();" class="hidden red">
+
+שימוש בפרמטרים של אלמנטים -
+<img src="before.jpg" id="before" onClick="swapPic();">
+function swapPic() {
+var pic = document.getElementById("before");
+pic.src = "after-pic.jpg";
+}
+
+<a href="www.wikipedia.com" id="link1">wikipedia</a>
+
+function getAddress() {
+var link = document.getElementById("link1");
+var address = link.href;   // address="www.wikipedia.com"
+}
+
+השמת עיצובים -
+link.className += " red";
+
+דרך נוספת - 
+link.style.fontSize ="2em"; 
+link.style.cssFloat = "left";
+pic.style.visibility = "hidden";
+
+איתור כל האלמנטים בעלי אותו קלאס-
+var allPars = document.getElementsByTagName("P");  //allPars - מערך ממיקום 0 עד למיקום אחד לפני כמות הפיסקאות בעמוד
+<p>1 </p>
+<p>2 </p>
+<p>3 </p>
+
+allPars[1].innerHTML = "My second paragraph";
+
+for (var i=0; i<allPars.length; i++) {
+allPars[i].style.fontFamily = "Arial";
+}
+
+var allPics = document.getElementsByTagName("img");
+
+var allDivs = document.getElementsByTagName("div");  
+
+<div id="myDiv">
+<p></p>
+<p></p>
+<img>
+<a>afa</a>
+<p></p>
+</div>
+
+var div = document.getElementById("myDiv");
+var allPinsideDiv = div.getElementsByTagName("P");  // allPinsideDiv = [p1, p2, p3....]
+
+ 

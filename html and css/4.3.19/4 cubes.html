@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style1.css">
+        <script>
+            function showtime(){
+                var now= new Date;
+                document.getElementById("timeplace").value=now;
+            }
+            function makeblue(){
+                document.getElementById("mona").className="blue"
+            }
+            function makegreen(){
+                document.getElementById("mona").className="green"
+            }
+            function part(){
+                document.getElementById("pic1").className+=" block";
+            }function disapir(){
+                document.getElementById("pic1").className="invis";
+                document.getElementById("pic2").className="invis";
+            }function reset(){
+                document.getElementById("pic1").className="";
+                document.getElementById("pic2").className="";
+            }
+            function combine(){
+                document.getElementById("head").innerHTML=document.getElementById("h").value;
+                document.getElementById("para").innerHTML=document.getElementById("p").value;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="cube">
+            <input type="text" size="65" id="timeplace"><br>
+            <input type="button" value="see the time" onclick="showtime();">
+        </div>
+        <div class="cube">
+            <p id="mona">
+                Ok I'm banging Mona Lisa in her bed It's sad We never had a chance to be just friends Instead I'm banging Mona Lisa in her bed Today Her brothers make me pay
+            </p>
+            <input type="button" value="make this green" onclick="makegreen();">
+            <input type="button" value="make this blue" onclick="makeblue();">
+        </div>
+        <div class="cube">
+                <input type="button" value="take them apart" onclick="part();"><input type="button" value="make them disapir" onclick="disapir();"><input type="button" value="make them come back" onclick="reset();">
+                <img src="http://www.pethealthnetwork.com/sites/default/files/8-common-myths-about-surgery-and-cats-481647331.jpg" id="pic1">
+                <img src="https://thedoghousetrading.com/wp-content/uploads/2017/02/4.-Faith-and-Henry-1024x966-1-100x100.jpg" id="pic2">
+        </div>
+        <div class="cube">
+            <input type="text" id="h" placeholder="header">
+            <input type="text" id="p" placeholder="body"><br>
+                <input type="button" value="make it" onclick="combine();">
+                <h1 id="head"></h1>
+                <p id="para"></p>
+        </div>
+    </body>
+</html>

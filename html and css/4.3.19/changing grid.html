@@ -1,0 +1,61 @@
+<html>
+    <head>
+            <link rel="stylesheet" type="text/css" href="style2.css">
+            <script>
+                var pars = document.getElementsByTagName("p");
+                function goblue(){
+                    for(var i=1;i<pars.length;i+=2){
+                        pars[i].style.color="blue";
+                    }
+                }function gobig(){
+                    for(var i=0;i<pars.length;i+=2){
+                        pars[i].style.fontSize= "2em";
+                    }
+                }function normy(){
+                    for(var i=0;i<pars.length;i++){
+                        pars[i].style.fontSize="1em";
+                        pars[i].style.color="red";
+                    }
+                }
+            </script>
+    </head>
+    <body>
+        <h1>header</h1>
+        <table  align="center">
+            <tr>
+                <td>
+                    <p>guy</p>
+                </td>
+                <td>
+                    <p>guy</p>
+                </td>
+                <td>
+                    <p>guy</p>
+                </td>
+            </tr>
+            <td>
+                <p>guy</p>
+            </td>
+            <td>
+                <p>guy</p>
+            </td>
+            <td>
+                <p>guy</p>
+            </td>
+        </tr>
+        <td>
+            <p>guy</p>
+        </td>
+        <td>
+            <p>guy</p>
+        </td>
+        <td>
+            <p>guy</p>
+        </td>
+    </tr>
+        </table>
+        <input type="button" value="odds go blue" onclick="goblue();">
+        <input type="button" value="evens go big" onclick="gobig();">
+        <input type="button" value="go back to normal" onclick="normy();">
+    </bodylor:>
+</html>

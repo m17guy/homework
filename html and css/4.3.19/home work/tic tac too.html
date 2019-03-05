@@ -1,0 +1,129 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>game time</title>
+    </head>
+    <script>
+        var xturn=true;
+        var style=2
+        function place(x){
+            switch(style){
+                case 1:
+                if(document.getElementById(x).className!="box white")
+                {
+                    document.getElementById(x).className+=" white";
+                    if(xturn){
+                        document.getElementById(x).innerHTML="x";
+                    }
+                    else{
+                     document.getElementById(x).innerHTML="o";
+                    }
+                    xturn=!xturn;
+                }
+                else{
+                 alert("you must pick a box not yet clamed")
+                }
+                break;
+                case 2:
+                if(document.getElementById(x).className!="box black")
+                {
+                    document.getElementById(x).className+=" black";
+                    if(xturn){
+                        document.getElementById(x).innerHTML="x";
+                    }
+                    else{
+                     document.getElementById(x).innerHTML="o";
+                    }
+                    xturn=!xturn;
+                }
+                else{
+                 alert("you must pick a box not yet clamed")
+                }
+                break;
+                case 3:if(document.getElementById(x).className!="box purple")
+                {
+                    document.getElementById(x).className+=" purple";
+                    if(xturn){
+                        document.getElementById(x).innerHTML="x";
+                    }
+                    else{
+                     document.getElementById(x).innerHTML="o";
+                    }
+                    xturn=!xturn;
+                }
+                else{
+                 alert("you must pick a box not yet clamed")
+                }
+                break;
+            }
+            turntext();
+        }
+        function turntext(){
+            if(xturn)
+            document.getElementById("turn").innerHTML="it is X's turn";
+            else
+            document.getElementById("turn").innerHTML="it is O's turn";
+        }
+        function reset(){
+            for(var i=1;i<10;i++){
+                document.getElementById(i).className="box";
+                document.getElementById(i).innerHTML=".";
+            }
+        }
+        function changestyle(x){
+            style=x;
+            switch(style){
+                case 1:
+                    document.getElementById("body").style.backgroundColor="black";
+                    document.getElementById("body").style.color="white";
+                    break;
+                case 2:
+                    document.getElementById("body").style.backgroundColor="white";
+                    document.getElementById("body").style.color="black";
+                    break;
+                case 3:
+                    document.getElementById("body").style.backgroundColor="green";
+                    document.getElementById("body").style.color="purple";
+            }
+        }
+    </script>
+    <body id="body" onload="turntext();">
+        <div class="center">
+            <h1>tik tak toe time!</h1>
+            <p id="turn"></p>
+        </div>
+        <div class="box" id="1" onclick="place(id);">
+            .
+        </div>
+        <div class="box" id="2" onclick="place(id);">
+            .
+        </div>
+        <div class="box" id="3" onclick="place(id);">
+            .
+        </div>
+        <div class="box" id="4" onclick="place(id);">
+            .
+        </div>
+        <div class="box" id="5" onclick="place(id);">
+            .
+        </div>
+        <div class="box" id="6" onclick="place(id);">
+            .
+        </div>
+        <div class="box" id="7" onclick="place(id);">
+            .
+        </div>
+        <div class="box" id="8" onclick="place(id);">
+            .
+        </div>
+        <div class="box" id="9" onclick="place(id);">
+            .
+        </div>
+        <div class="center">
+            <input class="room" type="button" value="reset game" onclick="reset();"><br><br>
+            <input class="room" type="button" value="dark mode" onclick="changestyle(1);">
+            <input class="room" type="button" value="day mode" onclick="changestyle(2);">
+            <input class="room" type="button" value="crazy style" onclick="changestyle(3);">
+        </div>
+    </body>
+</html>

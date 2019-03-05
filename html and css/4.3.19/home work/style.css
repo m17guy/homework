@@ -1,0 +1,26 @@
+.box{
+    width: 33%;
+    border: 2px solid red;
+    text-align: center;
+    font-size: 10em;
+    float: left;
+    color:white;
+}
+.black{
+    color: black;
+}
+.white{
+    color: white;
+}
+.purple{
+    color: purple
+}
+.center{
+    font-size: 2em;
+    text-align: center;
+}
+.room{
+    
+    font-size: 1.2em;
+    margin-left: 20px;
+}

@@ -1,0 +1,76 @@
+<html>
+    <head>
+    </head>
+    <body>
+      <div id="leftHalf" style="position:absolute; top:0; left:0;width:50%; height:100%;font-size:30px;text-align:center;">
+        <div id="leftFirstQ" style="width:100%; height:25%;"
+        ><p style="margin:0px;">Lion </p
+        ><p style="margin:0px;">Goat </p
+        ><p style="margin:0px;">Duck </p
+        ><input id="b1" type="button" value="Click me" onClick="change(this.id);"
+        ></div>
+          <div id="leftSecondQ" style="width:100%; height:25%;"
+          ><p style="margin:0px;">Tiger </p
+          ><p style="margin:0px;">Chicken </p
+          ><p style="margin:0px;">Cow </p
+          ><input id="b2" type="button" value="Click me" onClick="change(this.id);">
+</div>
+            <div id="leftThirdQ" style="width:100%; height:25%;"
+            ><p style="margin:0px;">Elephant </p
+            ><p style="margin:0px;">Monkey </p
+            ><p style="margin:0px;">Dog </p
+            ><input id="b3" type="button" value="Click me" onClick="change(this.id);"
+            ></div>
+              <div id="leftFourthQ" style="width:100%; height:25%;"
+              ><p style="margin:0px;">Cat </p
+              ><p style="margin:0px;">Bird </p
+              ><p style="margin:0px;">Mouse </p
+              ><input id="b4" type="button" value="Click me" onClick="change(this.id);"
+              ></div>
+              </div>
+              <div id="rightHalf" style="position:absolute; top:0; right:0;width:50%; height:100%;font-size:30px;text-align:center;"
+              ><div id="rightFirstQ" style="width:100%; height:25%;"
+              ><p style="margin:0px;">Crocodile </p
+              ><p style="margin:0px;">Sheep </p
+              ><p style="margin:0px;">Rat </p
+              ><input id="b5" type="button" value="Click me" onClick="change(this.id);"
+              ></div>
+                  <div id="rightSecondQ" style="width:100%; height:25%;"
+                  ><p style="margin:0px;">Butterfly </p
+                  ><p style="margin:0px;">Horse </p
+                  ><p style="margin:0px;">Penguine </p
+                  ><input id="b6" type="button" value="Click me" onClick="change(this.id);"
+                  ></div>
+                    <div id="rightThirdQ" style="width:100%; height:25%;"
+                    ><p style="margin:0px;">Bunny </p
+                    ><p style="margin:0px;">Worm </p
+                    ><p style="margin:0px;">Pig </p
+                    ><input id="b7" type="button" value="Click me" onClick="change(this.id);"
+                    ></div>
+                      <div id="rightFourthQ" style="width:100%; height:25%;">
+                        Change Block #<input type="text" placeholder="1-7" id="inputText">
+                          <input id="b8" type="button" value="Click me" onClick="change('b'+(Number(document.getElementById('inputText').value)));">
+</div>
+</div>
+                        <script>
+                          function change(clickedId) {
+var selectedDiv = document.getElementById(clickedId).parentNode;
+for (var i=0; i<2; i++) {
+if (selectedDiv.childNodes[i].style.color =="red") {
+                            selectedDiv.childNodes[i].style.color = "black";
+                          selectedDiv.childNodes[i].nextSibling.style.color ="red"
+                          return;
+                          }
+                          }
+if (selectedDiv.childNodes[2].style.color =="red") {
+                            selectedDiv.childNodes[2].style.color = "black";
+                          return;
+                          }
+                          selectedDiv.childNodes[0].style.color ="red";
+                          }
+function change2() {
+
+                          }
+                        </script>
+</body>
+</html>

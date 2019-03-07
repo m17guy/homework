@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script>
+            function telltype(x){
+                var a = document.getElementById(x);
+                alert(a.childNodes[1].nodeName);
+            }
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li id="a1">
+                <p>hi</p>
+            </li>
+            <li id="a2">
+                <a href="...">hello</a>
+            </li>
+            <li id="a3">
+                <h1>hudy</h1>
+            </li>
+            <li id="a4">
+                hi there
+            </li>
+            <li id="a5">
+                <img src="fuck you dot com" alt="pic 1">
+            </li>
+            <li id="a6">
+                <h1>fuck</h1>
+            </li>
+            <li id="a7">
+                <p>gay shit</p>
+            </li>
+            <li id="a8">
+                <a href="fag">niggs</a>
+            </li>
+            <li id="a9">
+                <img src="shit fuck" alt="pic 2">
+            </li>
+            <li id="a10">
+                nrngfoipjegrknegr
+            </li>
+        </ul>
+        <input type="text" id="mytext">
+        <input value="click here" type="button" onclick="telltype(document.getElementById('mytext').value)";>
+    </body>
+</html>

@@ -1,0 +1,104 @@
+DOM - Document Object Model
+משמש כמו גרף ניהולי, המיוצר אוטומטית על ידי הדפדפן ברגע שנטען העמוד.
+
+1st level - document
+2nd level - <html>
+3rd level - <head>
+4th level - <title>
+5th level - this is my title 
+</title>
+</head>
+3rd level - <body>
+4th level - <div>
+5th level - <p> 
+6th level - this is a paragraph 
+</p>
+</div>
+</body>
+</html>
+
+כל אלמנט, כל קופסא, בעצם מייצג לנו צומת - node
+צומת יכולה להיות הdocument, אלמנט מסוים, או טקסט
+
+DOM - עובד בצורת ירושה, יש הורים ויש ילדים
+
+בעזרת הDOM מוצאים ילדים / צמתים-
+var field = document.getElementById("email");
+
+var fields = document.getElemetsByTagName("p");
+
+דוגמא נוספת להגיע לאלמנט מסוים בעמוד בעזרת הDOM-
+
+	מסמך	HTML	      BODY		H1
+var h = document.childNodes[0].childNodes[1].childNodes[1];
+var content = h.innerHTML; // "my header"
+
+
+הערה*
+רוב הדפדפנים מכניסים לעמוד תוכן "זבל"
+מרווחים, טאבים, והזחה - מתקבלים על ידי הDOM כאובייקטים.
+
+<html>
+	<head>
+<title>
+ישנם כמה דרכים להתגבר על התופעה -
+<html   					// <p    > == <p>				
+><head
+><title
+>this is my title
+
+דרך נוספת - 
+שימוש בכלי לכיווץ הקוד לדוגמא -
+ https://www.willpeavy.com/minifier/
+
+ניתן לבקש מהדפדפן לקבל את סוג הצומת -
+
+var type = h.nodeType;
+
+מקבלים בחזרה מספר - אם הצומת היא אלמנט, למשל P או Div - נקבל את המספר "1"
+אם הצומת היא טקסט - נקבל את המספר "3"
+
+myDiv.childNodes[0] === myDiv.firstChild;
+
+myDiv.childNodes[5] === myDiv.lastChild;
+
+myDiv.parentNode // נקבל אך ורק אובייקט אב אחד
+
+myDiv.nextSibling;
+myDiv.previousSibling;
+
+מציאת שם של צומת -
+var myName= parent.nodeName; //
+<p> = P
+<div> = DIV
+<span> = SPAN
+<img> = IMG
+text bla bla bla = #text
+
+myName.nodeValue // הטקסט עצמו בתוך הצומת
+
+לא להתבלבל בין nodeValue ל- innerHTML
+
+p.innerHTML - הטקסט הכתוב בתוך אובייקט הP
+
+ספירת אלמנטים -
+
+ניתן לקבל מערך של כל האלמנטים הילדים של אלמנט אב מסוים, ללא קשר לסוגם-
+var parentNode = document.getElementById("d1");
+var nodeList = parentNode.childNodes;
+
+כעת, נרצה דעת כמה אלמנטים יש במערך-
+nodeList.length = מספר האובייקטים במערך
+
+ניתן לספור את האלמנטים שאני מחפש בתוך האלמנט האב -
+
+var numberPics = 0;
+for (var i=0; i<nodeList.length; i++) {
+if(nodeList[i].nodeName.toLowerCase() ==="img") {
+numberPics++;
+}
+}
+
+
+
+

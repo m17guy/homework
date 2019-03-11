@@ -1,0 +1,56 @@
+<html>
+     <head>
+          <link rel="stylesheet" type="text/css" href="style.css">
+        <title>game time</title>
+     </head>
+        <script>
+            var hit=true;
+            var hitcount=-1;
+            var divs;
+            var bod=document.getElementsByClassName("box");
+            for(var i=0;i<bod.length;i++){
+                if(document.getElementById("body").childNodes[i].nodeName=="DIV"){ 
+                    divs.push(document.getElementById("body").childNodes[i]);
+                }
+            }
+            function place(x){
+                if(x.parentNodes.className == "box mole")
+                { hit=true; newmole(); }
+                else{ hit=false; }
+            }
+            function newmole(){
+                hitcount++; 
+                var box = (Math.floor.random*9)+1; 
+                document.getElementsByClassName("box mole").innerHTML= ".";
+                document.getElementsByClassName("box mole").className="box";
+                divs[box].innerHTML="<img src='https://i.ytimg.com/vi/DwGkEZ-tMdg/maxresdefault.jpg' alt='mole' width='300' height='185'>";
+                divs[box].className="box mole";
+        } 
+        function startgame(){ 
+            hitcount=-1;
+            for(var i=1;i<divs.length;i++){ 
+                divs[i].innerHTML=".";
+                divs[i].className="box"
+            } 
+            newmole();
+        } 
+    </script> 
+    <body id="body"> 
+        <div class="center"> 
+            <h1>whack a mole!</h1> 
+            <p id="turn"></p> 
+        </div> 
+        <div class="box" onclick="place(this.childNodes[0]);"> . </div> 
+        <div class="box" onclick="place(this.childNodes[0]);"> . </div> 
+        <div class="box" onclick="place(this.childNodes[0]);"> . </div> 
+        <div class="box" onclick="place(this.childNodes[0]);"> . </div> 
+        <div class="box" onclick="place(this.childNodes[0]);"> . </div> 
+        <div class="box" onclick="place(this.childNodes[0]);"> . </div> 
+        <div class="box" onclick="place(this.childNodes[0]);"> . </div> 
+        <div class="box" onclick="place(this.childNodes[0]);"> . </div> 
+        <div class="box" onclick="place(this.childNodes[0]);"> . </div> 
+        <div class="center"> 
+            <input class="room" type="button" value="start game" onclick="startgame();"> 
+        </div> 
+    </body> 
+</html>

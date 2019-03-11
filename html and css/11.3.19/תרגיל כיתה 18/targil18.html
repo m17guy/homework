@@ -1,0 +1,64 @@
+<html>
+              <head>
+              </head>
+              <body>
+                <h1 style="text-align:center; margin:0;">Whack a mole</h1>
+                <p>Player time:<span id="playerTime"></span></p>
+                <div style="width:100%; height:80%;overflow-x:auto;">
+                  <table style="border-collapse:collapse;width: 90%; height:100%; text-align:center; font-size:60px; margin:auto;">
+                    <tr>
+                      <td id="t1" style="width:33%; height:33%;"></td>
+                      <td id="t2" style="border-left:1px solid black;border-right:1px solid black;width:33%; height:33%;"></td>
+                      <td id="t3" style="width:33%; height:33%;"></td>
+                    </tr>
+                    <tr>
+                      <td id="t4" style="border-top:1px solid black;border-bottom:1px solid black;width:33%; height:33%;"></td>
+                      <td id="t5" style="border:1px solid black;width:33%; height:33%;"></td>
+                      <td id="t6" style="border-top:1px solid black;border-bottom:1px solid black;width:33%; height:33%;"></td>
+                    </tr>
+                    <tr>
+                      <td id="t7" style="width:33%; height:33%;"></td>
+                      <td id="t8" style="border-left:1px solid black;border-right:1px solid black;width:33%; height:33%;"></td>
+                      <td id="t9" style="width:33%; height:33%;"></td>
+                    </tr>
+                  </table>
+                </div>
+                <input type="button" onClick="start();this.disabled=true;" value="Start game" id="startB"> <br>
+                  <script>
+                    var turns=0;
+var molePic = "<img src='http://dl.stickershop.line.naver.jp/products/0/0/1/1150544/android/main.png' onCLick='hit(this.parentNode.id);'>";
+                    var tds = document.getElementsByTagName("td");
+function start() {
+                        turns = 0;
+                      var rand = Math.floor(Math.random()*9 +1);
+                      tds[rand-1].innerHTML = molePic;
+                      }
+                      var date;
+                      var startTime;
+function hit(clickedId) {
+if (turns == 0) {
+                        date = new Date();
+                      startTime =date.getTime();
+                      }
+if (turns == 9) {
+var endDate= new Date();
+                      console.log(date);
+                      console.log(startTime);
+                      console.log(endDate);
+                      console.log(result);
+                      var result = endDate.getTime() - startTime;
+                      document.getElementById("startB").disabled=false;
+                      document.getElementById("playerTime").innerHTML = (result/1000).toFixed(2);
+                      alert("Great!");
+for (var i=0; i<9; i++)
+                      tds[i].innerHTML = "";
+                      return;
+                      }
+                      var rand = Math.floor(Math.random()*9 +1);
+                      document.getElementById(clickedId).innerHTML = "";
+                      document.getElementById("t"+rand).innerHTML = molePic;
+                      turns++;
+                      }
+</script>
+</body>
+</html>

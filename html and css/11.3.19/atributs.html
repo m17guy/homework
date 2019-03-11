@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <script>
+            function changlink(){
+                var a = document.getElementById("link");
+                a.setAttribute("href",document.getElementById("adres").value)
+            }
+        </script>
+    </head>
+    <body>
+        <a id="link" href="">im a link to:</a>
+        <input type="text" id="adres" onBlur="changlink();">
+    </body>
+</html>

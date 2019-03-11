@@ -1,0 +1,54 @@
+תכונות Attributes -
+
+<a href="www.amazon.com"> Shop </a>
+a - צומת / node (A)
+Shop - צומת / node (#text)
+
+www.amazon.com - תכונה / attribute
+
+איך נזהה תכונות-
+כאשר נראה "" ואחריהם =
+נדע שזה תכונה
+
+<div id="p1">
+ id="p1" - תכונה של צומת DIV
+<p class="special" id="myP">
+
+<img src="guy.jpg" alt="my pic" width="100px">
+
+var target = document.getElementById("myP");
+var hasClass = target.hasAttribute("class") // true / false
+
+target.getAttribute("class"); // "special"
+
+target.setAttribute("src", "vlad.jpg");
+
+var list =  document.getElementById("myP").attributes; // יתקבל מערך עם כל התכונות של האובייקט
+var name = list[0].nodeName //  class
+var name = list[0].nodeValue // special
+
+list[0].nodeName = "id";
+list[0].nodeValue = "myId";
+
+הגדרת צמתים-
+
+בעזרת הDOM, אנחנו יכולים ליצור, להכניס, למקם צמתים
+
+var nodeToAdd = document.createElement("p"); // יוצרת פסקה חדשה, מכניסה את האובייקט לתוך המשתנה
+nodeToAdd.setAttribute("class", "regular"); // <p class="regular"></p>
+
+var newTxt = document.createTextNode("Hello!"); // צומת חדשה, שמכילה טקסט Hello!
+
+nodeToAdd.appendChild(newTxt); // <p class="regular">Hello!</p>
+
+var parentDiv = document.getElementByid("myDiv");
+parentDiv.appendChild(nodeToAdd);
+
+יש לנו בעיה אחת בשיטה הזאת - appendChild מיד יכניס לנו את האובייקט בסוף
+
+var paragraph1 = parentDiv.firstChild; //childNodes[0]
+parentDiv.insertBefore(nodeToAdd, paragraph1);
+
+parentDiv.removeChild(nodeToRemove);
+
+

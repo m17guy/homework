@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script>
+            var paracounter=0;
+            function sendcolor(x){
+                var color=x;
+                paracounter++;
+                var idname="p"+paracounter;
+                var text=document.getElementById("textbox").value;
+                var para=document.createElement("p");
+                para.setAttribute("class",color);
+                para.setAttribute("id",idname);
+                para.appendChild(document.createTextNode(text));
+                document.getElementById("chat").appendChild(para);
+                if(text!=""){
+                var bot1=document.createElement("input")
+                bot1.setAttribute("type","button");
+                bot1.setAttribute("value","delet");
+                var whattodelet="delet('"+idname+"');";
+                bot1.setAttribute("onclick",whattodelet);
+                document.getElementById(idname).appendChild(bot1);
+                var bot2=document.createElement("input")
+                bot2.setAttribute("type","button");
+                bot2.setAttribute("value","reply");
+                var toreply="reply('"+idname+"');"
+                bot2.setAttribute("onclick",toreply);
+                document.getElementById(idname).appendChild(bot2);
+                }
+                document.getElementById("textbox").value="";
+            }
+            function reply(location){
+                
+            }
+            function delet(x){
+                var delme = document.getElementById(x);
+                var perentdiv=document.getElementById("chat");
+                perentdiv.removeChild(delme);
+            }
+        </script>
+    </head>
+    <body>
+        <div id="chat"></div>
+        <textarea id="textbox">hello</textarea><br>
+        <div class="half">
+        <input class="blue" type="button" onclick="sendcolor('blue');" value="blue">
+        </div>
+        <div class="half">
+        <input class="red" type="button" onclick="sendcolor('red');" value="red">
+        </div>
+    </body>
+</html>

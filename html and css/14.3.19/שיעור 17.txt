@@ -1,0 +1,36 @@
+אובייקטים - objects 
+
+אובייקט בJS הוא משתנה.
+
+var plan1 = {
+name: "Basic",
+price: 3.99,
+discount: false,
+pages: 10,
+months: [1, 3, 4, 10]
+};
+
+plan1.months[3];
+var p = plan1.price; //p =3.99
+
+var req = "pages" in plan1;  // true / false
+
+הכנסת פונקציה כשדה באובייקט -
+
+var plan1 = {
+name: "Basic",
+price: 3.99,
+discount: false,
+pages: 10,
+months: [1, 3, 4, 10],
+calc:  function(percent) {
+bestPrice = plan1.price*percent;
+return bestPrice*12;
+}
+};
+
+דברים לשים לב -
+השור הראשונה של הגדרת הפונקציה שונה מהדרת פונקציה רגילה, כל השאר - זהה.
+כל שורה בתוך הפונקציה מסתיימת ב;
+הסוגריים לקבלת משתנים בפונקציה תופיע מיד לאחר המילה function
+

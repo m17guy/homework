@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <script>
+            var book={
+                name:"enders game",
+                year:1999,
+                toread:true
+            };
+            var book2={
+                name:"gracling",
+                year:2007,
+                toread:true
+            };
+            var book3={
+                name:"red mars",
+                year:1999,
+                toread:false
+            };
+            var librery=[book,book2,book3]
+            function bookcheck(){
+                var input=document.getElementById("name").value;
+                for(var i=0;i<librery.length;i++){
+                    if(input===librery[i].name){
+                        document.getElementById("book").innerHTML="<p>name: "+librery[i].name+"<br>year: "+librery[i].year+"<br>you should read it: "+librery[i].toread+"</p>";
+                        break;
+                    }
+                    document.getElementById("book").innerHTML="there is no book with that name";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <p>
+            book name:
+            <input type="text" id="name">
+            <input type="button" value="check" onclick="bookcheck();">
+        </p>
+        <div id="book">
+            <p></p>
+        </div>
+    </body>
+</html>

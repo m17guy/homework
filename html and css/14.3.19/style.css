@@ -1,0 +1,14 @@
+body{
+    text-align: center;
+}
+.half{
+    width:49.5%;
+    text-align: center;
+    float: left;
+}
+.red{
+    color: red;
+}
+.blue{
+    color: blue;
+}

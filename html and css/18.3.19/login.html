@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script>
+                var myuser=new user("guy","rocks");
+            function user(n,pass){
+                this.name=n;
+                this.password=pass;
+            }
+            function check(){
+                    if(myuser.name===document.getElementById("username").value && myuser.password===document.getElementById("password").value){
+                        window.location.href="logout.html";
+                    }
+                alert("user was not found");
+            }
+        </script>
+    </head>
+    <body>
+        <p>user name:<input type="text" id="username"></p>
+        <p>password:<input type="password" id="password"></p>
+        <input type="button" onclick="check();" value="log in">
+    </body>
+</html>

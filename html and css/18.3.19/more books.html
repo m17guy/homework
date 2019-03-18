@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <script>
+            var librery=[];
+            var index=0;
+            function addbook(){
+                var bn=document.getElementById("bname").value;
+                alert(bn);
+                var an=document.getElementById("aname").value;
+                var year=document.getElementById("year").value;
+                librery[index]=new book(bn,an,year);
+                alert(librery[index].bookname);
+                index++;
+            }
+            function book(b,a,y){
+                this.bookname = b;
+                this.athorname = a;
+                this.year = y;
+            }
+            function showbooks(){
+                alert(librery[0].bookname);
+                document.getElementById("show").innerHTML="";
+                for(var i=0; i<librery.length;i++){
+                    var text="book name:"+librery[i].bookname+"<br>athor name:"+librery[i].athorname+"<br>year of publeshing:"+librery[i].year;
+                    document.getElementById("show").innerHTML+=text;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        book name:<input type="text" id="bname" placeholder="book name"><br>
+        person name:<input type="text" id="aname" placeholder="athor name"><br>
+        year:<input type="text" id="year" placeholder="year of publeshing"><br>
+        <input type="button" value="add book" onclick="addbook();"><br>
+        <input type="button" value="show books" onclick="showbooks();">
+        <div id="show">
+        </div>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script>
+            var newwindow;
+            function openit(){
+                newwindow=window.open();
+                newwindow.document.write("");
+                var text="";
+                for(var i=0;i<parseInt(document.getElementById("num").value);i++){
+                    text+="<p>guy</p>";
+                }
+                newwindow.document.write(text);
+            }
+            function closeit(){
+                newwindow.close();
+            }
+        </script>
+    </head>
+    <body>
+        <p>enter a number:<input type="text" id="num"></p>
+        <input type="button" onclick="openit();" value="open new window">
+        <input type="button" onclick="closeit();" value="close new window">
+    </body>
+</html>

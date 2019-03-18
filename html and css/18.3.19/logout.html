@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <script>
+            function logout(){
+                if(document.getElementById("rob").checked){
+                    window.location.href="login.html";
+                }
+                alert("robots can not log out");
+            }
+        </script>
+    </head>
+    <body>
+        <p>
+            i am not a robot <input type="checkbox" id="rob">
+        </p>
+        <input type="button" value="log out" onclick="logout();">
+    </body>
+</html>

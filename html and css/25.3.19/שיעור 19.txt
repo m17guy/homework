@@ -1,0 +1,150 @@
+
+בדיקה האם קיים בדפדפן חוסם פופ-אפים-
+function checkForPopBlocker() {
+var testPop = window.open();
+if (testPop === null) {
+alert("Please disable your pop-blocker");
+}
+testPop.close();
+}
+
+שליטה בגודל ובמיקום של העמוד החדש -
+
+var newWindow = window.open("new.html", "win1");
+
+הפרמטר הראשון - העמוד הקיים שאותו נרצה לפתוח.
+הפרמטר השני - השם שניתן לעמוד שנפתח.
+
+השם יכול לשמש את JS גם בתגיות a ו form.
+
+ניתן לתת לעמוד גודל -
+
+var newWindow = window.open("new.html", "win1", "width=420,height=380");
+
+השם לא יקבל רווחים, גם לא מה שבתוך הגרשיים.
+הרוחב והגובה בפיקסלים בלבד.
+הגדלים חייבים להיות מינימום 100 על 100.
+כדי לתת לחלון גודל, חייבים להגדיר שם.
+
+
+ניתן גם להכניס מיקום-
+
+var newWindow = window.open("new.html", "win1", "width=420,height=380,left=200,top=100");
+
+
+
+
+אימות תיבת טקסט -
+
+<form onSubmit="return checkForLastName();">
+Please enter your last name.<br>
+<input type="text" id="lastNameField">
+<input type="submit" value="Submit Form">
+</form>
+
+כאשר המשתמש לוחץ על כפתור submit, הפונקציה נקראת -
+
+function checkForLastName() {
+if (document.getElementById("lastNameField").value.length === 0) {
+alert("Please enter your last name");
+return false;
+}
+}
+
+
+אימות תפריט drop-down-
+
+במידה ויש לנו תפריט בחירה יורד, נרצה לוודא שהמשתמש אכן בחר אופציה כלשהי, ולא השאיר את הבחירה ריקה.
+
+<form onSubmit="return checkForSelection();">
+<select id="states">
+<option value="" selected="selected">SELECT A STATE</option>
+<option value="AL">Alabama</option>
+<option value="AK">Alaska</option>
+<option value="AZ">Arizona</option>
+<option value="AR">Arkansas</option>
+</select>
+<input type="submit" value="Submit Form">
+</form>
+
+
+והפונקציה עצמה -
+
+function checkForSelection() {
+if (document.getElementById("states").selectedIndex === 0) {
+alert("Please select a state.");
+return false;
+}
+}
+
+
+אימות כפתורי רדיו-
+
+<form onSubmit="return validateRadios();">
+<input type="radio" name="r1" value="cat"> Cat<br>
+<input type="radio" name="r1" value="bat"> Bat<br>
+<input type="radio" name="r1" value="hat"> Hat<br>
+<input type="submit" value="Submit Form">
+</form>
+
+והפונקציה-
+
+function validateRadios() {
+var radios = document.getElementsByName("r1");
+for (var i = 0; i < radios.length; i++) {
+if (radios[i].checked) {
+return true;
+}
+}
+alert("Please check one.");
+return false;
+}
+
+
+בדיקת אימייל-
+
+function validateEmail() {
+var eEntered = document.getElementById("email").value; ///  guy@gmail.com
+if (eEntered.indexOf(" ") !== -1) {
+alert("No spaces allowed in address");
+return false;
+}
+}
+
+קודם כל נבדוק שאין רווחים, כיוון שרווחים לא חוקיים בכתובת אימייל
+
+function validateEmail() {
+var addressIsLegal = true;
+var eEntered = document.getElementById("address").value;
+if (eEntered.indexOf(" ") !== -1) {
+addressIsLegal = false;
+}
+if (eEntered.indexOf("@") < 1 || eEntered.indexOf("@") > eEntered.length - 5) {>   
+addressIsLegal = false;
+}
+if (eEntered.indexOf(".") - eEntered.indexOf("@") < 2 ||   
+eEntered.indexOf(".") > eEntered.length - 3) {
+addressIsLegal = false;
+}
+if (addressIsLegal === false) {
+alert("Please correct email address");
+return false;
+}
+}
+
+try and catch -
+
+function greet() {
+try {
+var greeting = "Hello!";
+aler(greeting);
+}
+catch(err) {
+alert(err);
+}
+}
+
+
+
+
+

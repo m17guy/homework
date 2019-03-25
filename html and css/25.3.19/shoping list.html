@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <script>
+            function add(){
+                if(document.getElementById("thing").value==""){
+                    alert("you must name an item to add")
+                }
+                else{
+                var node = document.createElement("LI");
+                var text1 = document.getElementById("thing").value;
+                var textnode = document.createTextNode(text1);
+                node.appendChild(textnode);
+                document.getElementById("list").appendChild(node);
+                document.getElementById("thing").value="";
+                }
+            }
+            function print(){
+                var thelist=document.getElementById("list").innerHTML;
+                var newwind= window.open();
+                var newcode="<h1 style='text-align:center'>shoping list</h1><ol style='color:red; text-align:center'>"+thelist+"</ol>"
+                newwind.document.write(newcode);
+                newwind.document.sty
+            }
+        </script>
+    </head>
+    <body>
+        what to buy:<input type="text" id="thing">
+        <input type="button" value="add" onclick="add();">
+        <table>
+            <ul id="list">
+            </ul>
+        </table>
+        <input type="button" value="print" onclick="print();">
+    </body>
+</html>

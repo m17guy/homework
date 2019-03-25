@@ -1,0 +1,45 @@
+<html>
+<head>
+</head>
+<body>
+<h1> Register </h1>
+Username: <input type="text" id="usernameR"><br>
+Password: <input type="text" id="passwordR"><br>
+<br><input type="button" value="register" onClick="register()">
+<br><br><br><br>
+<h1>Login page </h1>
+Username: <input type="text" id="usernameL"><br>
+Password: <input type="password" id="passwordL">
+<input type="button" id="button" onClick="login();" value="log-in">
+<script>
+var users = [];
+function login() {
+var username = document.getElementById("usernameL").value;
+var password = document.getElementById("passwordL").value;
+for (var i=0; i<users.length; i++) {
+if ((username === users[i].name) && (password === users[i].password)) {
+var newWindow = window.open();
+var content = "Username: " + username + "<br>" +"Password: " + password;
+newWindow.document.write(content);
+return;
+}
+}
+alert("wrong username/password!");
+}
+function register() {
+if ((document.getElementById("usernameR").value.length < 4) || (document.getElementById("passwordR").value.length < 4))
+alert("username and password must be atleast 4 characters long");
+else {
+var user = {
+name: document.getElementById("usernameR").value,
+password: document.getElementById("passwordR").value,
+};
+users.push(user);
+document.getElementById("usernameR").value ="";
+document.getElementById("passwordR").value ="";
+alert("user saved!");
+}
+}
+</script>
+</body>
+</html>

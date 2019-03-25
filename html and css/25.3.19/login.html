@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <script>
+            var allusers=[];
+            function checklength(){
+                var name=document.getElementById("username").value;
+                var pass=document.getElementById("password").value;
+                if(name.length<4){
+                    alert("user name must be more then 4 characters");
+                    return false;
+                }
+                if(pass.length<4){
+                    alert("password must be more then 4 characters");
+                    return false;
+                }
+                var user={
+                 nameR: name,
+                 passR: pass
+                }
+                allusers.push(user);
+                alert("user added");
+                return true;
+            }
+            function login(){
+                var username=document.getElementById("logname").value;
+                var userpass=document.getElementById("logpass").value;
+                var init=false;
+                alert(allusers[0]);
+                for(var i=0;i<allusers.length;i++){
+                    if(allusers[i].nameR===username){
+                        if(allusers[i].passR===userpass){
+                            window.open();
+                            init=true;
+                            break;
+                        }
+                    }
+                }
+                if(!init){
+                    alert("log in unsocsefull")
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form onsubmit="return checklength();" action="">
+            <p>user name:<input type="text" id="username"></p>
+            <p>password:<input type="password" id="password"></p>
+            <input type="submit" value="sign up">
+        </form>
+        <br><br><br><br><br>
+        user name:<input type="text" id="logname"><br>
+        password:<input type="password" id="logpass">
+        <input type="button" value="log in" onclick="login();">
+    </body>
+</html>

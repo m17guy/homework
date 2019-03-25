@@ -1,0 +1,105 @@
+
+הכנסת פונקציה כשדה באובייקט -
+
+var plan1 = {
+name: "Basic",
+price: 3.99,
+discount: false,
+pages: 10,
+months: [1, 3, 4, 10],
+calc:  function(percent) {
+bestPrice = plan1.price*percent;
+return bestPrice*12;
+}
+};
+
+דברים לשים לב -
+השורה הראשונה של הגדרת הפונקציה שונה מהגדרת פונקציה רגילה, כל השאר - זהה.
+כל שורה בתוך הפונקציה מסתיימת ב;
+הסוגריים לקבלת משתנים בפונקציה תופיע מיד לאחר המילה function
+
+קריאה לפונקציה שהיא שדה באובייקט-
+var newVar = plan1.calc(85);
+
+כדי לאתחל אובייקט, ניתן להשתמש בפונקצית קונסטרקטור -
+function Plan(name, price, discount, pages, func) {
+this.name = name;
+this.price = price;
+this.discount = discount;
+this.pages= pages;
+this.func = func
+}
+
+var plan1 = new Plan("Basic", 3.99, false, 10, dot());
+var plan2 = new Plan("Premium", 5.99, true, 20);
+
+
+plan1.name;
+plan2.name;
+
+שליטה בדפדפן -
+
+שליטה בURL.
+var whereWeAt = window.location.href;  //"https://www.amazon.com/"
+
+var theDomain = window.location.hostname; //"www.amazon.com"
+
+var thePath = window.location.pathname; // "/books/lord"
+
+var theAnchor = window.location.hash; //#  //""
+
+כמו לקרוא את הURL, ניתן גם לשנות אותו -
+
+window.location.href = "https://www.amazon.com/";
+
+
+window.location.href === window.location.assign === window.location.replace
+
+* REPLACE - משפיע על היסטורית הדפדפן
+
+window.location.reload(true // false //())
+
+true - העמוד יטען מהשרת
+שני האחרים - העמוד יתרענן מהcache
+
+JS יודע גם להשתמש בהיסטוריה של הדפדפן
+נרצה לעבור לעמוד הקודם -
+history.back();
+
+באופן דומה, לעמוד הבא-
+history.forward();
+
+באופן אחיד-
+history.go(-2); יעביר אותי 2 עמודים אחורה
+history.go(3); יעביר אותי 3 עמודים קדימה
+
+אם נרצה לדעת מהיכן הגיע המשתמש-
+var whereUserFrom = document.referrer;
+
+פתיחת עמוד חדש -
+var newWindow = window.open();
+
+העמוד יפתח בגודל מלא.
+* המיקום של החלון - טאב חדש, חלון חדש, במקום החלון הנוכחי - לא בשליטתנו. כל דפדפן בעל הגדרות שונות.
+
+תוכן לעמוד, ניתן להכניס ב3 דרכים-
+
+var windowContent = "<h1> This is my site<h1><br><p>gsg</p>";
+
+- newWindow.document.write(windowContent);
+
+- newWindow.location.assign("www.amazon.com");
+
+- var newWindow = window.open("guy.html");
+
+ניתן גם לסגור עמודים-
+newWindow.close();
+
+בדיקה האם קיים בדפדפן חוסם פופ-אפים-
+function checkForPopBlocker() {
+var testPop = window.open();
+if (testPop === null) {
+alert("Please disable your pop-blocker");
+}
+testPop.close();
+}

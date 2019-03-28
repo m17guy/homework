@@ -1,0 +1,52 @@
+ספרייה (כדוגמאת Jquery) -
+אוסף של פונקציות ופונקציונליות שנוספת לשפה.
+
+FRAMEWORK - 
+כמו ספריה, מוסיף לנו פונקציות ובנוסף, משנה את אופן כתיבת השפה.
+
+
+ES6 / ES5-
+ECMA SCRIPT - הדפדפנים היום מתרגמים ES5 בלבד.
+ES6 - הוסיפה לנו classes, arrow functions...
+
+Type Script TS-
+שפת תכנות, של מיקרוסופט, שבנויה על ES6.
+נותנת שימוש בinterfaces, generics, types. (ניתן, לא חייב)
+
+BABEL-
+קומפיילר שיודע לתרגם שפות כמו ES6 ו TS ל-ES5
+
+Webpack-
+מאגד קבצים רבים לקובץ בודד וממוזער.
+
+גרסאות אנגולר -
+angular 1 - angularJS (angular 1 - angular 1.1 - angular 1.2...... angular 1.9) // jquery
+angular 2 - angular (angular 2, angular 4... angular 7) // TS
+
+התאמת המערכת לAngular-
+דבר ראשון - נצטרך NODE JS על המחשב
+ביחד עם NODE מגיע NPM
+בתוך בcommand line נרשום את הפקודה npm -v
+אם קיבלנו מספר גרסה - מותקן.
+
+להוריד angular cli
+npm install -g @angular/cli
+
+ng new App
+
+
+כדי לפתוח אפליקציה אונליין - ניתן להשתמש בכלים כמו-
+codesandbox
+stackblitz
+
+
+אנגולר ורכיביו -
+component - רכיב
+רכיב בסיסי באפליקציית אנגולר, הרכיב הבסיסי ביותר שיבנה את האפליקציה.
+מודל  - module  רכיב גבוה יותר, שמכיל בתוכו כמה components.
+
+כדי להריץ את האפליקציה נשתמש בפקודה ng serve
+התוכנה תרוץ על port 4200 ב- localhost:4200
+
+
+

@@ -1,0 +1,28 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1 *ngIf="num==0">
+    Welcome {{ title }}!
+  </h1>
+  <h1>{{num}}</h1>
+</div>
+ <h2>Here are some things to start with: </h2>
+<ul>
+  <li>
+    <button (click)="num=num+1">add 1</button>
+  </li>
+  <li>
+    <button (click)="num=num-1">subtract 1</button>
+  </li>
+  <li>
+    <button (click)="num=0">to 0</button>
+  </li>
+</ul>
+<button (click)="newEl()">add element</button>
+<button (click)="showTable= !showTable">hide</button>
+<table *ngIf="showTable">
+  <tr *ngFor="let el of element">
+    <td>element: {{el}}   |</td>
+    <td>time of post: {{times[element.indexOf(el)]}}</td>
+  </tr>
+</table>
+

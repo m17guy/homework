@@ -1,0 +1,8 @@
+<div *ngIf="!text">
+<button (click)="cupgame(1);">cup 1</button>
+<button (click)="cupgame(2);">cup 2</button>
+<button (click)="cupgame(3);">cup 3</button>
+</div>
+<div *ngIf="text">
+    <p (click)="this.text=!this.text;">{{answer}}</p>
+</div>

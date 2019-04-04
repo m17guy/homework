@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  </div>
+<h2>text for a h2 here </h2>
+<button (click)="newEl()">add element</button>
+<button *ngIf="elements.length>9" (click)="this.elements=[];">delete list</button>
+<ul>
+  <li *ngFor="let el of elements" [id]="'element: ' + el" [ngStyle]="{backgroundColor: getcolor(el)}">{{el}}</li>
+</ul>
+<cup-component></cup-component>
+<tableee-component></tableee-component>

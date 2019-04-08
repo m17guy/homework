@@ -1,0 +1,43 @@
+App.css:
+.borderUL {
+ border: 1px solid red;
+}
+
+App.html:
+<input type="text" [(ngModel)] ="elInput">
+<button (click)="newElement()">New element</button>
+<p
+ [ngStyle]="{color: elements.length > 10 ? 'red' : 'black'}">Elements: {{ elements.length }}</p>
+<ul [ngClass]="{borderUL: multiple}">
+ <li
+   *ngFor="let el of elements"
+   (click)="elRemoved(el)">{{el}}</li>
+</ul>
+
+App.ts:
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'my-app',
+ templateUrl: './app.component.html',
+ styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+ elements = [];
+ elInput = "";
+ multiple=false;
+ newElement() {
+   for (var i=0; i< this.elements.length ; i++) {
+   if (this.elements[i] ==  this.elInput) {
+     this.multiple=true;
+     return;
+   }
+   this.multiple=false;
+   }
+   this.elements.push(this.elInput);
+ }
+ elRemoved(el) {
+   const position = this.elements.indexOf(el);
+   this.elements.splice(position, 1);
+ }
+}

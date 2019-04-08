@@ -1,0 +1,17 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  </div>
+<button (click)="newEl()">add element</button>
+<ul>
+  <element-Component *ngFor="let el of elements"></element-Component>
+</ul>
+
+
+
+<input type="text" [(ngModel)]="inputt">
+<button (click)="moreshoping()">add</button>
+
+<shop-Component *ngFor="let sh of shoping">{{sh}}</shop-Component>

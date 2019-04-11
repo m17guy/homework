@@ -1,0 +1,53 @@
+יוצרים רכיבים בעזרת אנגולר CLI -
+בתוך הcmd בעזרת angular CLI -
+ng generate component "name"
+ng g c "name"
+
+הרכיבים נוצרים אוטומטית, ומיובאים לבד בapp.module
+
+
+תהליך חיים של רכיבים - LifeCycle
+
+לכל רכיב באנגולר יש 7 שלבים במסלול החיים.
+
+ngOnChanges - מתרחש בכל שינוי בעובר על הרכיב
+ngOnInit - מתרחש בעת הקמת הרכיב 
+ngDoCheck- מתרחש כל הזמן, בכל שינוי, כל אירוע, גם כזה שלא קשור ברכיב
+..
+..
+..
+ngOnDestroy - מתרחש בעת מחיקת או השמדת רכיב
+
+
+ngSwitch-
+בדומה ngIf או ngFor - פקודה של אנגולר
+
+<div [ngSwitch]="value">
+<p *ngSwitchCase="1">One</p>
+<p *ngSwitchCase="3">Three</p>
+<p *ngSwitchCase="5">Five</p>
+<p *ngSwitchDefault>Default</p>
+</div>
+
+Routing & Routes
+
+דבר ראשון, צריך להוסיף רכיבים.
+דבר שני, נגדיר לאנגולר שנרצה להשתמש בRouting.
+
+<router-outlet></router-outlet> -
+יראה במיקום הזה, את הרכיב שהמשתמש נמצא לפי המערך שהגדרנו בapp.module
+
+const appRoutes: Routes = [ // הגדרה של מערך הקישורים
+  { path: "first", component: FirstComponent },
+  { path: "second", component: SecondComponent }
+];
+
+@NgModule({
+  imports: [BrowserModule, ReactiveFormsModule, RouterModule.forRoot(appRoutes)], // מייבאים את המודול של הקישורים
+
+
+
+
+
+
+

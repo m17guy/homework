@@ -1,0 +1,21 @@
+הכנסת מידע מחוץ לרכיב -
+
+@Input()
+אומרת לאנגולר, תתכונן, הולך להיכנס מידע מבחוץ
+@Input variable = "name";
+
+כדי להכניס למשתנה מידע מבחוץ, בעת קריאה לרכיב -
+<app-username [username]="'Alon'"></app-username>
+
+
+Two-way data binding-
+קריאת אינפוט מהמשתמש
+[(ngModel)] 
+מקבל שני סוגי סוגריים - מרובעים ורגילים (ייחודי לngModel).
+מקבל מידע, ומוציא מידע.
+
+<input type="text" [(ngModel)]="message">
+<p>{{ message }}</p>
+
+* להגדיר את המשתנה בקובץ הTS
+* לייבא את המודול FormsModule בקובץ app.module.ts

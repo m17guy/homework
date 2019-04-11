@@ -1,0 +1,15 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <table class="black" [ngClass]="{red:counter.length>4}">
+    <tr class="black" [ngClass]="{red:counter.length>4}" *ngFor="let count of counter">
+      <td class="black" [ngClass]="{red:counter.length>4}">
+        {{count}}
+      </td>
+      <td>
+        <app-hello></app-hello></td>
+      </tr>
+  </table>
+  <button (click)="addrow()">add row</button>
+</div>
+
+

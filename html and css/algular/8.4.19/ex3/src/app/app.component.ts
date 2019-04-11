@@ -1,7 +1,7 @@
+
 import { Component, Input } from '@angular/core';
 import { element, elementStart } from '@angular/core/src/render3';
 import {elementcomponent} from './elements/elemen.component';
-import {shopcomponent} from './shop/shop.component';
 import { from } from 'rxjs';
 
 @Component({

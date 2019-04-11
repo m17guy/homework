@@ -1,0 +1,53 @@
+Newcom.html:
+<li (click)="changeC()" [ngStyle]="{color: selectedC}">Guy</li>
+Newcom.ts:
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'app-newcom',
+ templateUrl: './newcom.component.html'
+ })
+export class NewcomComponent  {
+ selectedC = 'black';
+ allColors = ['red', 'blue','yellow', 'purple', 'green']
+ rand;
+ changeC() {
+  this.rand = Math.floor(Math.random()*5);
+ this.selectedC= this.allColors[this.rand];
+ }
+}
+
+App.html:
+<button (click)="Add()">Add element</button>
+<ul>
+ <app-newcom *ngFor="let el of elements"></app-newcom>
+</ul>
+App.ts:
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'my-app',
+ templateUrl: './app.component.html',
+ styleUrls: [ './app.component.css' ]
+})
+export class AppComponent  {
+ elements =[];
+ Add() {
+   this.elements.push(1);
+ }
+}
+
+App.module.ts:
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import {NewcomComponent} from './newcom/newcom.component';
+
+@NgModule({
+ imports:      [ BrowserModule, FormsModule ],
+ declarations: [ AppComponent, NewcomComponent ],
+ bootstrap:    [ AppComponent ]
+})
+export class AppModule { }

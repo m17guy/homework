@@ -7,7 +7,6 @@ import { RouterModule, Routes } from '@angular/router'; //this
 import { HeavenComponent } from './heaven/heaven.component';
 import { HellComponent } from './hell/hell.component';
 import { HomeComponent } from './home/home.component';
-import { freemem } from 'os';
 
 const appRoutes: Routes=[ //this
   {path: "home", component: HomeComponent},

@@ -1,0 +1,14 @@
+<form [formGroup]="newform" (ngSubmit)="onsubmit()">
+  first name : <input type="text" formControlName="firstname"><br>
+  <div *ngIf="!newform.get('firstname').valid">please enter a valid name</div>
+  family name : <input type="text" formControlName="familyname"><br>
+  age : <input type="text" formControlName="age"><br>
+  <div [ngSwitch]="newform.get('age').value%10">
+    <p *ngSwitchCase="5" style="color: green">{{newform.get('age').value}}</p>
+    <p *ngSwitchCase="0" style="color: blue">{{newform.get('age').value}}</p>
+    <p *ngSwitchDefault style="color: hotpink">{{newform.get('age').value}}</p>
+  </div>
+  email : <input type="text" formControlName="email"><br>
+  <div *ngIf="!newform.get('email').valid">please enter a valid email</div>
+  <input type="submit" value="submit">
+</form>

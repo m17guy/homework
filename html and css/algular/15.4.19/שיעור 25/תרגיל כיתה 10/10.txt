@@ -1,0 +1,81 @@
+
+פתרון:
+App module
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { FormComponent } from './formcom/formcom.component';
+import { MainpageComponent } from './mainpage/mainpage.component';
+import { RouterModule, Routes } from '@angular/router';
+
+
+const appRoutes: Routes = [
+{ path: '', component: MainpageComponent },
+{ path: 'signup', component: FormComponent }
+];
+
+@NgModule({
+ imports:      [ BrowserModule, FormsModule, ReactiveFormsModule,  RouterModule.forRoot(appRoutes)  ],
+ declarations: [ AppComponent, FormComponent, MainpageComponent ],
+ bootstrap:    [ AppComponent ]
+})
+export class AppModule { }
+
+App component html
+<router-outlet></router-outlet>
+Mainpage html
+<h1> This is my site </h1>
+
+<p> The best site ever!</p>
+<br><br>
+<a routerLink="/signup">Sign up to my site</a>
+
+Mainpage ts
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'my-mainpage',
+ templateUrl: './mainpage.component.html'
+ })
+export class MainpageComponent  {
+}
+
+Formcom ts
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+
+
+@Component({
+ selector: 'my-formcom',
+ templateUrl: './formcom.component.html'
+ })
+export class FormComponent implements OnInit {
+newForm: FormGroup;
+sentform=false;
+ngOnInit() {
+this.newForm = new FormGroup({
+  'firstname': new FormControl(null),
+  'lastname': new FormControl(null),
+  'email': new FormControl(null),
+  'age': new FormControl(null)
+});
+}
+onSubmit() {
+this.sentform=true;
+}
+}
+
+Formcom html
+<form [formGroup]="newForm" (ngSubmit)="onSubmit()">
+ First name: <input type="text" formControlName="firstname"><br>
+ Last name: <input type="text" formControlName="lastname"><br>
+ Email: <input type="text" formControlName="email"><br>
+ Age: <input type="text" formControlName="age"><br><br>
+ <input type="submit" value="Send">
+</form>
+<br><br>
+<a routerLink="/">Home</a>
+
+<p *ngIf="sentform">Thank you {{newForm.value.firstname}} {{newForm.value.lastname}} for registering to our site with email - {{newForm.value.email}} at the age of {{newForm.value.age}}</p>

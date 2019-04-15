@@ -1,0 +1,65 @@
+טפסים ואנגולר -
+Form
+ישנן 2 שיטות לעבודה באנגולר עם טפסים.
+אנחנו נעבוד עם השיטה ריאקטיבית Reactive -
+
+כל העבודה מול הטופס מתבצעת בTS.
+
+app.module:
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { RouterModule, Routes } from '@angular/router';
+
+@NgModule({
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+
+}
+
+
+app.component.ts:
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+
+
+@Component({
+  selector: 'my-app',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+  newForm: FormGroup;
+
+  ngOnInit() {
+    this.newForm = new FormGroup({
+      'username': new FormControl(null),
+      'email': new FormControl(null)
+    });
+  }
+  onSubmit() {
+    console.log(this.newForm);
+  }
+}
+
+
+app.component.html:
+<form [formGroup]="newForm" (ngSubmit)="onSubmit()">
+  Name : <input type="text" formControlName="username"><br><br>
+  Email : <input type="text" formControlName="email"><br>
+  <input type="submit" value="Submit!">
+</form>
+
+
+ולידציה של תגיות אינפוט -
+  <span *ngIf="!newForm.get('email').valid && newForm.get('email').touched">Please enter valid
+    email!<br></span>
+
+הבדיקה -
+      'email': new FormControl(null, [Validators.required, Validators.email])

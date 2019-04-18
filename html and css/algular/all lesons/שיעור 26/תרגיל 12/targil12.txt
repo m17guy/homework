@@ -1,0 +1,85 @@
+App.module:
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { MainpageComponent } from './mainpage/mainpage.component';
+import { SecondpageComponent } from './secondpage/secondpage.component';
+import { RouterModule, Routes } from '@angular/router';
+
+
+const appRoutes: Routes = [
+{ path: '', component: MainpageComponent },
+{ path: 'secondpage', component: SecondpageComponent }
+];
+
+@NgModule({
+imports:      [ BrowserModule, FormsModule, ReactiveFormsModule,  RouterModule.forRoot(appRoutes)  ],
+declarations: [ AppComponent, MainpageComponent,SecondpageComponent ],
+bootstrap:    [ AppComponent ]
+})
+export class AppModule { }
+
+App html:
+<nav class="nav nav-pills nav-justified">
+ <a class="nav-item nav-link active" routerLink="">Home</a>
+ <a class="nav-item nav-link" routerLink="/secondpage">Second Page</a>
+</nav>
+<br>
+<router-outlet></router-outlet>
+
+
+Mainpage html:
+<div class="card text-center">
+ <div class="card-header">
+  
+     </div>
+ <div class="card-body">
+   <h2 class="card-title">This is my site!</h2>
+   <p class="card-text">The best site out there, using angular!</p>
+   <a href="#" class="btn btn-primary">Go somewhere</a>
+ </div>
+ <div class="card-footer text-muted">
+   last edited: 2 days ago
+ </div>
+</div>
+
+Secondpage html:
+<input type="text" [(ngModel)]="search">
+<button (click)="searchName()" type="button" class="btn btn-primary">Search! </button>
+<ul class="list-group">
+ <span *ngIf="searched"><li *ngFor="let name of searchedStudents" class="list-group-item">{{name}}</li></span>
+</ul>
+
+Secondpage ts:
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+selector: 'my-secondpage',
+templateUrl: './secondpage.component.html'
+})
+export class SecondpageComponent {
+search: string = '';
+searched=true;
+students: String[] = [
+  'Guy', 'Daniel', 'Noam', 'Lior', 'Adi', 'Yonatan', 'Shai', 'Itay', 'Boaz', 'Tomer'
+];
+j: number;
+searchedStudents: String[] = this.students;
+searchName(){
+  this.j=0;
+  this.searchedStudents = [];
+  for ( var i=0; i<this.students.length; i++) {
+    if (this.students[i].toLocaleLowerCase().indexOf(this.search.toLocaleLowerCase()) > -1){
+  this.searchedStudents[this.j] = (this.students[i]);
+  this.j= this.j+1;
+    }
+}
+}
+}
+
+Index html:
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<my-app>loading</my-app>

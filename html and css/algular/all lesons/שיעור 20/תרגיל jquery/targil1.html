@@ -1,0 +1,23 @@
+<html>
+<head>
+</head>
+<body>
+<input type="text" id="input1">
+<input type="text" id="input2">
+<button id="button">Create new paragraph</button>
+<div id="myDiv"></div>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+var input1 = $('#input1');
+var input2 = $('#input2');
+var buttonEl = $('button');
+var divEl = $('div');
+buttonEl.click(addP);
+function addP() {
+var userInput1 = input1.val();
+var userInput2 = input2.val();
+$('<h1>'+ userInput1 +'</h1>' + '<p>' + userInput2 + '</p>').appendTo(divEl);
+}
+</script>
+</body>
+</html>

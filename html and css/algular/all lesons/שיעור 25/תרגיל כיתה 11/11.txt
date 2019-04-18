@@ -1,0 +1,102 @@
+
+Formcom html
+<form [formGroup]="newForm">
+ First name: <input type="text" formControlName="firstname"><br>
+ <span *ngIf="!newForm.get('firstname').valid && newForm.get('firstname').touched">
+Please enter a valid first name!<br></span>
+ Last name: <input type="text" formControlName="lastname"><br>
+ <span *ngIf="!newForm.get('lastname').valid && newForm.get('lastname').touched">
+   Please enter a valid last name!<br></span>
+ Email: <input type="text" formControlName="email"><br>
+ <span *ngIf="!newForm.get('email').valid && newForm.get('email').touched">
+   Please enter a valid email!<br></span>
+ <input type="submit" value="Send">
+</form>
+Formcom ts
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl,Validators } from '@angular/forms';
+
+
+@Component({
+ selector: 'my-formcom',
+ templateUrl: './formcom.component.html'
+ })
+export class FormComponent implements OnInit {
+newForm: FormGroup;
+sentform=false;
+ngOnInit() {
+this.newForm = new FormGroup({
+  'firstname': new FormControl(null, Validators.required),
+  'lastname': new FormControl(null, Validators.required),
+  'email': new FormControl(null, [Validators.required, Validators.email])
+   });
+}
+}
+
+Mainpage html
+<h1> This is my site </h1>
+
+<p> The best site ever!</p>
+Mainpage ts
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'my-mainpage',
+ templateUrl: './mainpage.component.html'
+ })
+export class MainpageComponent  {
+}
+
+Secondpage html
+<input type="text" [(ngModel)]="num">
+
+<div [ngSwitch]="num%10">
+<p *ngSwitchCase="5" style="color:green">{{num}}</p>
+<p *ngSwitchCase="0" style="color:blue">{{num}}</p>
+<p *ngSwitchDefault style="color:yellow">{{num}}</p>
+</div>
+
+Secondpage ts
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+ selector: 'my-secondpage',
+ templateUrl: './secondpage.component.html'
+ })
+export class SecondpageComponent {
+ num;
+}
+
+App html
+<div>
+<a routerLink="">Home</a>
+<a routerLink="/secondpage">Second Page</a>
+<a routerLink="/formpage">Form</a>
+</div>
+<br>
+<router-outlet></router-outlet>
+
+App module
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { FormComponent } from './formcom/formcom.component';
+import { MainpageComponent } from './mainpage/mainpage.component';
+import { SecondpageComponent } from './secondpage/secondpage.component';
+import { RouterModule, Routes } from '@angular/router';
+
+
+const appRoutes: Routes = [
+{ path: '', component: MainpageComponent },
+{ path: 'secondpage', component: SecondpageComponent },
+{ path: 'formpage', component: FormComponent }
+];
+
+@NgModule({
+ imports:      [ BrowserModule, FormsModule, ReactiveFormsModule,  RouterModule.forRoot(appRoutes)  ],
+ declarations: [ AppComponent, FormComponent, MainpageComponent,SecondpageComponent ],
+ bootstrap:    [ AppComponent ]
+})
+export class AppModule { }

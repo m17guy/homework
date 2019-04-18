@@ -1,0 +1,40 @@
+string interpulation -
+דרך ראשונה , להשתמש בסוגריים מסולסלים כפולים {{ x }}
+
+דרך נוספת - להשתמש בסוגריים מרובעים []
+
+[id] - אומרת לאנגולר, הולך להגיע מידע בהמשך.
+
+הוספת עיצוב בצורה דינאמית-
+
+[ngStyle] - אומר לאנגולר, הולך להיכנס לך מידע, עם עיצוב לגבי האלמנט
+אנגולר יודע שהולך להיכנס מידע, והמידע יגיע בצורת אובייקט.
+לאובייקט יהיה שדה וערך - 
+השדה - העיצוב אותו נרצה לשנות, למשל backgroundColor
+והערך יהיה הערך של שינוי העיצוב, למשל red
+
+
+הוספת קלאסים עיצוביים:
+[ngClass] - מבצע קלאס עיצובי על האלמנט במידה והערך של האובייקט true.
+[ngClass]="{backgroundColor: true / false}"  -- // יצבע את הרקע של האלמנט במידה והערך הוא true
+
+
+בניית רכיב חדש - component
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-username',
+  template: '<p> {{ username }} </p>',    // templateURL
+  styleUrls: ['./username.component.css']
+})
+export class UsernameComponent {
+  username = "Guy";
+}
+
+לא לשכוח!
+נדרש להצהיר על הרכיב בקובץ app.module.ts
+  declarations: [
+    AppComponent, UsernameComponent
+  ],
+בנוסף, לייבא את הרכיב -
+import { UsernameComponent } from './username/username.component';

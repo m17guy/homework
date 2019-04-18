@@ -1,0 +1,42 @@
+<html>
+<head>
+</head>
+<body>
+<input type="text" id="input">
+<button id="button">Add Todo</button>
+<ul id="ul"></ul>
+
+<script>
+var inputEl = document.getElementById('input');
+var buttonEl = document.getElementById('button');
+var ulEl = document.getElementById('ul');
+var todos = [];
+buttonEl.onclick=addTodo;
+function addTodo() {
+var userInput = inputEl.value;
+  if (userInput.trim() == '') {
+   return;
+  }
+  var newTodo = { id: Math.random(), value: userInput };
+  todos.push(newTodo);
+ var todoLi = document.createElement('LI');
+  todoLi.textContent = userInput;
+  todoLi.onclick =removeTodo;
+  todoLi.dataset.id = newTodo.id;
+  ulEl.appendChild(todoLi);
+}
+
+function removeTodo(event) {
+ var clickedLi = event.target;
+  var itemId = clickedLi.dataset.id;
+  for (var i = 0; i < todos.length; i++) {
+   if (todos[i].id == itemId) {
+     todos.splice(i, 1);
+      break;
+    }
+  }
+  clickedLi.parentNode.removeChild(clickedLi);
+}
+</script>
+</body>
+</html>

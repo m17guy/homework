@@ -1,0 +1,36 @@
+app.component.html:
+
+<h1>Angular targil 3</h1>
+<table *ngIf="hideT">
+<tr *ngFor="let el of elements">
+ <td>{{ el.num }}</td>
+ <td>{{ el.date }} </td>
+</tr>
+</table>
+<button (click)="add()">Add row</button>
+<button (click)="hide()">Hide table</button>
+
+
+app.component.ts:
+
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'my-app',
+ templateUrl: './app.component.html',
+ styleUrls: [ './app.component.css' ]
+})
+export class AppComponent  {
+ elements: object[] = [];
+ hideT: boolean = true;
+
+ add() {
+   this.elements.push({
+     "num": this.elements.length+1,
+     "date": Date()
+   });
+ }
+ hide() {
+ this.hideT=!this.hideT;
+ }
+}

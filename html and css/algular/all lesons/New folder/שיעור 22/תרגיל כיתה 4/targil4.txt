@@ -1,0 +1,33 @@
+HTML:
+<h1> Angular Targil 3 </h1>
+<button (click)="addL()">Add Item </button>
+<button *ngIf="elements.length > 9" (click)="deleteL()">Delete Items </button>
+<ul>
+ <li *ngFor="let el of elements"
+ [ngStyle]="{color: getColor(el)}">
+   {{el}}
+ </li>
+</ul>
+
+TS:
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'my-app',
+ templateUrl: './app.component.html',
+ styleUrls: [ './app.component.css' ]
+})
+export class AppComponent  {
+ elements = [];
+ addL() {
+   this.elements.push(this.elements.length+1);
+ }
+getColor(element) {
+ if (element % 5 === 0)
+ return 'blue';
+ return element % 2 === 0 ? 'green' : 'red';
+}
+deleteL() {
+ this.elements = [];
+}
+}

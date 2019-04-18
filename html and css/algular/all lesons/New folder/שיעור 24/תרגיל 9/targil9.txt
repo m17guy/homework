@@ -1,0 +1,87 @@
+App.html:
+<div>
+<a routerLink="">Home</a>
+<a routerLink="/first">First</a>
+<a routerLink="/second">Second</a>
+</div>
+<br>
+<router-outlet></router-outlet>
+
+App.module:
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home.component';
+import { FirstComponent } from './first.component';
+import { SecondComponent } from './second.component';
+import  { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+{ path: '', component: HomeComponent },
+{ path: 'first', component: FirstComponent },
+{ path: 'second', component: SecondComponent }
+];
+
+@NgModule({
+ imports:      [ BrowserModule, FormsModule, RouterModule.forRoot(appRoutes) ],
+ declarations: [ AppComponent, FirstComponent, SecondComponent, HomeComponent ],
+ bootstrap:    [ AppComponent ]
+})
+export class AppModule {
+
+}
+
+First.html:
+<input type="text" [(ngModel)] ="elInput">
+<button (click)="newElement()">New element</button>
+
+<ul>
+<li
+  *ngFor="let el of elements">{{el}}</li>
+</ul>
+
+First.ts:
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'first-app',
+ templateUrl: './first.component.html'
+ })
+export class FirstComponent  {
+ elements = [];
+elInput = "";
+newElement() {
+  this.elements.push(this.elInput);
+}
+}
+Second.html:
+<input type="text" [(ngModel)]="message">
+<p [ngStyle]="{color: message}">{{ message }}</p>
+
+Second.ts:
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'second-app',
+ templateUrl: './second.component.html'
+ })
+export class SecondComponent  {
+ message ="";
+}
+Home.html:
+<h1> Guy </h1>
+<p>
+This is the home page
+</p>
+Home.ts:
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'home-app',
+ templateUrl: './home.component.html'
+ })
+export class HomeComponent  {
+ name = 'Angular';
+}

@@ -1,0 +1,93 @@
+First.css
+table {
+ border-collapse: collapse;
+}
+
+.black {
+ border: 1px solid black;
+}
+
+.green {
+ border: 1px solid red;
+
+}
+First.html
+<table class="black" [ngClass]="{green:elements.length>4}">
+<tr *ngFor="let el of elements">
+<td class="black" [ngClass]="{green:elements.length>4}">
+ {{el}}
+</td>
+<td class="black" [ngClass]="{green:elements.length>4}">
+ <second-app></second-app>
+</td>
+</tr>
+</table>
+<br>
+<button (click)="addRow()">Add Row</button>
+First.ts
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'first-app',
+ templateUrl: './first.component.html',
+   styleUrls: [ './first.component.css' ]
+})
+export class FirstComponent  {
+elements=[1];
+addRow() {
+ this.elements.push(this.elements.length+1);
+}
+}
+Second html
+<ul>
+ <li *ngFor="let el of elements">
+   Guy
+   </li>
+ </ul>
+ <button (click)="addItem()">Add Item</button>
+Second ts
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'second-app',
+ templateUrl: './second.component.html'
+})
+export class SecondComponent  {
+elements=[1];
+addItem(){
+ if(this.elements.length <4 )
+ this.elements.push(1);
+ else
+ this.elements =[1];
+}
+}
+App html
+<first-app></first-app>
+App ts
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'my-app',
+ templateUrl: './app.component.html',
+ styleUrls: [ './app.component.css' ]
+})
+export class AppComponent  {
+
+}
+
+App module
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { SecondComponent } from './second/second.component';
+import { FirstComponent } from './first/first.component';
+
+
+@NgModule({
+ imports:      [ BrowserModule, ReactiveFormsModule ],
+ declarations: [ AppComponent, FirstComponent, SecondComponent ],
+ bootstrap:    [ AppComponent ]
+})
+export class AppModule { }

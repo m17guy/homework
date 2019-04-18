@@ -1,0 +1,77 @@
+App.component.html:
+<first-app></first-app>
+<second-app></second-app>
+
+App.module.ts:
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
+import { AppComponent } from './app.component';
+import { FirstComponent } from './first.component';
+import { SecondComponent } from './second.component';
+
+@NgModule({
+ imports:      [ BrowserModule, FormsModule ],
+ declarations: [ AppComponent, FirstComponent, SecondComponent ],
+ bootstrap:    [ AppComponent ]
+})
+export class AppModule { }
+
+First.component.html:
+<table>
+ <tr *ngFor="let row of rows">
+   <td>X</td>
+   <td>X</td>
+   <td>X</td>
+   <td>X</td>
+   <td>X</td>
+ </tr>
+</table>
+<button (click)="addRow()">Add Row</button>
+<p>{{ rows.length }}</p>
+
+First.component.ts:
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'first-app',
+ templateUrl: './first.component.html'
+})
+export class FirstComponent  {
+ rows = [];
+ addRow() {
+   this.rows.push(1);
+ }
+}
+
+Second.component.html:
+<button (click)="randFunc(1)" *ngIf="vis">1</button>
+<button (click)="randFunc(2)" *ngIf="vis">2</button>
+<button (click)="randFunc(3)" *ngIf="vis">3</button>
+<p (click)="restart()">{{ para }}</p>
+
+Second.component.ts:
+import { Component } from '@angular/core';
+
+@Component({
+ selector: 'second-app',
+ templateUrl: './second.component.html'
+ })
+export class SecondComponent  {
+ para = '';
+ x=0;
+ vis= true;
+ randFunc(num) {
+   this.x= Math.floor(Math.random()*3+1)
+   if (this.x === num)
+   this.para = "You won!";
+   else
+   this.para = "Wrong!";
+   this.vis=false;
+}
+   restart() {
+     this.para ="";
+     this.vis = true;
+   }
+}

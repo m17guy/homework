@@ -3,7 +3,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <script>
             var paracounter=0;
-            function sendcolor(x){
+            function sendcolor(x,chat){
                 var color=x;
                 paracounter++;
                 var idname="p"+paracounter;
@@ -11,8 +11,14 @@
                 var para=document.createElement("p");
                 para.setAttribute("class",color);
                 para.setAttribute("id",idname);
+                if(chat!="chat"){
+                    var theparent =document.getElementById(chat).childNodes[0].nodeValue;
+                    var text2 =document.createTextNode("reply to:"+theparent);
+                    para.appendChild(text2);
+                    para.appendChild(document.createElement("br"));
+                }
                 para.appendChild(document.createTextNode(text));
-                document.getElementById("chat").appendChild(para);
+                document.getElementById(chat).appendChild(para);
                 if(text!=""){
                 var bot1=document.createElement("input")
                 bot1.setAttribute("type","button");
@@ -23,14 +29,11 @@
                 var bot2=document.createElement("input")
                 bot2.setAttribute("type","button");
                 bot2.setAttribute("value","reply");
-                var toreply="reply('"+idname+"');"
+                var toreply="sendcolor('black','"+idname+"');"
                 bot2.setAttribute("onclick",toreply);
                 document.getElementById(idname).appendChild(bot2);
                 }
                 document.getElementById("textbox").value="";
-            }
-            function reply(location){
-                
             }
             function delet(x){
                 var delme = document.getElementById(x);
@@ -43,10 +46,10 @@
         <div id="chat"></div>
         <textarea id="textbox">hello</textarea><br>
         <div class="half">
-        <input class="blue" type="button" onclick="sendcolor('blue');" value="blue">
+        <input class="blue" type="button" onclick="sendcolor('blue','chat');" value="blue">
         </div>
         <div class="half">
-        <input class="red" type="button" onclick="sendcolor('red');" value="red">
+        <input class="red" type="button" onclick="sendcolor('red','chat');" value="red">
         </div>
     </body>
 </html>

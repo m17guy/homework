@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>all students:</h2>
+<ul>
+    @foreach (var student in Model)
+    {
+        <li><a href="/students/test/@Model.IndexOf(student)">@student.name</a></li>
+    }
+</ul>
+
+
+

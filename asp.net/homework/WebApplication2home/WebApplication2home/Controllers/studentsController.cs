@@ -25,9 +25,10 @@ namespace WebApplication2home.Controllers
         }
         public ActionResult test(int? id)
         {
-            if(id>-1)
+            if(id>=0)
             {
-                return View(allkids[int.Parse(id.ToString())]);
+                return View(allkids[id.GetValueOrDefault()]);
+                //return View(allkids[int.Parse(id.ToString())]); funny way of doing it but probly not very fast
             }
             return Redirect("/students");
         }

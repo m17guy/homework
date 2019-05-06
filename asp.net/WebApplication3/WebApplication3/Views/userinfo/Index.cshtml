@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>please gave me your info:</h2>
+@using (Html.BeginForm("data", "userinfo", FormMethod.Post))
+{
+    <p>your name: @Html.TextBox("name")</p>
+    <p>where are you from: @Html.TextBox("adress")</p>
+    <p>your age: @Html.TextBox("age")</p>
+    <input type="submit" value="Submit here" />
+}
+

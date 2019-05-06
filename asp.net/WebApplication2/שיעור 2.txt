@@ -1,0 +1,42 @@
+ActionsResult -
+Type - ViewResult , Helper Method - View() - מחזיר View מסוים
+Type - PartialViewResult, Helper Method - PartialView() - מחזיר View חלקי
+Type - ContentResult, Helper Method - Content() - מחזיר טקסט פשוט
+Type - RedirectResult, Helper Method - Redirect() - מנתב את המשתמש מחדש
+Type - RedirectToRouteResult, Helper Method - RedirectToAction() - מנתב לaction אחר
+Type - JsonResult , Helper Method - Json() - מחזיר אובייקט Json
+Type - FileResult, Helper Method - File() - מחזיר קובץ
+Type - HTTPNotFoundResult, Helper Method - HTTPNotFound - מחזיר שגיאת 404
+Type - EmptyResult - מחזיר כלום
+
+
+//Json - 
+{
+name: "Guy",
+age: 28,
+male: true
+}
+
+{
+type: "Movie",
+name: "Shrek",
+id: 12
+}
+
+שימוש בid:
+
+public ActionResult Edit(int? id)
+{
+if (!id.HasValue)
+	id = 0;
+return Content("id= " + id);
+}
+
+
+ViewModel -
+זהו מודל אשר נבנה ספציפית עבור View מסוים
+בתוכו נכיל את שאר המודלים שנרצה להציג בVIEW.
+
+Razor -
+מנוע של מיקרוסופט אינו קשור לASP או MVC -
+יודע לתרגם C# וHTML יחדיו ולהציג קובץ HTML נקי.

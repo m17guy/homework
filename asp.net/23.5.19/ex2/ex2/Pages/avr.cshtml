@@ -1,0 +1,15 @@
+﻿@page
+@model avrModel
+@{
+}
+@{ 
+    int[] scores = { 5, 15, 10 };
+    int avrg = 0;
+    foreach(int i in scores)
+    {
+
+        avrg += i;
+    }
+    avrg /= scores.Length;
+}
+<p>avr is @avrg</p>

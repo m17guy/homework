@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    function redtodog() {
+        var id = document.getElementById("dogid").value;
+        var u = "a/***?id=" + id;
+        location.replace(u);
+    }
+</script>
+
+<h1>Index</h1>
+dog id:<input type="text" id="dogid" value="0" /><br />
+<input type="button" value="see the dog" onclick="redtodog()" />
+<input type="button" value="see a random dog" onclick="redtorandog()" />
+
+
+

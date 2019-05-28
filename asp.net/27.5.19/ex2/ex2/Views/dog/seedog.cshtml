@@ -1,8 +1,16 @@
-﻿@model
+﻿@model dog
 @{
     ViewData["Title"] = "seedog";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>seedog</h2>
+@if (Model == null)
+{
+    <p>no dog found</p>
+}
+else
+{
+    <p>@Model.name is @Model.age years old</p>
+}
 

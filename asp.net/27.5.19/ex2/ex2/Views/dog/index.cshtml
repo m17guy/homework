@@ -6,13 +6,18 @@
 <script>
     function redtodog() {
         var id = document.getElementById("dogid").value;
-        var u = "a/***?id=" + id;
+        var u = "dog/seedog/" + id;
+        location.replace(u);
+    }
+    function redtorandog() {
+        var id = document.getElementById("dogid").value;
+        var u = "dog/ran";
         location.replace(u);
     }
 </script>
 
 <h1>Index</h1>
-dog id:<input type="text" id="dogid" value="0" /><br />
+dog id:<input type="text" id="dogid" /><br />
 <input type="button" value="see the dog" onclick="redtodog()" />
 <input type="button" value="see a random dog" onclick="redtorandog()" />
 

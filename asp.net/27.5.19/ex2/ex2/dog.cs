@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ex2.Controllers
+namespace ex2
 {
     public class dog
     {

@@ -1,0 +1,15 @@
+﻿@model student;
+@{
+    ViewData["Title"] = "showstudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>showstudent</h2>
+@if (Model == null)
+{
+    <p>no student found</p>
+}
+@if (Model != null)
+{
+    <p>@Model.name is @Model.age years old with the id @Model.id</p>
+}

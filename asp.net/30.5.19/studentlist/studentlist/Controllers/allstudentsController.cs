@@ -8,10 +8,16 @@ namespace studentlist.Controllers
 {
     public class allstudentsController : Controller
     {
-        public student[] theclass = { new student { name = "guy", id = 123, age = 22 }, new student { name = "noy", id = 222, age = 21 }, new student { name = "ruven", id = 999, age = 20 } };
+        public List<student> theclass = new List<student>();
         public IActionResult showstudent(int id)
         {
-            foreach(student s in theclass)
+            if (theclass.Capacity == 0)
+            {
+                theclass.Add(new student { name = "guy", id = 123, age = 22 });
+                theclass.Add(new student { name = "noy", id = 222, age = 21 });
+                theclass.Add(new student { name = "ruven", id = 999, age = 20 });
+            }
+            foreach (student s in theclass)
             {
                 if (s.id == id)
                 {
@@ -19,6 +25,11 @@ namespace studentlist.Controllers
                 }
             }
             return View(null);
+        }
+        public IActionResult addstudent(string nam, int i, int ag)
+        {
+            theclass.Add(new student { name = nam, id = i, age = ag });
+            return View();
         }
     }
 }

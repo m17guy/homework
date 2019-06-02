@@ -48,20 +48,13 @@ namespace studentlist
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "adding",
-                    template: "allstudents/addstudent/{name}/{id}/{age}");
+                    template: "allstudents/addstudent/{nam?}/{i?}/{ag?}");
             });
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=allstudents}/{action=showstudents}/{id?}");
-            });
+            app.UseMvcWithDefaultRoute();
         }
     }
 }

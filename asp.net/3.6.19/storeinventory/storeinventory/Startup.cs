@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace studentlist
+namespace storeinventory
 {
     public class Startup
     {
@@ -48,12 +48,9 @@ namespace studentlist
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
-                    name: "adding",
-                    template: "{controller=allstudents}/{action=addstudent}/{nam}/{i}/{ag}");
-
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

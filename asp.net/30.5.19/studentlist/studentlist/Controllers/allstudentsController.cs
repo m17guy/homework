@@ -8,7 +8,7 @@ namespace studentlist.Controllers
 {
     public class allstudentsController : Controller
     {
-        public List<student> theclass = new List<student>();
+        public static List<student> theclass = new List<student>();
         public IActionResult showstudent(int id)
         {
             if (theclass.Capacity == 0)
@@ -29,7 +29,7 @@ namespace studentlist.Controllers
         public IActionResult addstudent(string nam, int i, int ag)
         {
             theclass.Add(new student { name = nam, id = i, age = ag });
-            return View();
+            return Content(nam + " was added");
         }
     }
 }

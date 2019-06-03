@@ -1,0 +1,27 @@
+﻿@model DB;
+@{
+    ViewData["Title"] = "show";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<h2>showing all the inventory</h2>
+<table>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>amount</td>
+        <td>price</td>
+    </tr>
+    @foreach (product p in DB.inventory)
+    {
+    <tr>
+        <td>@p.id</td>
+        <td>@p.name</td>
+        <td>@p.amount</td>
+        <td>@p.price</td>
+    </tr>
+    }
+</table>
+

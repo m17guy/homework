@@ -1,0 +1,10 @@
+﻿@model ItemsViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    foreach(Item item in Model.Items)
+    {
+        <h1>we have @item.Amount of id # @item.Id  @item.Name which costs @item.Cost </h1>
+    }
+}

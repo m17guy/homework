@@ -7,7 +7,7 @@ namespace storeinventory
 {
     public class product
     {
-        public int id { get; set; }
+        public string id { get; set; }
         public string name { get; set; }
         public int amount { get; set; }
         public double price { get; set; }

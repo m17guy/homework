@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 
 namespace storeinventory
 {
-    public class DB
+    public static class DB
     {
-        public static List<product> inventory;
-        public DB()
+        static DB()
         {
             inventory = new List<product>();
-            inventory.Add(new product { id = 1, name = "socks", amount = 5, price = 20 });
+            inventory.Add(new product { id = "1", name = "socks", amount = 5, price = 20 });
         }
+        public static List<product> inventory;
 
     }
 }

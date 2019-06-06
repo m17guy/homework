@@ -1,0 +1,9 @@
+﻿@model Idb
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@foreach (string s in Model.getscore())
+{
+    <h1>@s</h1>
+}

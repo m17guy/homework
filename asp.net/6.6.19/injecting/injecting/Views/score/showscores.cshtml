@@ -1,0 +1,11 @@
+﻿@inject Idb  mydb
+@{
+    ViewData["Title"] = "showscores";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    @foreach(string s in mydb.getscore())
+    {
+        <h1>@s</h1>
+    }
+

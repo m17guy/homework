@@ -9,17 +9,32 @@ namespace binerytree
         {
             bitree tree = new bitree();
             tree.mytree.Add(new node { id = 5 });
-            tree.mytree[0].left = new node { id = 1, perent = tree.mytree[0] };
-            tree.mytree[0].right = new node { id = 7, perent = tree.mytree[0] };
-            Console.WriteLine(tree.addon(new node { id = 8 }));
-            Console.WriteLine(tree.addon(new node { id = 99 }));
-            Console.WriteLine(tree.mytree[0].right.right.perent.id);
+            //tree.mytree[0].left = new node { id = 1, perent = tree.mytree[0] };
+            //tree.mytree[0].right = new node { id = 6, perent = tree.mytree[0] };
+            Random r = new Random();
+            List<int> allnums = new List<int>();
+            int goingin;
+            for (int i = 0; i < 30; i++)
+            {
+                goingin = r.Next(50);
+                if (!tree.find(goingin))
+                {
+                    tree.addon(new node { id = goingin });
+                    allnums.Add(goingin);
+                }
+            }
+            tree.print();
+            Console.WriteLine("_________________________________");
+            allnums.Sort();
+            foreach (int i in allnums)
+            {
+                Console.WriteLine(i);
+            }
         }
     }
     class node
     {
         public int id;
-        //public bool printed;
         public node left;
         public node right;
         public node perent;
@@ -117,42 +132,39 @@ namespace binerytree
         public void print()
         {
             node temp = mytree[0];
-            while (temp.left!=null)
-            {
-                temp = temp.left;
-            }// temp is now most left so it is smallest
-            
-            node steps = mytree[0];
+            int lastprinted;
             while (true)
             {
-                if (temp.id == steps.id)
+                while (temp.left != null)
                 {
-                    Console.WriteLine(temp.id);
+                    temp = temp.left;
                 }
-                if (temp.id > id) //smaller on the left
+                Console.WriteLine(lastprinted = temp.id);
+                if (temp.right != null)
                 {
-                    if (checkside(temp, "l"))
-                    {
-                        temp = temp.left;
-                    }
-                    else
-                    {
-                        break;
-                    }
+                    temp = temp.right; //going to a higher number WITHOUT going up
                 }
-                else //biger on the right
+                //i CAN'T put thing after the else becouse i need it to go left all the way down again
+                else
                 {
-                    if (checkside(temp, "r"))
+                    while (temp.right == null)
                     {
-                        temp = temp.right;
+                        temp = temp.perent; //going up a step
+                        while (temp.id < lastprinted) //going up antil biger then last prented
+                        {
+                            if (temp.perent == null)
+                            {
+                                return;
+                            }
+                            temp = temp.perent;
+                        }
+                        Console.WriteLine(lastprinted = temp.id);
                     }
-                    else
-                    {
-                        break;
-                    }
+                    temp = temp.right;
+                    
                 }
+
             }
-            return false;
         }
     }
 }

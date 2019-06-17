@@ -7,10 +7,7 @@ namespace binerytree
     {
         static void Main(string[] args)
         {
-            bitree tree = new bitree();
-            tree.mytree.Add(new node { id = 5 });
-            //tree.mytree[0].left = new node { id = 1, perent = tree.mytree[0] };
-            //tree.mytree[0].right = new node { id = 6, perent = tree.mytree[0] };
+            bitree tree = new bitree(new node { id = 5 });
             Random r = new Random();
             List<int> allnums = new List<int>();
             int goingin;
@@ -41,15 +38,18 @@ namespace binerytree
     }
     class bitree
     {
-        //public node head;
-        public List<node> mytree = new List<node>();
+        public node head;
+        public bitree(node headnode)
+        {
+            head = headnode;
+        }
         public string addon(node n)
         {
             if (this.find(n.id))
             {
                 return "node is already in the tree";
             }
-            node temp = mytree[0];
+            node temp = head;
             while (true)
             {
                 if (temp.id > n.id) //smaller on the left
@@ -83,7 +83,7 @@ namespace binerytree
         }
         public bool find(int id)
         {
-            node temp= mytree[0];
+            node temp= head;
             while(true)
             {
                 if (temp.id == id)
@@ -131,7 +131,7 @@ namespace binerytree
         }
         public void print()
         {
-            node temp = mytree[0];
+            node temp = head;
             int lastprinted;
             while (true)
             {
@@ -161,10 +161,49 @@ namespace binerytree
                         Console.WriteLine(lastprinted = temp.id);
                     }
                     temp = temp.right;
-                    
                 }
 
             }
+        }
+        public void recunstroct()
+        {
+            List<int> alldata = new List<int>();
+            node temp = head;
+            int lastprinted;
+            bool end = true;
+            while (end)
+            {
+                while (temp.left != null)
+                {
+                    temp = temp.left;
+                }
+                alldata.Add(lastprinted = temp.id);
+                if (temp.right != null)
+                {
+                    temp = temp.right; //going to a higher number WITHOUT going up
+                }
+                //i CAN'T put thing after the else becouse i need it to go left all the way down again
+                else
+                {
+                    while (temp.right == null)
+                    {
+                        temp = temp.perent; //going up a step
+                        while (temp.id < lastprinted) //going up antil biger then last prented
+                        {
+                            if (temp.perent == null)
+                            {
+                                end = false;
+                                break;
+                            }
+                            temp = temp.perent;
+                        }
+                        alldata.Add(lastprinted = temp.id);
+                    }
+                    temp = temp.right;
+                }
+            }
+
+            temp = new node { id = alldata[alldata.Count / 2] };
         }
     }
 }

@@ -11,7 +11,7 @@ namespace binerytree
             Random r = new Random();
             List<int> allnums = new List<int>();
             int goingin;
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < 10; i++)
             {
                 goingin = r.Next(50);
                 if (!tree.find(goingin))

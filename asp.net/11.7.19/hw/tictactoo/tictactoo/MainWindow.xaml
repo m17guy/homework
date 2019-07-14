@@ -1,0 +1,41 @@
+﻿<Window x:Class="tictactoo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:tictactoo"
+        mc:Ignorable="d"
+        Title="tic tac toe" Height="317.045" Width="390.909">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="file">
+                <MenuItem Header="open" Click="openItem_Click"/>
+                <MenuItem Header="Save" Click="saveItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="help">
+                <Hyperlink NavigateUri="https://www.wikihow.com/Play-Tic-Tac-Toe" RequestNavigate="Hyperlink_RequestNavigate">rules</Hyperlink>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Name="c1" Grid.Column="0" Grid.Row="0" Content="" Click="Button_Click" FontSize="50"/>
+            <Button Name="c2" Grid.Column="1" Grid.Row="0" Content="" Click="Button_Click" FontSize="50"/>
+            <Button Name="c3" Grid.Column="2" Grid.Row="0" Content="" Click="Button_Click" FontSize="50"/>
+            <Button Name="a1" Grid.Column="0" Grid.Row="1" Content="" Click="Button_Click" FontSize="50"/>
+            <Button Name="a2" Grid.Column="1" Grid.Row="1" Content="" Click="Button_Click" FontSize="50"/>
+            <Button Name="a3" Grid.Column="2" Grid.Row="1" Content="" Click="Button_Click" FontSize="50"/>
+            <Button Name="b1" Grid.Column="0" Grid.Row="2" Content="" Click="Button_Click" FontSize="50"/>
+            <Button Name="b2" Grid.Column="1" Grid.Row="2" Content="" Click="Button_Click" FontSize="50"/>
+            <Button Name="b3" Grid.Column="2" Grid.Row="2" Content="" Click="Button_Click" FontSize="50"/>
+        </Grid>
+    </DockPanel>
+</Window>

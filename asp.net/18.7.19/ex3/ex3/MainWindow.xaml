@@ -1,0 +1,27 @@
+﻿<Window x:Class="ex3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ex3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <Menu>
+            <MenuItem Header="_open" Click="MenuItem_Click"/>
+        </Menu>
+        <TextBlock Text="name:"/>
+        <TextBox ToolTip="put your name here" TabIndex="1"/>
+        <TextBlock Text="gender:"/>
+        <RadioButton ToolTip="xy cromosome" GroupName="gender" Content="_male" TabIndex="3"/>
+        <RadioButton ToolTip="xx cromosome" GroupName="gender" TabIndex="2">_female</RadioButton>
+        <RadioButton ToolTip="other" GroupName="gender" IsTabStop="False">o_there</RadioButton>
+        <TextBlock Text="books you like:"/>
+        <CheckBox Content="gracling" ToolTip="by cristin cashor"/>
+        <CheckBox Content="fire" ToolTip="by cristin cashor"/>
+        <CheckBox Content="betterblue" ToolTip="by cristin cashor"/>
+        <CheckBox Content="enders game" ToolTip="by orson scot card"/>
+        <CheckBox Content="the final empire" ToolTip="mist born"/>
+        <CheckBox Content="the well of asention" ToolTip="mist born"/>
+    </StackPanel>
+</Window>

@@ -1,0 +1,12 @@
+﻿<Application x:Class="ex1.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ex1"
+             xmlns:winname="clr-namespace:System;assembly=mscorlib"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <winname:String x:Key="name1">window 1</winname:String>
+        <winname:String x:Key="name2">window 2</winname:String>
+        <winname:String x:Key="name3">window 3</winname:String>
+    </Application.Resources>
+</Application>

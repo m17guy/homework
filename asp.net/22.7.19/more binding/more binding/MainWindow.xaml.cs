@@ -27,16 +27,25 @@ namespace more_binding
             b.Source = twit;
             justcuz.SetBinding(TextBlock.TextProperty, b);
         }
-        
-        private void Twit_KeyUp(object sender, KeyEventArgs e)
+        private void Twit_KeyDown(object sender, KeyEventArgs e)
+        {
+            int size = twit.Text.Length;
+            if (size >= int.Parse(limit.Text))
+            {
+                MessageBox.Show("you have reched the limit");
+            }
+        }
+
+        private void Twit_TextChanged(object sender, TextChangedEventArgs e)
         {
             int size = twit.Text.Length;
             if (size > int.Parse(limit.Text))
             {
-                MessageBox.Show("you have reched the limit");
-                twit.IsEnabled = false;
+                twit.Text = twit.Text.Substring(0, int.Parse(limit.Text));
+                mynum.Text = (size - 1).ToString();
             }
-            mynum.Text = size.ToString();
+            else
+                mynum.Text = size.ToString();
         }
     }
 }

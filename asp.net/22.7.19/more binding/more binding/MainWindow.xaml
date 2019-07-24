@@ -8,12 +8,12 @@
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
         <TextBlock Text="enter your text here"/>
-        <TextBox Name="twit" KeyUp="Twit_KeyUp"/>
+        <TextBox Name="twit" KeyDown="Twit_KeyDown" TextChanged="Twit_TextChanged"/>
         <StackPanel Orientation="Horizontal">
             <TextBlock Text="you have used "/>
-            <TextBlock Name="mynum"/>
+            <TextBlock Text="0" Name="mynum"/>
             <TextBlock Text=" out of the aloted "/>
-            <TextBlock Text="3" Name="limit"/>
+            <TextBlock Text="15" Name="limit"/>
         </StackPanel>
         <TextBlock Name="justcuz"/>
     </StackPanel>

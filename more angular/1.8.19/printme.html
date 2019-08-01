@@ -1,0 +1,33 @@
+<h1>could you print me plz</h1>
+<button onclick="window.print()">yes i can</button>
+
+<h2>next task, by alfabettical order</h2>
+<textarea id="myt" oninput="alfa()"></textarea>
+<p id="order"></p>
+<script>
+    function alfa(){
+        var text=document.getElementById('myt').value;
+        var arr=text.split("");
+        arr.sort();
+        text=arr.join("");
+        document.getElementById('order').innerText=text;
+    }
+</script>
+
+<h1>next tast, individoals</h1>
+<textarea id="thetext" oninput="indiv()"></textarea>
+<p id="indy"></p>
+<script>
+    function indiv(){
+        var text=document.getElementById('thetext').value;
+        var arr=text.split("");
+        text="";
+        for(var i=0;i<arr.length;i++){
+            if(text.includes(arr[i])){}
+            else{
+                text=text+arr[i];
+            }
+        }
+        document.getElementById('indy').innerText=text;
+    }
+</script>

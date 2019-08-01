@@ -1,0 +1,10 @@
+<h1>this is the text</h1>
+<p id="move">this is realy cool and the tech is pretty good</p>
+<script>
+    var myvar=setInterval(myFunction,200)
+    function myFunction() {
+        var text=document.getElementById('move').childNodes[0].data;
+        text=text[text.length-1]+text.substring(0,text.length-1);
+        document.getElementById('move').innerText=text;
+}
+</script>

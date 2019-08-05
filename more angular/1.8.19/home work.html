@@ -1,0 +1,24 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="mycss.css">
+</head>
+<body>
+    <h1>moving car baby!</h1>
+    <img class="move" src="https://images.pexels.com/photos/1149137/pexels-photo-1149137.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"/>
+    <h1>a lot of words:</h1>
+    <p>word</p>
+    <textarea id="word">another one</textarea>
+    <p>number of time:</p>
+    <textarea id="num">5</textarea>
+    <button onclick="re()">clik me</button>
+    <p id="alltext"></p>
+    <script>
+        function re(){
+            document.getElementById("alltext").textContent="";
+            let word =document.getElementById("word").value;
+            let num =parseInt(document.getElementById("num").value);
+            for(let i=1;i<=num;i++){
+                document.getElementById("alltext").textContent+=word+" ";
+            }
+        }
+    </script>
+</body>

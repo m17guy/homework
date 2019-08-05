@@ -1,0 +1,11 @@
+.move {
+    position: relative;
+    animation-name: example;
+    animation-duration: 4s;
+  }
+  
+  /* Standard syntax */
+  @keyframes example {
+    from {left:0;}
+    to {left:100%;}
+  }

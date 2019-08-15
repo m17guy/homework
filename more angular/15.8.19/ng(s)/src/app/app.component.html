@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+  <div style="text-align:center">
+    <h1 class="text-light bg-dark">
+      this is {{ title }}!
+    </h1>
+  </div>
+  <button (click)="bclicked()">display details</button><br>
+  <p *ngIf="showp">my name is {{name}}</p>
+  <p *ngFor="let then of counter">
+    <dogs *ngIf="then<2"></dogs>
+    <dogs *ngIf="then>1" [ngStyle]="{'background-color': 'red'}" [ngClass]="['white']"></dogs>
+  </p>
+  

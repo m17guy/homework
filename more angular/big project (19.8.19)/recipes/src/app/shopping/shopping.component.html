@@ -2,6 +2,6 @@
   <div class="col-xs-10">
     <app-shopping-edit></app-shopping-edit>
     <hr>
-    <p>the list</p>
+    <p *ngFor="let item of allingredients" style="border: 2px solid red">we need {{item.amount}} {{item.name}}s</p>
   </div>
 </div>

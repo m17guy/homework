@@ -10,6 +10,10 @@ import {forecast} from '../forecast';
 })
 export class HomeComponent implements OnInit {
   
+  stared:boolean;
+  staricon:string;
+  ifstaredthenUN:string;
+
   cityforecast:forecast[]=[];
   myweather:currentweather;
   location:any;
@@ -19,6 +23,9 @@ export class HomeComponent implements OnInit {
   constructor(private _weatherService: WeatherService) {}
 
   ngOnInit() {
+    this.stared=false;
+    this.staricon="-empty";
+
     this._weatherService.localWeather("32.0853","34.7818",this.unitsisC).subscribe((data)=>{
       this.myweather = new currentweather(data.name,
                                           data.sys.country,
@@ -69,6 +76,8 @@ export class HomeComponent implements OnInit {
   }
 
   submit(){
+    this.stared=true;
+    this.starME();
     this._weatherService.searchweather(this.city,this.unitsisC).subscribe((data)=>{
       this.myweather = new currentweather(data.name,
                                           data.sys.country,
@@ -105,6 +114,17 @@ export class HomeComponent implements OnInit {
     }
     else{
       this.submit();
+    }
+  }
+  starME(){
+    this.stared=!this.stared;
+    if(this.stared){
+      this.staricon="";
+      this.ifstaredthenUN="Un";
+    }
+    else{
+      this.staricon="-empty";
+      this.ifstaredthenUN="";
     }
   }
 

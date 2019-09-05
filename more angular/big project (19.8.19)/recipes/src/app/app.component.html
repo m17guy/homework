@@ -1,13 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
-  <app-header></app-header>
+  <app-header (gotoshopping)="gotthing($event)"></app-header>
 </div>
-
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes></app-recipes>
-      <app-shopping></app-shopping>
+      <app-recipes *ngIf="!showshopping"></app-recipes>
+      <app-shopping *ngIf="showshopping"></app-shopping>
     </div>
   </div>
 </div>

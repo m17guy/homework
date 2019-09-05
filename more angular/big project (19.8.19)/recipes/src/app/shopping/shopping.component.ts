@@ -13,5 +13,18 @@ export class ShoppingComponent implements OnInit {
 
   ngOnInit() {
   }
+  takeaction(mystring){
+    switch(mystring.asd){
+      case("doadd"):
+        this.allingredients.push(mystring.ingredient);
+        break;
+      case("dodelete"):
+        this.allingredients.pop();
+        break;
+      case("doclear"):
+        this.allingredients=[];
+        break;
+    }
+  }
 
 }

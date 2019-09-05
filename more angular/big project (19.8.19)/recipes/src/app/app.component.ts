@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cook book';
+  showshopping=true;
+  gotthing(isshop){
+    this.showshopping = isshop;
+  }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace ConsoleApp4
 {
@@ -11,16 +12,17 @@ namespace ConsoleApp4
             player guy = new player("g money");
             test.playerenters(guy);
             test.addgoal();
+            test.printmap();
             while (test.points<5)
             {
+                Console.Write("you have " + test.points);
+                Console.WriteLine(test.points == 1 ? " point" : " points");
+                test.moveplayer(test.inme[0], Console.ReadKey());
                 Console.Clear();
                 test.printmap();
-                Console.WriteLine(test.points);
-                test.moveplayer(test.inme[0], Console.ReadKey());
             }
             Console.WriteLine("you won the game");
             Console.ReadKey();
-            
         }
     }
     class map
@@ -31,8 +33,8 @@ namespace ConsoleApp4
         string[,] layuot;
         public map()
         {
-            int hight = r.Next(8, 20);
-            int width = r.Next(10, 25);
+            int hight = r.Next(10, 20);
+            int width = r.Next(12, 25);
             layuot = new string[hight, width];
             makemap();
         }
@@ -43,6 +45,7 @@ namespace ConsoleApp4
         }
         public void printmap()
         {
+            //string all = "";
             for (int i = 0; i < layuot.GetLength(0); i++)
             {
                 for (int ii = 0; ii < layuot.GetLength(1); ii++)
@@ -54,16 +57,22 @@ namespace ConsoleApp4
                             case "$":
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 break;
+                            case "%":
+                                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                                break;
                             default:
                                 Console.ForegroundColor = ConsoleColor.Blue;
                                 break;
                         }
                     }
+                    //all += (layuot[i, ii] + " ");
                     Console.Write(layuot[i, ii]+" ");
                     Console.ForegroundColor = ConsoleColor.White;
                 }
+                //all += "\n";
                 Console.WriteLine();
             }
+            //Console.WriteLine(all);
             //Console.WriteLine(layuot.GetLength(0) + " " + layuot.GetLength(1));
         }
         private void makemap()
@@ -82,8 +91,8 @@ namespace ConsoleApp4
         }
         public void playerenters(player gotIn)
         {
-            gotIn.location[0] = 0;
-            gotIn.location[1] = 0;
+            gotIn.location[0] = r.Next(100) > 50 ? layuot.GetLength(0) / 4 : (layuot.GetLength(0) / 2) + (layuot.GetLength(0) / 4);
+            gotIn.location[1] = r.Next(100) > 50 ? layuot.GetLength(1) / 4 : (layuot.GetLength(1) / 2) + (layuot.GetLength(1) / 4);
             inme.Add(gotIn);
             updatemap(gotIn.location[0], gotIn.location[1], gotIn.icon.ToString());
         }
@@ -104,6 +113,10 @@ namespace ConsoleApp4
                         {
                             getpoints(1);
                         }
+                        if (layuot[p.location[0] - 1, p.location[1]] == "%")
+                        {
+                            getpoints(3);
+                        }
                         updatemap(p.location[0], p.location[1], "*");
                         inme[inme.IndexOf(p)].location[0] -= 1;
                     }
@@ -115,6 +128,10 @@ namespace ConsoleApp4
                         if (layuot[p.location[0] + 1, p.location[1]] == "$")
                         {
                             getpoints(1);
+                        }
+                        if (layuot[p.location[0] + 1, p.location[1]] == "%")
+                        {
+                            getpoints(3);
                         }
                         updatemap(p.location[0], p.location[1], "*");
                         inme[inme.IndexOf(p)].location[0] += 1;
@@ -128,6 +145,10 @@ namespace ConsoleApp4
                         {
                             getpoints(1);
                         }
+                        if (layuot[p.location[0], p.location[1] - 1] == "%")
+                        {
+                            getpoints(3);
+                        }
                         updatemap(p.location[0], p.location[1], "*");
                         inme[inme.IndexOf(p)].location[1] -= 1;
                     }
@@ -139,6 +160,10 @@ namespace ConsoleApp4
                         if (layuot[p.location[0], p.location[1] + 1] == "$")
                         {
                             getpoints(1);
+                        }
+                        if (layuot[p.location[0], p.location[1] + 1] == "%")
+                        {
+                            getpoints(3);
                         }
                         updatemap(p.location[0], p.location[1], "*");
                         inme[inme.IndexOf(p)].location[1] += 1;
@@ -154,11 +179,15 @@ namespace ConsoleApp4
         public void getpoints(int amount)
         {
             points += amount;
-            addgoal();
+            if (points < 5) //5 is just the corrent win amount
+                addgoal();
         }
         public void addgoal()
         {
-            layuot[r.Next(layuot.GetLength(0) - 1), r.Next(layuot.GetLength(1) - 1)] = "$";
+            if (r.Next(100) < 20)
+                layuot[r.Next(1, layuot.GetLength(0) - 1), r.Next(1, layuot.GetLength(1) - 1)] = "%";
+            else
+                layuot[r.Next(1, layuot.GetLength(0) - 1), r.Next(1, layuot.GetLength(1) - 1)] = "$";
         }
     }
     class player

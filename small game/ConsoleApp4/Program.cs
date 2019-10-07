@@ -8,44 +8,85 @@ namespace ConsoleApp4
     {
         static void Main(string[] args)
         {
-            map test = new map();
-            player guy = new player("g money");
-            test.playerenters(guy);
-            test.addgoal();
-            test.printmap();
-            while (test.points<5)
+            string[] allgames = { "1. walking game (simple movement)", "2. shooting game (not ready yet)" };
+
+            Console.WriteLine("enter your player name");
+            player guy = new player(Console.ReadLine());
+            if (guy.name == "")
             {
-                Console.Write("you have " + test.points);
-                Console.WriteLine(test.points == 1 ? " point" : " points");
-                test.moveplayer(test.inme[0], Console.ReadKey());
-                Console.Clear();
-                test.printmap();
+                guy.name = "cool cat";
             }
-            Console.WriteLine("you won the game");
+            Console.Clear();
+            Console.WriteLine("Ok "+guy.name+", what game would you like to play?");
+            foreach(string s in allgames)
+            {
+                Console.WriteLine(s);
+            }
+            //switch (Console.ReadLine().ToString())
+            switch ("2") //for testing spasific game modes
+            {
+                case "1":
+                    map test = new map();
+                    Console.Clear();
+                    test.playerenters(guy);
+                    test.addgoal();
+                    test.printmap();
+                    while (test.points < test.wincondishin)
+                    {
+                        Console.Write("you have " + test.points);
+                        Console.WriteLine(test.points == 1 ? " point" : " points");
+                        test.moveplayer(test.inme[0], Console.ReadKey());
+                        Console.Clear();
+                        test.printmap();
+                    }
+                    Console.WriteLine("you won the game");
+                    break;
+                case "2":
+                    Console.Clear();
+                    Console.WriteLine("not working yet");
+
+                    map GunRange = new map(21, 21, 10);
+                    GunRange.playerenters(guy,true);
+                    GunRange.addgoal();
+                    GunRange.printmap();
+                    while (GunRange.points < GunRange.wincondishin)
+                    {
+                        Console.Write("youve hit " + GunRange.points);
+                        Console.WriteLine(GunRange.points == 1 ? "target" : " targets");
+                        GunRange.shoot(guy, Console.ReadKey());
+                        Console.Clear();
+                        GunRange.printmap();
+                    }
+                    break;
+            }
+
+
             Console.ReadKey();
         }
     }
     class map
     {
+        public int wincondishin;
         public int points = 0;
         public List<player> inme = new List<player>();
         Random r = new Random();
-        string[,] layuot;
+        public string[,] layuot;
         public map()
         {
+            wincondishin = 5;
             int hight = r.Next(10, 20);
             int width = r.Next(12, 25);
             layuot = new string[hight, width];
             makemap();
         }
-        public map(int hight, int width)
+        public map(int hight, int width, int winamount)
         {
+            wincondishin = winamount;
             layuot = new string[hight, width];
             makemap();
         }
         public void printmap()
         {
-            //string all = "";
             for (int i = 0; i < layuot.GetLength(0); i++)
             {
                 for (int ii = 0; ii < layuot.GetLength(1); ii++)
@@ -65,14 +106,11 @@ namespace ConsoleApp4
                                 break;
                         }
                     }
-                    //all += (layuot[i, ii] + " ");
                     Console.Write(layuot[i, ii]+" ");
                     Console.ForegroundColor = ConsoleColor.White;
                 }
-                //all += "\n";
                 Console.WriteLine();
             }
-            //Console.WriteLine(all);
             //Console.WriteLine(layuot.GetLength(0) + " " + layuot.GetLength(1));
         }
         private void makemap()
@@ -93,6 +131,21 @@ namespace ConsoleApp4
         {
             gotIn.location[0] = r.Next(100) > 50 ? layuot.GetLength(0) / 4 : (layuot.GetLength(0) / 2) + (layuot.GetLength(0) / 4);
             gotIn.location[1] = r.Next(100) > 50 ? layuot.GetLength(1) / 4 : (layuot.GetLength(1) / 2) + (layuot.GetLength(1) / 4);
+            inme.Add(gotIn);
+            updatemap(gotIn.location[0], gotIn.location[1], gotIn.icon.ToString());
+        }
+        public void playerenters(player gotIn, bool center)
+        {
+            if (center == false)
+            {
+                gotIn.location[0] = r.Next(100) > 50 ? layuot.GetLength(0) / 4 : (layuot.GetLength(0) / 2) + (layuot.GetLength(0) / 4);
+                gotIn.location[1] = r.Next(100) > 50 ? layuot.GetLength(1) / 4 : (layuot.GetLength(1) / 2) + (layuot.GetLength(1) / 4);
+            }
+            else
+            {
+                gotIn.location[0] = (layuot.GetLength(0) / 2);
+                gotIn.location[1] = (layuot.GetLength(1) / 2);
+            }
             inme.Add(gotIn);
             updatemap(gotIn.location[0], gotIn.location[1], gotIn.icon.ToString());
         }
@@ -179,7 +232,7 @@ namespace ConsoleApp4
         public void getpoints(int amount)
         {
             points += amount;
-            if (points < 5) //5 is just the corrent win amount
+            if (points < wincondishin)
                 addgoal();
         }
         public void addgoal()
@@ -188,6 +241,65 @@ namespace ConsoleApp4
                 layuot[r.Next(1, layuot.GetLength(0) - 1), r.Next(1, layuot.GetLength(1) - 1)] = "%";
             else
                 layuot[r.Next(1, layuot.GetLength(0) - 1), r.Next(1, layuot.GetLength(1) - 1)] = "$";
+        }
+        public void shoot(player p, ConsoleKeyInfo click)
+        {
+            bullet b;
+            switch (click.Key)
+            {
+                case ConsoleKey.W:
+                case ConsoleKey.UpArrow:
+                    b = new bullet("|");
+                    updatemap(p.location[0] - 1, p.location[1], b.icon);
+                    for (int i = 0; i < 5; i++)
+                    {
+                        b=movebullet(b, "up");
+                    }
+                    break;
+                case ConsoleKey.S:
+                case ConsoleKey.DownArrow:
+                    b = new bullet("|");
+                    updatemap(p.location[0] + 1, p.location[1], b.icon);
+                    break;
+                case ConsoleKey.A:
+                case ConsoleKey.LeftArrow:
+                    b = new bullet("-");
+                    updatemap(p.location[0], p.location[1] - 1, b.icon);
+                    break;
+                case ConsoleKey.D:
+                case ConsoleKey.RightArrow:
+                    b = new bullet("-");
+                    updatemap(p.location[0], p.location[1] + 1, b.icon);
+                    break;
+            }
+        }
+        public bullet movebullet(bullet b,string direction)
+        {
+            Thread.Sleep(200);
+            switch (direction)
+            {
+                case "up":
+                    if (b.location[0] != 0)
+                    {
+                        if (layuot[b.location[0] - 1, b.location[1]] == "#")
+                        {
+                            getpoints(1);
+                        }
+                        updatemap(b.location[0], b.location[1], "*");
+                        b.location[0] -= 1;
+                    }
+                    break;
+                case "down":
+
+                    break;
+                case "left":
+
+                    break;
+                case "right":
+
+                    break;
+            }
+            return b;
         }
     }
     class player
@@ -211,5 +323,14 @@ namespace ConsoleApp4
             }
         }
         
+    }
+    class bullet
+    {
+        public string icon;
+        public int[] location = new int[2];
+        public bullet(string Icon)
+        {
+            icon = Icon;
+        }
     }
 }

@@ -242,6 +242,7 @@ namespace ConsoleApp4
             else
                 layuot[r.Next(1, layuot.GetLength(0) - 1), r.Next(1, layuot.GetLength(1) - 1)] = "$";
         }
+        bullet movingB;
         public void shoot(player p, ConsoleKeyInfo click)
         {
             bullet b;
@@ -249,33 +250,45 @@ namespace ConsoleApp4
             {
                 case ConsoleKey.W:
                 case ConsoleKey.UpArrow:
-                    b = new bullet("|");
-                    updatemap(p.location[0] - 1, p.location[1], b.icon);
-                    for (int i = 0; i < 5; i++)
+                    b = new bullet("|", p.location[0] - 1, p.location[1]);
+                    //Thread movingbullet = new Thread(() => movebullet(b, "up")); https://stackoverflow.com/questions/1314155/returning-a-value-from-thread
+                    while (b!=null)
                     {
-                        b=movebullet(b, "up");
+                        b = movebullet(b, "up");
                     }
                     break;
                 case ConsoleKey.S:
                 case ConsoleKey.DownArrow:
-                    b = new bullet("|");
-                    updatemap(p.location[0] + 1, p.location[1], b.icon);
+                    b = new bullet("|", p.location[0] + 1, p.location[1]);
+                    while (b != null)
+                    {
+                        b = movebullet(b, "down");
+                    }
                     break;
                 case ConsoleKey.A:
                 case ConsoleKey.LeftArrow:
-                    b = new bullet("-");
-                    updatemap(p.location[0], p.location[1] - 1, b.icon);
+                    b = new bullet("-", p.location[0], p.location[1] - 1);
+                    while (b != null)
+                    {
+                        b = movebullet(b, "left");
+                    }
                     break;
                 case ConsoleKey.D:
                 case ConsoleKey.RightArrow:
-                    b = new bullet("-");
-                    updatemap(p.location[0], p.location[1] + 1, b.icon);
+                    b = new bullet("-", p.location[0], p.location[1] + 1);
+                    while (b != null)
+                    {
+                        b = movebullet(b, "right");
+                    }
                     break;
             }
         }
         public bullet movebullet(bullet b,string direction)
         {
-            Thread.Sleep(200);
+            updatemap(b.location[0], b.location[1], b.icon);
+            Console.Clear();
+            printmap();
+            Thread.Sleep(180);
             switch (direction)
             {
                 case "up":
@@ -288,15 +301,59 @@ namespace ConsoleApp4
                         updatemap(b.location[0], b.location[1], "*");
                         b.location[0] -= 1;
                     }
+                    else
+                    {
+                        updatemap(b.location[0], b.location[1], "*");
+                        return null;
+                    }
                     break;
                 case "down":
-
+                    if (b.location[0] < layuot.GetLength(0) - 1)
+                    {
+                        if (layuot[b.location[0] + 1, b.location[1]] == "#")
+                        {
+                            getpoints(1);
+                        }
+                        updatemap(b.location[0], b.location[1], "*");
+                        b.location[0] += 1;
+                    }
+                    else
+                    {
+                        updatemap(b.location[0], b.location[1], "*");
+                        return null;
+                    }
                     break;
                 case "left":
-
+                    if (b.location[1] != 0)
+                    {
+                        if (layuot[b.location[1], b.location[1] - 1] == "#")
+                        {
+                            getpoints(1);
+                        }
+                        updatemap(b.location[0], b.location[1], "*");
+                        b.location[1] -= 1;
+                    }
+                    else
+                    {
+                        updatemap(b.location[0], b.location[1], "*");
+                        return null;
+                    }
                     break;
                 case "right":
-
+                    if (b.location[1] < layuot.GetLength(1) - 1)
+                    {
+                        if (layuot[b.location[1], b.location[1] + 1] == "#")
+                        {
+                            getpoints(1);
+                        }
+                        updatemap(b.location[0], b.location[1], "*");
+                        b.location[1] += 1;
+                    }
+                    else
+                    {
+                        updatemap(b.location[0], b.location[1], "*");
+                        return null;
+                    }
                     break;
             }
             return b;
@@ -328,9 +385,11 @@ namespace ConsoleApp4
     {
         public string icon;
         public int[] location = new int[2];
-        public bullet(string Icon)
+        public bullet(string Icon, int hight, int width)
         {
             icon = Icon;
+            location[0] = hight;
+            location[1] = width;
         }
     }
 }

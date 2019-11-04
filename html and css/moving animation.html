@@ -1,0 +1,65 @@
+
+<html>
+<head>
+<style> 
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+div:hover{
+  cursor: grab;
+  border-radius: 100%;
+  background-color: black;
+}
+.move{
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+}
+.big{
+  width: 150px;
+  height: 150px;
+}
+
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  10%  {background-color:yellow; left:70%; top:100px;}
+  20%  {background-color:blue; left:30%; top:170px;}
+  30%  {background-color:red; left:70%; top:240px;}
+  40%  {background-color:blue; left:30%; top:310px;}
+  50%  {background-color:yellow; left:70%; top:380px;}
+  60%  {background-color:red; left:30%; top:450px;}
+  70%  {background-color:yellow; left:70%; top:520px;}
+  80%  {background-color:blue; left:30%; top:590px;}
+  90%  {background-color:green; left:70%; top:625px;}
+  98%  {background-color:red; left:0px; top:660px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
+</style>
+
+<script>
+	function toMove() {
+  		var element = document.getElementById("box");
+  		element.classList.add("move");
+        setTimeout(
+        	function () {
+            var element = document.getElementById("box");
+        	element.classList.add("big");
+    		}, 2000);
+        setTimeout(
+        	function () {
+            var element = document.getElementById("box");
+        	element.classList.remove("move");
+    		}, 4000);
+        }
+</script>
+</head>
+<body>
+
+<p><b>Note:</b> this should be working.</p>
+
+<div id="box" onclick="toMove()"></div>
+
+</body>
+</html>
